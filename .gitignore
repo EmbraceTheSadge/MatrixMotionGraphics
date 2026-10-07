@@ -1,0 +1,26 @@
+# Dependencies and caches — never commit
+node_modules/
+.npm/
+.cache/
+**/.cache/
+ms-playwright/
+pw-browsers/
+*.log
+
+# Model weights / large generated assets
+models/
+checkpoints/
+*.safetensors
+*.ckpt
+*.pt
+*.bin
+*.onnx
+
+# Intermediate render output (final deliverables go in outputs/)
+renders/
+frames/
+tmp/
+.hyperframes/
+
+.DS_Store
+Thumbs.db

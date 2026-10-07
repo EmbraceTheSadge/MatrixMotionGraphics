@@ -44,6 +44,7 @@
 | 23.950 | key | -19 | start | sfx | F2 USDC coin lands in the range |
 | 24.000 | swell | -18 | start | sfx | F2 descent begins |
 | 24.050 | key | -19 | start | sfx | F2 USDC coin lands in the range |
+| 24.100 | chime | -22 | start | sfx | F2 the explanation |
 | 24.150 | key | -19 | start | sfx | F2 USDC coin lands in the range |
 | 24.250 | key | -19 | start | sfx | F2 USDC coin lands in the range |
 | 24.350 | key | -19 | start | sfx | F2 USDC coin lands in the range |
@@ -61,7 +62,6 @@
 | 27.850 | pop | -14 | start | sfx | F2 ETH price ↓ |
 | 28.000 | pop | -14 | start | sfx | F2 ETH held ↑ |
 | 28.150 | pop | -14 | start | sfx | F2 Fees earned + |
-| 28.400 | chime | -19 | start | sfx | F2 the explanation |
 | 29.750 | whoosh | -11 | peak | sfx | F3 window becomes the live Archive |
 | 30.700 | key | -12 | start | sfx | F3 click ENTER THE ARCHIVE |
 | 31.800 | key | -12 | start | sfx | F3 click Bear |

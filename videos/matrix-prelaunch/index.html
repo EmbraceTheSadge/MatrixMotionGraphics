@@ -262,7 +262,7 @@
         <div class="mco kin" id="mc1">Understanding markets shouldn’t slow you down.</div>
         <div class="mco kin" id="mc2">Know your next move.</div>
         <div class="mco kin" id="mc3">And exactly why.</div>
-        <div id="mexpl" class="kin">Your USDC buys ETH as the price falls, while the pool pays you trading fees.</div>
+        <div id="mexpl" class="kin">Your USDC buys ETH as the price gradually falls.</div>
 
         <!-- beat 1: a realistic downtrend that folds into one plain line -->
         <div class="abs mono" id="mlab" style="font-size:18px;color:#8ea196;white-space:nowrap">Market · ETH / USD</div>
@@ -421,12 +421,14 @@
           // in: each glyph rises out of a tilt, sharpens out of blur, staggered — out: glyphs lift away and dissolve
           function kIn(tlx, el, at, o) {
             o = o || {};
-            tlx.fromTo(splitChars(el), { yPercent: 105, rotationX: -88, opacity: 0, filter: "blur(14px)", transformOrigin: "50% 100% -24px" },
-              { yPercent: 0, rotationX: 0, opacity: 1, filter: "blur(0px)", duration: o.d || 0.9, ease: "expo.out", stagger: { each: o.st || 0.026, from: o.from || "start" } }, at);
+            var sf = o.soft;
+            tlx.fromTo(splitChars(el), { yPercent: sf ? 38 : 105, rotationX: sf ? -22 : -88, opacity: 0, filter: sf ? "blur(3px)" : "blur(14px)", transformOrigin: "50% 100% -24px" },
+              { yPercent: 0, rotationX: 0, opacity: 1, filter: "blur(0px)", duration: o.d || (sf ? 0.6 : 0.9), ease: sf ? "power3.out" : "expo.out", stagger: { each: o.st || 0.026, from: o.from || "start" } }, at);
           }
           function kOut(tlx, el, at, o) {
             o = o || {};
-            tlx.to(splitChars(el), { yPercent: -80, rotationX: 50, opacity: 0, filter: "blur(10px)", duration: 0.42, ease: "power3.in", stagger: { each: o.st || 0.014, from: o.from || "start" } }, at);
+            tlx.to(splitChars(el), o.soft ? { yPercent: -28, rotationX: 0, opacity: 0, filter: "blur(3px)", duration: 0.32, ease: "power2.in", stagger: { each: o.st || 0.01, from: o.from || "start" } }
+              : { yPercent: -80, rotationX: 50, opacity: 0, filter: "blur(10px)", duration: 0.42, ease: "power3.in", stagger: { each: o.st || 0.014, from: o.from || "start" } }, at);
           }
           // sub-lines: glyphs slide in on a tight track from the right, then a coloured underline sweeps through
           function kSub(tlx, el, at) {
@@ -545,10 +547,10 @@
             var nmE = $("#nm" + i), ncE = $("#nc" + i), t0 = 1 + i;
             nmE.style.transform = "translate(" + (960 - nmE.offsetWidth / 2).toFixed(1) + "px,676px)";
             ncE.style.transform = "translate(" + (960 - ncE.offsetWidth / 2).toFixed(1) + "px,786px)";
-            kIn(tl, nmE, t0 + 0.08, { st: 0.03, from: "center" });
-            kIn(tl, ncE, t0 + 0.22, { st: 0.012, d: 0.6 });
-            kOut(tl, nmE, t0 + 0.78, { from: "center" });
-            kOut(tl, ncE, t0 + 0.78);
+            kIn(tl, nmE, t0 + 0.06, { st: 0.018, soft: true });
+            kIn(tl, ncE, t0 + 0.2, { st: 0.008, d: 0.5, soft: true });
+            kOut(tl, nmE, t0 + 0.8, { soft: true });
+            kOut(tl, ncE, t0 + 0.8, { soft: true });
           });
           kIn(tl, $("#tp .ln1"), 5.32, { st: 0.028 });
           kSub(tl, $("#tp .ln2"), 5.8);
@@ -733,7 +735,7 @@
           kIn(tl, $("#mc1"), 14.4, { st: 0.022 }); kOut(tl, $("#mc1"), 18.3, { st: 0.008 });
           kIn(tl, $("#mc2"), 18.75, { st: 0.026 }); kOut(tl, $("#mc2"), 21.5, { st: 0.01 });
           kIn(tl, $("#mc3"), 21.85, { st: 0.028 }); kOut(tl, $("#mc3"), 29.25, { st: 0.01 });
-          kIn(tl, $("#mexpl"), 28.4, { st: 0.012, d: 0.8 }); kOut(tl, $("#mexpl"), 29.25, { st: 0.004 });
+          kIn(tl, $("#mexpl"), 24.05, { st: 0.016, d: 0.8, soft: true }); kOut(tl, $("#mexpl"), 29.25, { st: 0.004 });
           var MC2 = { t: 13.45 };
           renderMid(13.45);
           tl.fromTo(MC2, { t: 13.45 }, { t: 29.75, duration: 16.3, ease: "none", immediateRender: false, onUpdate: function () { renderMid(MC2.t); } }, 13.45);

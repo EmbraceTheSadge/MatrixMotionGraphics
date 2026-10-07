@@ -23,34 +23,11 @@
       #grid line { stroke: rgba(237, 242, 238, 0.07); stroke-width: 1; }
       #grid .reg { stroke: rgba(237, 242, 238, 0.28); stroke-width: 1.5; }
 
-      /* ---------- F1-F3 world ---------- */
-      .frag {
-        position: absolute; width: 384px; height: 96px; padding: 0 26px; border-radius: 10px;
-        background: #0c100e; border: 1px solid rgba(237, 242, 238, 0.11);
-        display: flex; align-items: center; justify-content: space-between; gap: 16px;
-      }
-      .frag .lbl { font-size: 28px; font-weight: 500; color: #d7e2da; white-space: nowrap; display: flex; align-items: center; gap: 14px; }
-      .frag .val { font-size: 30px; font-weight: 600; color: #edf2ee; }
-      .frag .tag { font-size: 18px; color: #8ea196; }
       .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; flex: none; }
-      .frag .stack { display: flex; flex-direction: column; gap: 6px; }
-      .minibar { display: flex; gap: 5px; width: 100%; height: 14px; }
-      .minibar i { display: block; height: 14px; border-radius: 3px; }
-      .hero-line { position: absolute; white-space: nowrap; font-size: 112px; font-weight: 600; letter-spacing: -0.035em; line-height: 1; }
-      #market {
-        position: absolute; left: 1152px; top: 204px; width: 576px; height: 384px; border-radius: 12px;
-        background: #0a0e0c; border: 1px solid rgba(237, 242, 238, 0.11); padding: 30px 34px;
-      }
-      #market .head { display: flex; justify-content: space-between; align-items: center; }
       .badge {
         white-space: nowrap; display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; border-radius: 999px;
         font-size: 26px; font-weight: 500; color: #e8b84b; border: 1px solid rgba(232, 184, 75, 0.45); background: rgba(232, 184, 75, 0.08);
       }
-      .row { display: flex; justify-content: space-between; align-items: center; font-size: 28px; color: #d7e2da; }
-      .row b { font-weight: 600; color: #edf2ee; }
-      .row .k { display: flex; align-items: center; gap: 14px; }
-      #mark-wrap { position: absolute; left: 850px; top: 196px; width: 220px; height: 141px; }
-      #mark-wrap img { width: 220px; height: 141px; display: block; }
 
       /* ---------- F4 concept ---------- */
       #concept-label {
@@ -127,60 +104,114 @@
       #end-sub { position: absolute; left: 0; top: 820px; width: 1920px; text-align: center; font-size: 26px; color: #8ea196; }
       #end-sub .url { color: #d7e2da; text-transform: none; letter-spacing: 0.06em; }
       .corner { position: absolute; top: 46px; font-size: 24px; color: #8ea196; white-space: nowrap; }
+
+      /* ---------- F1 intro: many tabs → now together ---------- */
+      .tb { position: absolute; left: 0; top: 0; width: 400px; height: 300px; border-radius: 14px; background: #0b0f0d;
+        border: 1px solid rgba(237, 242, 238, 0.16); overflow: hidden; transform-origin: 50% 50%; box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5); }
+      .tb.mk { border-color: rgba(232, 184, 75, 0.45); }
+      .tb .tbar { height: 42px; display: flex; align-items: center; gap: 8px; padding: 0 14px; background: #0e1311; border-bottom: 1px solid rgba(237, 242, 238, 0.08); }
+      .tb .tbar > i { width: 9px; height: 9px; border-radius: 50%; background: rgba(237, 242, 238, 0.18); display: block; }
+      .tb .ttl { margin-left: 8px; display: flex; align-items: center; gap: 9px; font-family: "IBM Plex Mono", monospace; font-size: 17px; color: #d7e2da; letter-spacing: 0.06em; }
+      .tb .ico { width: 16px; height: 16px; border-radius: 4px; display: block; }
+      .tb .tbody { position: absolute; left: 0; top: 42px; right: 0; bottom: 0; padding: 18px 22px; }
+      .tb .lab { font-family: "IBM Plex Mono", monospace; font-size: 13px; letter-spacing: 0.14em; color: #8ea196; text-transform: uppercase; }
+      .sk { height: 12px; border-radius: 4px; background: rgba(237, 242, 238, 0.1); }
+      .wr { display: flex; align-items: center; gap: 12px; height: 38px; border-top: 1px solid rgba(237, 242, 238, 0.06); }
+      .coin { width: 22px; height: 22px; border-radius: 50%; display: block; flex: none; }
+      .ex { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+      .ob { height: 13px; border-radius: 3px; margin-top: 11px; }
+      .pos { padding: 10px 0 14px; border-bottom: 1px solid rgba(237, 242, 238, 0.06); display: grid; grid-template-columns: auto 1fr; gap: 10px 14px; align-items: center; }
+      .pill { font-family: "IBM Plex Mono", monospace; font-size: 12px; padding: 4px 10px; border-radius: 999px; border: 1px solid; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+      .track { grid-column: 1 / -1; position: relative; height: 8px; border-radius: 4px; background: rgba(237, 242, 238, 0.08); }
+      .track i { position: absolute; top: 0; height: 8px; border-radius: 4px; display: block; }
+      .track b { position: absolute; top: -5px; width: 2px; height: 18px; background: #edf2ee; display: block; }
+      .nw { padding: 9px 0 10px; border-bottom: 1px solid rgba(237, 242, 238, 0.06); }
+      .nw .h { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }
+      .ilbl { position: absolute; left: 0; top: 0; white-space: nowrap; font-weight: 600; letter-spacing: -0.035em; line-height: 1; }
+      #one { position: absolute; left: 360px; top: 200px; width: 1200px; height: 600px; border-radius: 18px; background: #0a0e0c; overflow: hidden; }
+      #one-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(237,242,238,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(237,242,238,.06) 1px, transparent 1px);
+        background-size: 48px 48px; background-position: 0 0; -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 45%, #000 30%, transparent 75%); mask-image: radial-gradient(ellipse 70% 70% at 50% 45%, #000 30%, transparent 75%); }
+      #one-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 40% 45% at 50% 40%, rgba(47, 229, 140, 0.12), rgba(47, 229, 140, 0) 70%); }
+      #scan { position: absolute; top: 0; left: 0; width: 220px; height: 600px; background: linear-gradient(90deg, rgba(47,229,140,0), rgba(47,229,140,.16) 55%, rgba(47,229,140,.5) 58%, rgba(47,229,140,0) 62%); }
+      #one-mark { position: absolute; left: 450px; top: 108px; width: 300px; height: 192px; display: block; }
+      #one-txt { position: absolute; left: 0; top: 362px; width: 1200px; text-align: center; height: 110px; overflow: hidden; }
+      #one-txt .w { font-size: 88px; font-weight: 600; letter-spacing: -0.035em; line-height: 1.1; }
+      .oc { position: absolute; font-size: 18px; color: #8ea196; white-space: nowrap; }
+      #one-shock { position: absolute; left: 360px; top: 200px; width: 1200px; height: 600px; border-radius: 18px; border: 2px solid #2fe58c; }
+      #nmc { position: absolute; left: 0; top: 0; font-size: 22px; color: #2fe58c; white-space: nowrap; }
+      .ilbl, #nmc { z-index: 70; }
+      #one { z-index: 75; } #one-shock { z-index: 76; } #seams { z-index: 80; }
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="30" data-width="1920" data-height="1080">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="33.5" data-width="1920" data-height="1080">
       <div id="glow" class="full"></div>
       <svg id="grid" class="full" viewBox="0 0 1920 1080" data-layout-ignore></svg>
 
-      <!-- ======================= F1-F3: portfolio / market / connection ======================= -->
-      <div id="s13" class="clip full" data-start="0" data-duration="9.9" data-track-index="1">
-        <div id="world" class="full">
-          <div id="f1" class="frag"><span class="lbl"><i class="dot" style="background:#2fe58c"></i>Crypto assets</span><span class="val">45%</span></div>
-          <div id="f2" class="frag"><span class="lbl"><i class="dot" style="background:#1f8a57"></i>Stablecoins</span><span class="val">30%</span></div>
-          <div id="f3" class="frag"><span class="lbl"><i class="dot" style="background:#c99f3f"></i>DeFi positions</span><span class="val">25%</span></div>
-          <div id="f4" class="frag"><span class="stack"><span class="mono tag">DeFi · Lending</span><span class="lbl">Lending position</span></span></div>
-          <div id="f5" class="frag"><span class="stack"><span class="mono tag">DeFi · Liquidity</span><span class="lbl">Liquidity position</span></span></div>
-          <div id="f6" class="frag"><span class="lbl">Wallet 01</span><span class="mono tag">Holdings</span></div>
-          <div id="f7" class="frag"><span class="lbl">Wallet 02</span><span class="mono tag">Holdings</span></div>
-          <div id="f8" class="frag"><span class="minibar"><i style="width:45%;background:#2fe58c"></i><i style="width:30%;background:#1f8a57"></i><i style="width:25%;background:#c99f3f"></i></span></div>
+      <!-- ======================= F1: many tabs → now together ======================= -->
+      <div id="s1" class="clip full" data-start="0" data-duration="13.1" data-track-index="1">
+        <div id="s1-wrap" class="full">
+          <div class="tb" id="tb0"><div class="tbar"><i></i><i></i><i></i><span class="ttl"><i class="ico" style="background:#2fe58c"></i>wallet</span></div>
+            <div class="tbody"><div class="lab">Balance</div><div class="sk" style="width:58%;height:26px;margin:10px 0 16px;background:rgba(237,242,238,.2)"></div>
+              <div class="wr"><i class="coin" style="background:#2fe58c"></i><div class="sk" style="width:40%"></div><div class="sk" style="width:16%;margin-left:auto"></div></div>
+              <div class="wr"><i class="coin" style="background:#1f8a57"></i><div class="sk" style="width:30%"></div><div class="sk" style="width:20%;margin-left:auto"></div></div>
+              <div class="wr"><i class="coin" style="background:#c99f3f"></i><div class="sk" style="width:46%"></div><div class="sk" style="width:12%;margin-left:auto"></div></div></div></div>
+          <div class="tb" id="tb1"><div class="tbar"><i></i><i></i><i></i><span class="ttl"><i class="ico" style="background:#27bf76"></i>exchange</span></div>
+            <div class="tbody"><div class="ex">
+              <div><div class="lab">Bids</div><div class="ob" style="width:92%;background:rgba(47,229,140,.45)"></div><div class="ob" style="width:74%;background:rgba(47,229,140,.38)"></div><div class="ob" style="width:81%;background:rgba(47,229,140,.32)"></div><div class="ob" style="width:55%;background:rgba(47,229,140,.26)"></div><div class="ob" style="width:63%;background:rgba(47,229,140,.2)"></div><div class="ob" style="width:40%;background:rgba(47,229,140,.15)"></div></div>
+              <div><div class="lab" style="text-align:right">Asks</div><div class="ob" style="width:60%;margin-left:auto;background:rgba(237,242,238,.2)"></div><div class="ob" style="width:84%;margin-left:auto;background:rgba(237,242,238,.17)"></div><div class="ob" style="width:48%;margin-left:auto;background:rgba(237,242,238,.15)"></div><div class="ob" style="width:70%;margin-left:auto;background:rgba(237,242,238,.12)"></div><div class="ob" style="width:90%;margin-left:auto;background:rgba(237,242,238,.1)"></div><div class="ob" style="width:52%;margin-left:auto;background:rgba(237,242,238,.08)"></div></div>
+            </div></div></div>
+          <div class="tb" id="tb2"><div class="tbar"><i></i><i></i><i></i><span class="ttl"><i class="ico" style="background:#c99f3f"></i>defi positions</span></div>
+            <div class="tbody">
+              <div class="pos"><span class="pill" style="color:#2fe58c;border-color:rgba(47,229,140,.5)">Lending</span><div class="sk" style="width:62%"></div><div class="track"><i style="left:0;width:68%;background:#2fe58c"></i></div></div>
+              <div class="pos"><span class="pill" style="color:#c99f3f;border-color:rgba(201,159,63,.55)">Liquidity</span><div class="sk" style="width:48%"></div><div class="track"><i style="left:28%;width:38%;background:#c99f3f"></i><b style="left:51%"></b></div></div>
+              <div class="pos" style="border-bottom:0"><span class="pill" style="color:#d7e2da;border-color:rgba(237,242,238,.25)">Vault</span><div class="sk" style="width:36%"></div></div></div></div>
+          <div class="tb" id="tb3"><div class="tbar"><i></i><i></i><i></i><span class="ttl"><i class="ico" style="background:#1f8a57"></i>staking</span></div>
+            <div class="tbody"><div style="display:flex;gap:22px;align-items:center;margin-bottom:12px">
+                <svg width="108" height="108" viewBox="0 0 108 108" data-layout-ignore><circle cx="54" cy="54" r="42" fill="none" stroke="rgba(237,242,238,.1)" stroke-width="12" /><circle cx="54" cy="54" r="42" fill="none" stroke="#2fe58c" stroke-width="12" stroke-linecap="round" stroke-dasharray="172 400" transform="rotate(-90 54 54)" /></svg>
+                <div style="flex:1"><div class="lab">Staked</div><div class="sk" style="width:76%;height:20px;margin:8px 0 14px;background:rgba(237,242,238,.18)"></div><div class="lab">Rewards</div><div class="sk" style="width:44%;margin-top:8px"></div></div></div>
+              <div class="wr"><i class="coin" style="background:#1f8a57;width:16px;height:16px"></i><div class="sk" style="width:46%"></div><div class="sk" style="width:14%;margin-left:auto"></div></div>
+              <div class="wr"><i class="coin" style="background:#2fe58c;width:16px;height:16px"></i><div class="sk" style="width:34%"></div><div class="sk" style="width:18%;margin-left:auto"></div></div></div></div>
+          <div class="tb mk" id="tb4"><div class="tbar"><i></i><i></i><i></i><span class="ttl"><i class="ico" style="background:#e8b84b"></i>charts</span></div>
+            <div class="tbody"><div style="display:flex;justify-content:space-between"><div class="lab">Market</div><div class="lab" style="color:#e8b84b">1D · 1W · 1M</div></div>
+              <svg width="356" height="170" viewBox="0 0 356 170" style="display:block;margin-top:10px" data-layout-ignore>
+                <line x1="0" y1="40" x2="356" y2="40" stroke="rgba(237,242,238,.07)" stroke-dasharray="4 6" /><line x1="0" y1="90" x2="356" y2="90" stroke="rgba(237,242,238,.07)" stroke-dasharray="4 6" /><line x1="0" y1="140" x2="356" y2="140" stroke="rgba(237,242,238,.07)" stroke-dasharray="4 6" />
+                <polyline id="mk-trace" fill="none" stroke="#e8b84b" stroke-width="3" stroke-linejoin="round" points="0,96 22,70 40,104 62,62 86,110 104,74 126,118 150,60 170,100 194,58 214,112 238,70 258,106 282,64 302,98 326,72 356,90" />
+                <g fill="rgba(237,242,238,.25)"><rect x="0" y="160" width="2" height="8" /><rect x="88" y="160" width="2" height="8" /><rect x="176" y="160" width="2" height="8" /><rect x="264" y="160" width="2" height="8" /><rect x="354" y="160" width="2" height="8" /></g>
+              </svg></div></div>
+          <div class="tb mk" id="tb5"><div class="tbar"><i></i><i></i><i></i><span class="ttl"><i class="ico" style="background:#e8b84b"></i>market news</span></div>
+            <div class="tbody">
+              <div class="nw"><div class="h"><span class="pill" style="color:#e8b84b;border-color:rgba(232,184,75,.5)">Market</span><span class="lab">Now</span></div><div class="sk" style="width:92%;margin-bottom:7px;background:rgba(237,242,238,.16)"></div><div class="sk" style="width:64%"></div></div>
+              <div class="nw"><div class="h"><span class="pill" style="color:#d7e2da;border-color:rgba(237,242,238,.25)">Volatility</span><span class="lab">Today</span></div><div class="sk" style="width:84%;margin-bottom:7px;background:rgba(237,242,238,.16)"></div><div class="sk" style="width:52%"></div></div>
+              <div class="nw" style="border-bottom:0"><div class="h"><span class="pill" style="color:#d7e2da;border-color:rgba(237,242,238,.25)">Macro</span><span class="lab">This week</span></div><div class="sk" style="width:76%"></div></div></div></div>
 
-          <svg id="links" class="full" viewBox="0 0 1920 1080" data-layout-ignore>
-            <path id="sig" d="M 1152 -20 L 1152 204" stroke="#2fe58c" stroke-width="3" fill="none" />
-            <path class="lk" d="M 960 252 L 1152 252" stroke="#2fe58c" stroke-width="2.5" fill="none" />
-            <path class="lk" d="M 960 444 L 1152 444" stroke="#2fe58c" stroke-width="2.5" fill="none" />
-            <path class="lk" d="M 960 540 L 1056 540 L 1056 348 L 1152 348" stroke="#2fe58c" stroke-width="2.5" fill="none" />
-          </svg>
+          <div id="nm" class="ilbl" style="font-size:80px"></div>
+          <div id="nmc" class="mono"></div>
+          <div id="tp" class="ilbl" style="font-size:104px">Your portfolio.</div>
+          <div id="tm" class="ilbl" style="font-size:104px">The market.</div>
 
-          <div id="market">
-            <div class="head"><span class="mono" style="font-size:20px;color:#8ea196">Market</span><span class="badge"><i class="dot" style="background:#e8b84b"></i>Sideways market</span></div>
-            <div style="margin-top:34px;display:flex;flex-direction:column;gap:18px">
-              <div class="row mrow"><span class="k"><i class="dot" style="background:#8ea196"></i>Trend</span><b>Flat</b></div>
-              <div class="row mrow"><span class="k"><i class="dot" style="background:#e8b84b"></i>Volatility</span><b>Elevated</b></div>
-              <div class="row mrow"><span class="k"><i class="dot" style="background:#8ea196"></i>Momentum</span><b>Mixed</b></div>
-            </div>
-            <svg width="508" height="70" viewBox="0 0 508 70" style="margin-top:26px;display:block" data-layout-ignore>
-              <polyline id="trace" fill="none" stroke="#8ea196" stroke-width="2.5" stroke-linejoin="round"
-                points="0,38 30,30 52,46 80,22 104,44 128,28 150,50 178,24 204,40 230,20 256,48 282,30 306,42 334,18 360,46 386,32 410,44 436,26 462,40 488,34 508,36" />
-            </svg>
+          <div id="one-shock"></div>
+          <div id="one">
+            <div id="one-grid"></div>
+            <div id="one-glow"></div>
+            <div id="scan"></div>
+            <div class="oc mono" id="oc1" style="left:30px;top:26px">Portfolio</div>
+            <div class="oc mono" id="oc2" style="right:30px;top:26px">Market</div>
+            <div class="oc mono" id="oc3" style="left:0;width:1200px;text-align:center;bottom:26px">One place · Product in development</div>
+            <img id="one-mark" src="assets/brand/matrix-mark.svg" alt="Matrix mark" />
+            <div id="one-txt"><div class="w">Now together<span class="g">.</span></div></div>
           </div>
+          <svg id="seams" class="full" viewBox="0 0 1920 1080" data-layout-ignore>
+            <line id="sv1" x1="760" y1="200" x2="760" y2="800" stroke="#2fe58c" stroke-width="4" />
+            <line id="sv2" x1="1160" y1="200" x2="1160" y2="800" stroke="#2fe58c" stroke-width="4" />
+            <line id="sh0" x1="360" y1="500" x2="1560" y2="500" stroke="#2fe58c" stroke-width="4" />
+            <rect id="one-frame" x="361" y="201" width="1198" height="598" rx="17" fill="none" stroke="#2fe58c" stroke-width="2.5" pathLength="1" />
+          </svg>
         </div>
-
-        <div id="h1" class="hero-line"><span class="slot"><span class="w">Your</span></span> <span class="slot"><span class="w">portfolio.</span></span></div>
-        <div id="h2" class="hero-line"><span class="slot"><span class="w">The</span></span> <span class="slot"><span class="w">market.</span></span></div>
-        <div id="h3" class="hero-line"><span class="slot"><span class="w">A</span></span> <span class="slot"><span class="w">clearer</span></span> <span class="slot"><span class="w">next</span></span> <span class="slot"><span class="w">move<span id="hdot" class="g">.</span></span></span></div>
-
-        <svg id="shock" class="full" viewBox="0 0 1920 1080" data-layout-ignore>
-          <rect id="cell" x="912" y="218" width="96" height="96" fill="none" stroke="#2fe58c" stroke-width="2" />
-          <line id="shx" x1="0" y1="266" x2="1920" y2="266" stroke="#2fe58c" stroke-width="1.5" />
-          <line id="shy" x1="960" y1="0" x2="960" y2="1080" stroke="#2fe58c" stroke-width="1.5" />
-        </svg>
-        <div id="mark-wrap"><img src="assets/brand/matrix-mark.svg" alt="Matrix mark" /></div>
       </div>
 
       <!-- ======================= F4: product concept ======================= -->
-      <div id="s4" class="clip full" data-start="9.3" data-duration="10.233" data-track-index="2">
+      <div id="s4" class="clip full" data-start="12.8" data-duration="10.233" data-track-index="2">
         <div id="rail">
           <svg id="rail-lines" class="abs" style="left:0;top:0;width:5600px;height:1080px;overflow:visible" viewBox="0 0 5600 1080" data-layout-ignore>
             <path id="rl1" d="M 836 190 L 2676 190" stroke="rgba(237,242,238,0.22)" stroke-width="2" fill="none" />
@@ -235,7 +266,7 @@
       </div>
 
       <!-- ======================= F5: live Strategy Archive ======================= -->
-      <div id="s5" class="clip full" data-start="19.5" data-duration="6.3" data-track-index="3">
+      <div id="s5" class="clip full" data-start="23.0" data-duration="6.3" data-track-index="3">
         <div id="arc-head"><span class="slot"><span class="w">Explore</span></span> <span class="slot"><span class="w">the</span></span> <span class="slot"><span class="w">Strategy</span></span> <span class="slot"><span class="w">Archive</span></span> <span class="slot"><span class="w">now.</span></span></div>
         <div id="arc-sub" class="mono"><span class="live"><i class="dot" style="background:#2fe58c"></i>Live site</span><span class="url">strategies.matrix.finance</span><span>· captured 7 Oct 2026</span></div>
         <div id="steps">
@@ -260,7 +291,7 @@
       </div>
 
       <!-- ======================= F6: end card ======================= -->
-      <div id="s6" class="clip full" data-start="25.3" data-duration="4.7" data-track-index="4">
+      <div id="s6" class="clip full" data-start="28.8" data-duration="4.7" data-track-index="4">
         <svg id="end-cell" class="full" viewBox="0 0 1920 1080" data-layout-ignore>
           <rect id="ecell" x="912" y="290" width="96" height="96" fill="none" stroke="#2fe58c" stroke-width="2.5" />
         </svg>
@@ -275,8 +306,8 @@
         <div id="end-sub" class="mono">Strategy Archive live now · <span class="url">strategies.matrix.finance</span></div>
       </div>
 
-      <audio id="music" src="assets/audio/music.wav" data-start="0" data-duration="30" data-track-index="10" data-volume="0.7"></audio>
-      <audio id="sfx" src="assets/audio/sfx.wav" data-start="0" data-duration="30" data-track-index="11" data-volume="0.8"></audio>
+      <audio id="music" src="assets/audio/music.wav" data-start="0" data-duration="33.5" data-track-index="10" data-volume="0.7"></audio>
+      <audio id="sfx" src="assets/audio/sfx.wav" data-start="0" data-duration="33.5" data-track-index="11" data-volume="0.8"></audio>
     </div>
 
     <script>
@@ -297,34 +328,8 @@
           g.setAttribute("class", "reg"); grid.appendChild(g);
         });
 
-        // ---------------- fragments: grid targets (snap) and scattered offsets (seeded, hand-placed)
-        var FR = [
-          // id, grid target x, y | scattered absolute x, y, rot, scale | drift dx, dy | open time
-          ["#f1", 192, 204,  140, 150, -6, 1.08,  18, -10, 0.30],
-          ["#f2", 576, 204,  700, 100,  5, 0.86, -12,   8, 0.80],
-          ["#f3", 192, 300,  380, 330, -3, 1.12,  10,  12, 0.55],
-          ["#f4", 576, 300,  850, 280,  7, 0.84, -16,  -6, 1.05],
-          ["#f5", 192, 396,   80, 520,  4, 0.95,  14,  -8, 1.30],
-          ["#f6", 576, 396,  540, 545, -5, 0.80,  -8,  14, 1.55],
-          ["#f7", 192, 492,  830, 455,  3, 0.88, -14, -12, 1.80],
-          ["#f8", 576, 492,  300, 660, -8, 1.02,  12,   6, 0.05]
-        ];
-        FR.forEach(function (f) { f[3] = f[3] - f[1]; f[4] = f[4] - f[2]; });
-        FR.forEach(function (f) { var el = $(f[0]); el.style.left = f[1] + "px"; el.style.top = f[2] + "px"; });
-
-        // hero line positions
-        var h1 = $("#h1"), h2 = $("#h2"), h3 = $("#h3");
-        h1.style.left = "128px"; h1.style.top = "800px";
-        h3.style.top = "640px";
-
         $$(".slot, .w, #rail, .panel, .stepbox, #cs, #concept-label").forEach(function (e) { e.setAttribute("data-layout-allow-overflow", ""); });
         function build() {
-          var w2 = h2.getBoundingClientRect().width, w1 = h1.getBoundingClientRect().width, w3 = h3.getBoundingClientRect().width;
-          h2.style.left = (1792 - w2) + "px"; h2.style.top = "800px";
-          h3.style.left = Math.round((1920 - w3) / 2) + "px";
-          // stacked hero targets (site hero: three centred lines)
-          var T1 = { x: Math.round((1920 - w1) / 2) - 128, y: 404 - 800 };
-          var T2 = { x: Math.round((1920 - w2) / 2) - (1792 - w2), y: 522 - 800 };
 
           // concept connection paths (rail space)
           var s4 = $("#s4"), s4d = s4.style.display, s4v = s4.style.visibility, s4o = s4.style.opacity;
@@ -336,9 +341,7 @@
           $("#cn1").setAttribute("d", "M " + (a.x + a.w) + " " + ay + " L " + ax + " " + ay + " L " + ax + " " + Math.round((ay + by) / 2) + " L " + bx + " " + Math.round((ay + by) / 2) + " L " + bx + " " + by + " L " + b.x + " " + by);
           var cx = c.x + c.w + 46, cy = c.y + c.h / 2, dx2 = d.x - 78, dy2 = d.y + d.h / 2;
           $("#cn2").setAttribute("d", "M " + (c.x + c.w) + " " + cy + " L " + cx + " " + cy + " L " + cx + " " + Math.round((cy + dy2) / 2) + " L " + dx2 + " " + Math.round((cy + dy2) / 2) + " L " + dx2 + " " + dy2 + " L " + (d.x - 32) + " " + dy2);
-          ["#cn1", "#cn2", "#rl1", "#rl2", "#sig"].forEach(function (s) { var p = $(s), L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; });
-          $$(".lk").forEach(function (p) { var L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; });
-          var tr = $("#trace"), TL = tr.getTotalLength(); tr.style.strokeDasharray = TL; tr.style.strokeDashoffset = TL;
+          ["#cn1", "#cn2", "#rl1", "#rl2"].forEach(function (s) { var p = $(s), L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; });
 
           // capital preservation card → browser window (match cut geometry)
           var card = rr("#p3card");
@@ -360,50 +363,132 @@
             var k = i < 21 ? Math.abs(i - 10) : Math.abs(i - 21 - 5.5);
             T(l, { attr: { "stroke-dasharray": "1 1", "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.7, ease: "power2.out" }, 0.02 * k);
           });
-          tl.fromTo("#world", { scale: 1, transformOrigin: "50% 45%" }, { scale: 1.035, duration: 6, ease: "none" }, 0);
-          FR.forEach(function (f) {
-            T(f[0], { x: f[3], y: f[4], rotation: f[5], scale: f[6] }, { x: f[3] + f[7], y: f[4] + f[8], rotation: f[5] * 0.6, scale: f[6], duration: 6, ease: "none" }, 0);
-            T(f[0], { clipPath: "inset(0% 100% 100% 0% round 10px)" }, { clipPath: "inset(0% 0% 0% 0% round 10px)", duration: 0.45, ease: "expo.out" }, f[9]);
-          });
-          T("#h1 .w", { yPercent: 115 }, { yPercent: 0, duration: 0.6, ease: "expo.out", stagger: 0.08 }, 0.7);
-          // F2 3-6: signal line drops, market module opens elsewhere
-          tl.to("#world", { x: -40, duration: 3, ease: "sine.inOut" }, 3.0);
-          tl.to("#sig", { strokeDashoffset: 0, duration: 0.3, ease: "power3.in" }, 2.95);
-          T("#market", { x: 70, y: 46, rotation: 3.5, clipPath: "inset(0% 0% 100% 0% round 12px)" }, { clipPath: "inset(0% 0% 0% 0% round 12px)", duration: 0.55, ease: "expo.out" }, 3.25);
-          tl.to("#market", { x: 52, y: 30, rotation: 2.4, duration: 2.75, ease: "none" }, 3.25);
-          T(".mrow", { xPercent: -6, clipPath: "inset(0% 100% 0% 0%)" }, { xPercent: 0, clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power3.out", stagger: 0.12 }, 3.55);
-          tl.to("#trace", { strokeDashoffset: 0, duration: 1.4, ease: "power1.inOut" }, 3.7);
-          T("#h2 .w", { yPercent: 115 }, { yPercent: 0, duration: 0.6, ease: "expo.out", stagger: 0.08 }, 3.6);
 
-          // ============ F3 6-9.5: accelerate, snap, connect, converge, MARK ============
-          FR.forEach(function (f, i) {
-            tl.to(f[0], { x: 0, y: 0, rotation: 0, scale: 1, duration: 0.75, ease: "power4.in" }, 6.0 + i * 0.01);
-          });
-          tl.to("#world", { x: 0, scale: 1, duration: 0.75, ease: "power3.in" }, 6.0);
-          tl.to("#market", { x: 0, y: 0, rotation: 0, duration: 0.75, ease: "power4.in" }, 6.0);
-          tl.to("#sig", { opacity: 0, duration: 0.1 }, 6.0);
-          T(".frag, #market", { borderColor: "rgba(47,229,140,0.75)" }, { borderColor: "rgba(237,242,238,0.11)", duration: 0.5, ease: "power2.out" }, 6.75);
-          tl.to(".lk", { strokeDashoffset: 0, duration: 0.3, ease: "power2.out", stagger: 0.06 }, 6.8);
-          // converge into one cell (riser) → the mark at 7.5
-          FR.forEach(function (f) {
-            var cxF = f[1] + 192, cyF = f[2] + 48;
-            tl.to(f[0], { x: 960 - cxF, y: 266 - cyF, scale: 0.12, duration: 0.42, ease: "power3.in" }, 7.06);
-          });
-          tl.to("#market", { x: 960 - 1440, y: 266 - 396, scale: 0.12, duration: 0.42, ease: "power3.in" }, 7.06);
-          tl.to("#links", { opacity: 0, duration: 0.2 }, 7.1);
-          tl.set(".frag, #market", { opacity: 0 }, 7.48);
-          T("#mark-wrap", { scale: 1.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "expo.out" }, 7.5);
-          tl.set("#cell, #shx, #shy", { opacity: 0 }, 0);
-          T("#cell", { attr: { x: 912, y: 218, width: 96, height: 96 }, opacity: 1 }, { attr: { x: 360, y: -334, width: 1200, height: 1200 }, opacity: 0, duration: 0.7, ease: "expo.out" }, 7.5);
-          T("#shx", { opacity: 0.9, attr: { "stroke-width": 3 } }, { opacity: 0, attr: { "stroke-width": 1 }, duration: 0.6, ease: "power2.out" }, 7.5);
-          T("#shy", { opacity: 0.9, attr: { "stroke-width": 3 } }, { opacity: 0, attr: { "stroke-width": 1 }, duration: 0.6, ease: "power2.out" }, 7.5);
-          // the two phrases fly into the site's hero stack, the new line opens
-          tl.to("#h1", { x: T1.x, y: T1.y, duration: 0.5, ease: "expo.out" }, 7.55);
-          tl.to("#h2", { x: T2.x, y: T2.y, duration: 0.5, ease: "expo.out" }, 7.6);
-          T("#h3 .w", { yPercent: 115 }, { yPercent: 0, duration: 0.5, ease: "expo.out", stagger: 0.06 }, 7.68);
-          // exit 9.25-9.75: camera rides down the grid; the green period flies to the concept label
-          tl.to("#h1, #h2, #h3, #mark-wrap", { y: "-=760", duration: 0.35, ease: "power3.in" }, 9.2);
+          // ============ F1 0–13: many tabs → now together (one procedural clock, seek-safe) ============
+          var TB = [0, 1, 2, 3, 4, 5].map(function (i) { return $("#tb" + i); });
+          var TBI = TB.map(function (el) { return [el.querySelector(".tbar"), el.querySelector(".tbody")]; });
+          var NAMES = ["Wallet", "Exchange", "DeFi positions", "Staking"];
+          var TILE = [[0, 0], [1, 0], [0, 1], [1, 1], [2, 0], [2, 1]];   // portfolio and market interleave in the mosaic
+          var MK = [0, 1, 3, 4, 2, 5];
+          var nm = $("#nm"), nmc = $("#nmc"), tp = $("#tp"), tm = $("#tm");
+          var one = $("#one"), oneMark = $("#one-mark"), oneTxt = $("#one-txt .w"), shock = $("#one-shock"), scan = $("#scan");
+          var oneGrid = $("#one-grid"), oneGlow = $("#one-glow"), frame = $("#one-frame");
+          var sv1 = $("#sv1"), sv2 = $("#sv2"), sh0 = $("#sh0"), ocs = $$(".oc");
+          var cl = function (v, a, b) { return Math.max(a, Math.min(b, v)); };
+          var sg = function (t, a, b) { return cl((t - a) / (b - a), 0, 1); };
+          var lp = function (a, b, u) { return a + (b - a) * u; };
+          var o3 = function (u) { return 1 - Math.pow(1 - u, 3); };
+          var io3 = function (u) { return u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2; };
+          var i4 = function (u) { return u * u * u * u; };
+          var ex = function (u) { return u >= 1 ? 1 : 1 - Math.pow(2, -10 * u); };
+          var bk = function (u) { var c1 = 1.7, c3 = c1 + 1; return 1 + c3 * Math.pow(u - 1, 3) + c1 * Math.pow(u - 1, 2); };
+          var tpW = tp.offsetWidth, tmW = tm.offsetWidth;
+          function seamDash(line, half, u) { var g = half * u; line.setAttribute("stroke-dasharray", (half - g).toFixed(2) + " " + (2 * g).toFixed(2) + " " + (half - g + 1).toFixed(2)); }
 
+          // living contents: each tab's details animate as it opens
+          var exBars = $$("#tb1 .ob"), dfBars = $$("#tb2 .track i"), coins = $$("#tb0 .coin"), ring = $("#tb3 svg circle:nth-child(2)"), mkTrace = $("#mk-trace");
+          var mkLen = mkTrace.getTotalLength(); mkTrace.style.strokeDasharray = mkLen;
+          exBars.forEach(function (b) { b.style.transformOrigin = b.style.marginLeft === "auto" ? "100% 50%" : "0 50%"; });
+          dfBars.forEach(function (b) { b.style.transformOrigin = "0 50%"; });
+          function renderDetails(t) {
+            exBars.forEach(function (b, n) { b.style.transform = "scaleX(" + o3(sg(t, 2.05 + 0.035 * n, 2.45 + 0.035 * n)).toFixed(3) + ")"; });
+            dfBars.forEach(function (b, n) { b.style.transform = "scaleX(" + o3(sg(t, 3.15 + 0.15 * n, 3.7 + 0.15 * n)).toFixed(3) + ")"; });
+            coins.forEach(function (c, n) { var u = sg(t, 1.12 + 0.08 * n, 1.42 + 0.08 * n); c.style.transform = "scale(" + bk(u).toFixed(3) + ")"; });
+            ring.setAttribute("stroke-dasharray", (172 * o3(sg(t, 4.1, 4.75))).toFixed(1) + " 400");
+            mkTrace.style.strokeDashoffset = (mkLen * (1 - io3(sg(t, 7.05, 7.9)))).toFixed(1);
+          }
+          function renderIntro(t) {
+            renderDetails(t);
+            // orbit: the portfolio tabs spin around each other (no drawn circle)
+            var z = io3(sg(t, 6.0, 6.9));
+            var cx = lp(960, 480, z), cy = lp(440, 470, z), R = lp(430, 245, z), Ry = lp(165, 100, z);
+            var base = lp(0.78, 0.46, z), dim = lp(1, 0.42, z), theta = 0.72 * t;
+            var gap = lp(24, 0, i4(sg(t, 9.95, 10.4)));
+            var ts = ((1200 - 2 * gap) / 3) / 400;
+            var cop = 1 - sg(t, 9.95, 10.3);
+            var glowB = sg(t, 10.05, 10.4);
+            TB.forEach(function (el, i) {
+              var x = 960, y = 440, sc = 1, ry = 0, op = 1, zi = 30;
+              if (i < 4) {
+                var t0 = 1 + i, a = theta + i * Math.PI / 2, d = (Math.sin(a) + 1) / 2;
+                var ox = cx + R * Math.cos(a), oy = cy + Ry * Math.sin(a);
+                var osc = base * (0.8 + 0.32 * d), oop = dim * (0.5 + 0.5 * d), ory = -16 * Math.cos(a);
+                if (t < t0) { op = 0; sc = 0.8; }
+                else if (t < t0 + 0.6) { var u = sg(t, t0, t0 + 0.5); x = 960; y = 410 + lp(36, 0, ex(u)); sc = lp(1.05, 1.4, bk(u)); op = sg(t, t0, t0 + 0.18); zi = 60; }
+                else { var v = io3(sg(t, t0 + 0.6, t0 + 1.05)); x = lp(960, ox, v); y = lp(410, oy, v); sc = lp(1.4, osc, v); op = lp(1, oop, v); ry = lp(0, ory, v); zi = v < 0.5 ? 60 : 10 + Math.round(d * 20); }
+              } else {
+                var j = i - 4, m0 = 7 + 0.5 * j, px = [1350, 1440][j], py = [300, 702][j];
+                var w = ex(sg(t, m0, m0 + 0.85));
+                x = lp(px + 340, px, w); y = py + 7 * Math.sin(t * 1.4 + j * 1.7); sc = 1.3;
+                ry = lp(-62, -20, w) + 1.5 * Math.sin(t * 1.1 + j); op = sg(t, m0, m0 + 0.3); zi = 50;
+              }
+              // 9.0+: everything flies into one 3×2 mosaic, then the gaps close
+              var m = io3(sg(t, 9.0 + 0.07 * MK[i], 9.85 + 0.07 * MK[i]));
+              if (m > 0) {
+                var c = TILE[i][0], r = TILE[i][1], tw = 400 * ts, th = 300 * ts;
+                var tx = 360 + tw / 2 + c * (tw + gap), ty = 200 + th / 2 + r * (th + gap);
+                x = lp(x, tx, m); y = lp(y, ty, m); sc = lp(sc, ts, m); ry = lp(ry, 0, m); op = lp(op, 1, m); zi = 40;
+              }
+              el.style.opacity = t >= 10.45 ? 0 : op.toFixed(3);
+              el.style.zIndex = zi;
+              el.style.transform = "translate(" + (x - 200).toFixed(2) + "px," + (y - 150).toFixed(2) + "px) perspective(1600px) rotateY(" + ry.toFixed(2) + "deg) scale(" + sc.toFixed(4) + ")";
+              TBI[i][0].style.opacity = cop.toFixed(3); TBI[i][1].style.opacity = cop.toFixed(3);
+              el.style.borderColor = t > 9.95 ? "rgba(47,229,140," + (0.16 + 0.7 * glowB).toFixed(3) + ")" : "";
+              el.style.boxShadow = t > 9.95 ? "none" : "";
+            });
+
+            // the name of each portfolio piece, one at a time
+            var k = Math.floor(t - 1);
+            if (k >= 0 && k < 4) {
+              var a0 = 1 + k, uin = ex(sg(t, a0 + 0.08, a0 + 0.45)), uout = sg(t, a0 + 0.8, a0 + 0.98);
+              if (nm.textContent !== NAMES[k]) { nm.textContent = NAMES[k]; nmc.textContent = "0" + (k + 1) + " / 04 · Portfolio"; }
+              nm.style.opacity = (uin * (1 - uout)).toFixed(3);
+              nm.style.transform = "translate(" + (960 - nm.offsetWidth / 2).toFixed(1) + "px," + (664 + lp(46, 0, uin) - 30 * uout).toFixed(1) + "px)";
+              nmc.style.opacity = (uin * (1 - uout)).toFixed(3);
+              nmc.style.transform = "translate(" + (960 - nmc.offsetWidth / 2).toFixed(1) + "px," + (770 + lp(20, 0, uin)).toFixed(1) + "px)";
+            } else { nm.style.opacity = 0; nmc.style.opacity = 0; }
+
+            // "Your portfolio." settles under the spinning group and travels with the zoom-out
+            var pu = ex(sg(t, 5.0, 5.5)), pout = io3(sg(t, 9.0, 9.35));
+            var px0 = lp(960, 480, z) - tpW / 2, py0 = lp(690, 868, z) + lp(50, 0, pu) + 40 * pout;
+            tp.style.opacity = (pu * (1 - pout) * lp(1, 0.6, sg(t, 7.0, 7.6))).toFixed(3);
+            tp.style.transform = "translate(" + px0.toFixed(1) + "px," + py0.toFixed(1) + "px) scale(" + lp(1, 0.74, z).toFixed(4) + ")";
+            var mu = ex(sg(t, 8.0, 8.5));
+            tm.style.opacity = (mu * (1 - pout)).toFixed(3);
+            tm.style.transform = "translate(" + (1830 - tmW + lp(40, 0, mu)).toFixed(1) + "px," + (928 + 40 * pout).toFixed(1) + "px)";
+
+            // one rectangle: seams glow, then zip open from the centre; frame draws; the X lands
+            var on = t >= 10.45;
+            one.style.opacity = on ? 1 : 0;
+            var seamOp = sg(t, 10.0, 10.4) * (1 - sg(t, 10.85, 11.0));
+            var zip = o3(sg(t, 10.5, 10.95));
+            [sv1, sv2, sh0].forEach(function (ln) { ln.style.opacity = seamOp.toFixed(3); });
+            seamDash(sv1, 300, zip); seamDash(sv2, 300, zip); seamDash(sh0, 600, zip);
+            frame.style.opacity = on ? 1 : 0;
+            frame.style.strokeDasharray = "1 1";
+            frame.style.strokeDashoffset = (1 - o3(sg(t, 10.45, 11.05))).toFixed(4);
+            var lu = ex(sg(t, 10.5, 11.0));
+            oneMark.style.opacity = sg(t, 10.5, 10.58).toFixed(3);
+            oneMark.style.transform = "scale(" + (lp(1.75, 1, lu) * lp(1, 1.025, sg(t, 11.0, 12.7))).toFixed(4) + ")";
+            var su = o3(sg(t, 10.5, 11.15));
+            shock.style.opacity = (t >= 10.5 ? 0.85 * (1 - su) : 0).toFixed(3);
+            shock.style.transform = "scale(" + lp(1, 1.12, su).toFixed(4) + ")";
+            var scu = io3(sg(t, 10.6, 11.4));
+            scan.style.opacity = (sg(t, 10.6, 10.7) * (1 - sg(t, 11.3, 11.4))).toFixed(3);
+            scan.style.transform = "translateX(" + lp(-240, 1220, scu).toFixed(1) + "px)";
+            oneGrid.style.opacity = (0.15 + 0.85 * o3(sg(t, 10.7, 11.4))).toFixed(3);
+            oneGlow.style.opacity = (o3(sg(t, 10.5, 11.2)) * lp(1, 0.75, sg(t, 11.2, 12.7))).toFixed(3);
+            oneTxt.style.transform = "translateY(" + lp(110, 0, ex(sg(t, 10.95, 11.5))).toFixed(2) + "%)";
+            ocs.forEach(function (o, n) { var u2 = o3(sg(t, 11.1 + 0.12 * n, 11.5 + 0.12 * n)); o.style.clipPath = "inset(0% " + ((1 - u2) * 100).toFixed(2) + "% 0% 0%)"; });
+          }
+          var IC = { t: 0 };
+          renderIntro(0);
+          tl.to(IC, { t: 13.2, duration: 13.2, ease: "none", onUpdate: function () { renderIntro(IC.t); } }, 0);
+          // exit 12.7: camera rides down the grid into the product concept
+          tl.to("#s1-wrap", { y: -760, duration: 0.35, ease: "power3.in" }, 12.7);
+
+          // everything after the intro keeps its tuned timings, shifted by 3.5 s
+          var rootTL = tl; tl = gsap.timeline();
           // ============ F4 9.5-19.5: product concept rail ============
           var railMoves = [[12.65, -1840], [16.15, -3680]];
           T("#rail", { x: 0, y: 1000, scale: 1, transformOrigin: "0px 0px" }, { y: 0, duration: 0.6, ease: "expo.out" }, 9.55);
@@ -537,8 +622,9 @@
           tl.to("#grid", { opacity: 0.6, duration: 0.3 }, 19.5);
           tl.to("#grid", { opacity: 1, duration: 0.6 }, 25.5);
 
-          tl.to({}, { duration: 30 }, 0);
-          window.__timelines["main"] = tl;
+          rootTL.add(tl, 3.5);
+          rootTL.to({}, { duration: 33.5 }, 0);
+          window.__timelines["main"] = rootTL;
         }
         if (document.fonts && document.fonts.ready) document.fonts.ready.then(build); else build();
       })();

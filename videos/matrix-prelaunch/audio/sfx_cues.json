@@ -1,24 +1,312 @@
-{"duration": 30,
+{
+ "duration": 33.5,
  "cues": [
-  {"t": 0.25, "fx": "tick", "gain_db": -22, "label": "F1 grid registration"},
-  {"t": 0.5,  "fx": "blip", "gain_db": -24, "args": {"freq": 1320, "pan": -0.4}, "label": "F1 fragment opens"},
-  {"t": 1.0,  "fx": "blip", "gain_db": -24, "args": {"freq": 1480, "pan": 0.2}, "label": "F1 fragment opens"},
-  {"t": 1.5,  "fx": "blip", "gain_db": -24, "args": {"freq": 1175, "pan": -0.2}, "label": "F1 fragment opens"},
-  {"t": 3.0,  "fx": "whoosh", "gain_db": -14, "peak": true, "args": {"dur": 0.6, "pan_from": -0.3, "pan_to": 0.6}, "label": "F2 signal line drops"},
-  {"t": 3.25, "fx": "pop", "gain_db": -17, "args": {"pan": 0.5}, "label": "F2 market module opens"},
-  {"t": 7.5,  "fx": "swell", "gain_db": -12, "align": "end", "args": {"dur": 1.2, "freq": 110}, "label": "F3 into the mark"},
-  {"t": 7.5,  "fx": "impact", "gain_db": -3, "args": {"dur": 1.8}, "label": "F3 MATRIX MARK"},
-  {"t": 7.5,  "fx": "subdrop", "gain_db": -6, "args": {"dur": 1.2}, "label": "F3 sub under the mark"},
-  {"t": 6.75, "fx": "snap", "gain_db": -14, "label": "F3 fragments lock to grid"},
-  {"t": 9.5,  "fx": "whoosh", "gain_db": -12, "peak": true, "args": {"dur": 0.7}, "label": "F4 into product concept"},
-  {"t": 13.0, "fx": "whoosh", "gain_db": -13, "peak": true, "args": {"dur": 0.7, "pan_from": 0.6, "pan_to": -0.6}, "label": "F4 rail move 01 -> 02"},
-  {"t": 16.5, "fx": "whoosh", "gain_db": -13, "peak": true, "args": {"dur": 0.7, "pan_from": 0.6, "pan_to": -0.6}, "label": "F4 rail move 02 -> 03"},
-  {"t": 17.0, "fx": "shimmer", "gain_db": -24, "args": {"dur": 1.2}, "label": "F4 strategy surfaced"},
-  {"t": 19.5, "fx": "whoosh", "gain_db": -10, "peak": true, "args": {"dur": 0.8}, "label": "F5 match cut into the live Archive"},
-  {"t": 20.5, "fx": "key", "gain_db": -12, "label": "F5 click ENTER THE ARCHIVE"},
-  {"t": 21.6, "fx": "key", "gain_db": -12, "label": "F5 click Sideways"},
-  {"t": 22.7, "fx": "key", "gain_db": -12, "label": "F5 click OPEN RECORD"},
-  {"t": 23.4, "fx": "paper", "gain_db": -18, "args": {"dur": 0.5}, "label": "F5 scroll to Risk"},
-  {"t": 25.5, "fx": "whoosh", "gain_db": -13, "peak": true, "args": {"dur": 0.7}, "label": "F6 window collapses to the grid"},
-  {"t": 26.0, "fx": "chime", "gain_db": -14, "label": "F6 Join the waitlist lands"}
- ]}
+  {
+   "t": 0.15,
+   "fx": "tick",
+   "gain_db": -22,
+   "label": "F1 grid registration"
+  },
+  {
+   "t": 1.0,
+   "fx": "pop",
+   "gain_db": -15,
+   "args": {
+    "pan": -0.2
+   },
+   "label": "F1 Wallet tab opens"
+  },
+  {
+   "t": 1.62,
+   "fx": "whoosh",
+   "gain_db": -20,
+   "peak": true,
+   "args": {
+    "dur": 0.5,
+    "pan_from": 0,
+    "pan_to": -0.5
+   },
+   "label": "F1 Wallet joins the orbit"
+  },
+  {
+   "t": 2.0,
+   "fx": "pop",
+   "gain_db": -15,
+   "args": {
+    "pan": 0.2
+   },
+   "label": "F1 Exchange tab opens"
+  },
+  {
+   "t": 2.62,
+   "fx": "whoosh",
+   "gain_db": -20,
+   "peak": true,
+   "args": {
+    "dur": 0.5,
+    "pan_from": 0,
+    "pan_to": 0.5
+   },
+   "label": "F1 Exchange joins the orbit"
+  },
+  {
+   "t": 3.0,
+   "fx": "pop",
+   "gain_db": -15,
+   "args": {
+    "pan": -0.1
+   },
+   "label": "F1 DeFi positions tab opens"
+  },
+  {
+   "t": 3.62,
+   "fx": "whoosh",
+   "gain_db": -20,
+   "peak": true,
+   "args": {
+    "dur": 0.5,
+    "pan_from": 0,
+    "pan_to": -0.4
+   },
+   "label": "F1 DeFi joins the orbit"
+  },
+  {
+   "t": 4.0,
+   "fx": "pop",
+   "gain_db": -15,
+   "args": {
+    "pan": 0.1
+   },
+   "label": "F1 Staking tab opens"
+  },
+  {
+   "t": 4.62,
+   "fx": "whoosh",
+   "gain_db": -20,
+   "peak": true,
+   "args": {
+    "dur": 0.5,
+    "pan_from": 0,
+    "pan_to": 0.4
+   },
+   "label": "F1 Staking joins the orbit"
+  },
+  {
+   "t": 5.0,
+   "fx": "blip",
+   "gain_db": -20,
+   "args": {
+    "freq": 1320
+   },
+   "label": "F1 Your portfolio."
+  },
+  {
+   "t": 6.45,
+   "fx": "whoosh",
+   "gain_db": -13,
+   "peak": true,
+   "args": {
+    "dur": 0.9,
+    "pan_from": 0.3,
+    "pan_to": -0.6
+   },
+   "label": "F2 zoom out, group drifts left"
+  },
+  {
+   "t": 7.0,
+   "fx": "whoosh",
+   "gain_db": -14,
+   "peak": true,
+   "args": {
+    "dur": 0.6,
+    "pan_from": 0.9,
+    "pan_to": 0.4
+   },
+   "label": "F2 Charts tab swings in"
+  },
+  {
+   "t": 7.5,
+   "fx": "whoosh",
+   "gain_db": -15,
+   "peak": true,
+   "args": {
+    "dur": 0.6,
+    "pan_from": 0.9,
+    "pan_to": 0.5
+   },
+   "label": "F2 Market news tab swings in"
+  },
+  {
+   "t": 8.0,
+   "fx": "blip",
+   "gain_db": -20,
+   "args": {
+    "freq": 1175,
+    "pan": 0.5
+   },
+   "label": "F2 The market."
+  },
+  {
+   "t": 9.45,
+   "fx": "whoosh",
+   "gain_db": -10,
+   "peak": true,
+   "args": {
+    "dur": 0.9
+   },
+   "label": "F3 all tabs fly into the mosaic"
+  },
+  {
+   "t": 9.9,
+   "fx": "snap",
+   "gain_db": -12,
+   "label": "F3 tiles lock"
+  },
+  {
+   "t": 10.4,
+   "fx": "snap",
+   "gain_db": -14,
+   "label": "F3 gaps close"
+  },
+  {
+   "t": 10.5,
+   "fx": "swell",
+   "gain_db": -12,
+   "align": "end",
+   "args": {
+    "dur": 1.2,
+    "freq": 110
+   },
+   "label": "F3 into the X"
+  },
+  {
+   "t": 10.5,
+   "fx": "impact",
+   "gain_db": -3,
+   "args": {
+    "dur": 1.8
+   },
+   "label": "F3 MATRIX X LANDS"
+  },
+  {
+   "t": 10.5,
+   "fx": "subdrop",
+   "gain_db": -6,
+   "args": {
+    "dur": 1.2
+   },
+   "label": "F3 sub under the X"
+  },
+  {
+   "t": 10.65,
+   "fx": "shimmer",
+   "gain_db": -20,
+   "args": {
+    "dur": 1.4
+   },
+   "label": "F3 scan sweep"
+  },
+  {
+   "t": 10.95,
+   "fx": "chime",
+   "gain_db": -17,
+   "label": "F3 Now together."
+  },
+  {
+   "t": 12.75,
+   "fx": "whoosh",
+   "gain_db": -13,
+   "peak": true,
+   "args": {
+    "dur": 0.6
+   },
+   "label": "F3 camera rides down into the concept"
+  },
+  {
+   "t": 16.5,
+   "fx": "whoosh",
+   "gain_db": -13,
+   "peak": true,
+   "args": {
+    "dur": 0.7,
+    "pan_from": 0.6,
+    "pan_to": -0.6
+   },
+   "label": "F4 rail move 01 -> 02"
+  },
+  {
+   "t": 20.0,
+   "fx": "whoosh",
+   "gain_db": -13,
+   "peak": true,
+   "args": {
+    "dur": 0.7,
+    "pan_from": 0.6,
+    "pan_to": -0.6
+   },
+   "label": "F4 rail move 02 -> 03"
+  },
+  {
+   "t": 20.5,
+   "fx": "shimmer",
+   "gain_db": -24,
+   "args": {
+    "dur": 1.2
+   },
+   "label": "F4 strategy surfaced"
+  },
+  {
+   "t": 23.0,
+   "fx": "whoosh",
+   "gain_db": -10,
+   "peak": true,
+   "args": {
+    "dur": 0.8
+   },
+   "label": "F5 match cut into the live Archive"
+  },
+  {
+   "t": 24.0,
+   "fx": "key",
+   "gain_db": -12,
+   "label": "F5 click ENTER THE ARCHIVE"
+  },
+  {
+   "t": 25.1,
+   "fx": "key",
+   "gain_db": -12,
+   "label": "F5 click Sideways"
+  },
+  {
+   "t": 26.2,
+   "fx": "key",
+   "gain_db": -12,
+   "label": "F5 click OPEN RECORD"
+  },
+  {
+   "t": 26.9,
+   "fx": "paper",
+   "gain_db": -18,
+   "args": {
+    "dur": 0.5
+   },
+   "label": "F5 scroll to Risk"
+  },
+  {
+   "t": 29.0,
+   "fx": "whoosh",
+   "gain_db": -13,
+   "peak": true,
+   "args": {
+    "dur": 0.7
+   },
+   "label": "F6 window collapses to the grid"
+  },
+  {
+   "t": 29.5,
+   "fx": "chime",
+   "gain_db": -14,
+   "label": "F6 Join the waitlist lands"
+  }
+ ]
+}

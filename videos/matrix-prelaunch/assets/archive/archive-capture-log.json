@@ -1,0 +1,105 @@
+{
+ "captured_at": "2026-10-07T16:53:09.584Z",
+ "viewport": "1920x1080 @2x",
+ "method": "Playwright/Chromium, real clicks on the live site",
+ "steps": [
+  {
+   "name": "arc-1-home",
+   "url": "https://strategies.matrix.finance/",
+   "click": {
+    "x": 334,
+    "y": 801,
+    "w": 120,
+    "h": 17
+   },
+   "clickLabel": "ENTER THE ARCHIVE",
+   "scrollY": 0
+  },
+  {
+   "name": "arc-2-market",
+   "url": "https://strategies.matrix.finance/?view=explore&step=market",
+   "click": {
+    "x": 488,
+    "y": 546,
+    "w": 953,
+    "h": 48
+   },
+   "clickLabel": "Sideways",
+   "scrollY": 0
+  },
+  {
+   "name": "arc-3-phase",
+   "url": "https://strategies.matrix.finance/?view=explore&step=phase&market=sideways",
+   "click": {
+    "x": 390,
+    "y": 700,
+    "w": 1085,
+    "h": 37
+   },
+   "clickLabel": "High-Volatility Chop",
+   "scrollY": 0
+  },
+  {
+   "name": "arc-4-assets",
+   "url": "https://strategies.matrix.finance/?view=explore&step=assets&market=sideways&phase=high-volatility-chop",
+   "click": {
+    "x": 1518,
+    "y": 801,
+    "w": 62,
+    "h": 17
+   },
+   "clickLabel": "CONTINUE",
+   "scrollY": 64
+  },
+  {
+   "name": "arc-5-objective",
+   "url": "https://strategies.matrix.finance/?view=explore&step=objective&market=sideways&phase=high-volatility-chop",
+   "click": {
+    "x": 488,
+    "y": 820,
+    "w": 958,
+    "h": 34
+   },
+   "clickLabel": "Capital Preservation",
+   "scrollY": 0
+  },
+  {
+   "name": "arc-6-results",
+   "url": "https://strategies.matrix.finance/?view=results&market=sideways&phase=high-volatility-chop&objective=capital-preservation",
+   "click": {
+    "x": 367,
+    "y": 808,
+    "w": 84,
+    "h": 17
+   },
+   "clickLabel": "OPEN RECORD",
+   "scrollY": 0
+  },
+  {
+   "name": "arc-7-record-top",
+   "url": "https://strategies.matrix.finance/?view=strategy&slug=stablecoin-yield-rotation",
+   "click": null,
+   "clickLabel": null,
+   "scrollY": 0
+  },
+  {
+   "name": "arc-8-record-risk",
+   "url": "https://strategies.matrix.finance/?view=strategy&slug=stablecoin-yield-rotation",
+   "click": null,
+   "clickLabel": null,
+   "scrollY": 3986
+  }
+ ],
+ "riskGeometry": {
+  "section": {
+   "x": 586,
+   "y": 85.4375,
+   "w": 1032,
+   "h": 912.1875
+  },
+  "heading": {
+   "x": 616.78125,
+   "y": 110.4375
+  }
+ }
+}

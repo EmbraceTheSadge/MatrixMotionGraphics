@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Matrix Finance — prelaunch film</title>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #070a09; }
+      #root {
+        position: relative; width: 100%; height: 100%; overflow: hidden; background: #070a09;
+        color: #edf2ee; font-family: "Inter", sans-serif; -webkit-font-smoothing: antialiased;
+      }
+      .abs { position: absolute; }
+      .full { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+      .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
+      .g { color: #2fe58c; }
+      .slot { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+      .w { display: inline-block; }
+
+      #glow { background: radial-gradient(ellipse 60% 45% at 50% 0%, rgba(47, 229, 140, 0.07), rgba(7, 10, 9, 0) 70%); }
+      #grid line { stroke: rgba(237, 242, 238, 0.07); stroke-width: 1; }
+      #grid .reg { stroke: rgba(237, 242, 238, 0.28); stroke-width: 1.5; }
+
+      /* ---------- F1-F3 world ---------- */
+      .frag {
+        position: absolute; width: 384px; height: 96px; padding: 0 26px; border-radius: 10px;
+        background: #0c100e; border: 1px solid rgba(237, 242, 238, 0.11);
+        display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      }
+      .frag .lbl { font-size: 28px; font-weight: 500; color: #d7e2da; white-space: nowrap; display: flex; align-items: center; gap: 14px; }
+      .frag .val { font-size: 30px; font-weight: 600; color: #edf2ee; }
+      .frag .tag { font-size: 18px; color: #8ea196; }
+      .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; flex: none; }
+      .frag .stack { display: flex; flex-direction: column; gap: 6px; }
+      .minibar { display: flex; gap: 5px; width: 100%; height: 14px; }
+      .minibar i { display: block; height: 14px; border-radius: 3px; }
+      .hero-line { position: absolute; white-space: nowrap; font-size: 112px; font-weight: 600; letter-spacing: -0.035em; line-height: 1; }
+      #market {
+        position: absolute; left: 1152px; top: 204px; width: 576px; height: 384px; border-radius: 12px;
+        background: #0a0e0c; border: 1px solid rgba(237, 242, 238, 0.11); padding: 30px 34px;
+      }
+      #market .head { display: flex; justify-content: space-between; align-items: center; }
+      .badge {
+        white-space: nowrap; display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; border-radius: 999px;
+        font-size: 26px; font-weight: 500; color: #e8b84b; border: 1px solid rgba(232, 184, 75, 0.45); background: rgba(232, 184, 75, 0.08);
+      }
+      .row { display: flex; justify-content: space-between; align-items: center; font-size: 28px; color: #d7e2da; }
+      .row b { font-weight: 600; color: #edf2ee; }
+      .row .k { display: flex; align-items: center; gap: 14px; }
+      #mark-wrap { position: absolute; left: 850px; top: 196px; width: 220px; height: 141px; }
+      #mark-wrap img { width: 220px; height: 141px; display: block; }
+
+      /* ---------- F4 concept ---------- */
+      #concept-label {
+        position: absolute; left: 64px; top: 46px; display: flex; align-items: center; gap: 14px; height: 52px; padding: 0 22px 0 18px;
+        border: 1px solid rgba(47, 229, 140, 0.35); border-radius: 999px; background: rgba(7, 10, 9, 0.9);
+        font-size: 28px; color: #edf2ee;
+      }
+      #concept-label .dot { width: 14px; height: 14px; background: #2fe58c; }
+      #concept-illus { position: absolute; right: 64px; top: 60px; font-size: 26px; color: #8ea196; }
+      #rail { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+      .panel {
+        position: absolute; top: 262px; width: 1040px; border-radius: 14px; padding: 46px 52px 52px;
+        background: #0a0e0c; border: 1px solid rgba(237, 242, 238, 0.11);
+      }
+      .panel h3 { font-size: 42px; font-weight: 600; letter-spacing: -0.01em; color: #edf2ee; }
+      .panel .ph { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+      .panel .muted { color: #8ea196; }
+      .stepbox {
+        position: absolute; top: 152px; width: 76px; height: 76px; border-radius: 14px; border: 1px solid rgba(237, 242, 238, 0.14);
+        background: #0c100e; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #8ea196;
+      }
+      .stepbox.on { border-color: rgba(47, 229, 140, 0.6); color: #2fe58c; }
+      .bar { display: flex; gap: 6px; height: 22px; margin-bottom: 30px; }
+      .bar i { display: block; height: 22px; border-radius: 4px; transform-origin: 0 50%; }
+      .prow { display: flex; justify-content: space-between; align-items: center; font-size: 34px; color: #d7e2da; height: 62px; }
+      .prow .k { display: flex; align-items: center; gap: 16px; }
+      .prow b { font-weight: 600; color: #edf2ee; }
+      .note { font-size: 29px; color: #8ea196; margin-top: 14px; padding-left: 30px; }
+      .check { display: flex; gap: 16px; font-size: 31px; line-height: 1.35; color: #d7e2da; margin-top: 26px; }
+      .check .ck { color: #2fe58c; font-weight: 700; }
+      .greenbox {
+        margin-top: 28px; padding: 22px 26px; border-radius: 12px; border: 1px solid rgba(47, 229, 140, 0.4);
+        background: rgba(47, 229, 140, 0.06); font-size: 31px; line-height: 1.4; color: #edf2ee;
+      }
+      .strat { padding: 30px 32px; border-radius: 12px; border: 1px solid rgba(47, 229, 140, 0.45); background: #0c1310; }
+      .chips { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0 22px; }
+      .chip { font-size: 26px; color: #d7e2da; padding: 6px 16px; border-radius: 999px; background: #121814; border: 1px solid rgba(237, 242, 238, 0.09); }
+      .why { font-size: 30px; line-height: 1.45; color: #d7e2da; }
+      .why b { color: #edf2ee; font-weight: 600; }
+      .callout { position: absolute; left: 96px; top: 430px; width: 620px; font-size: 92px; font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; }
+      .callout-step { position: absolute; left: 100px; top: 340px; font-size: 26px; color: #2fe58c; }
+
+      /* ---------- F5 archive ---------- */
+      #arc-head { position: absolute; left: 96px; top: 64px; font-size: 76px; font-weight: 600; letter-spacing: -0.03em; white-space: nowrap; }
+      #arc-sub { position: absolute; left: 100px; top: 166px; font-size: 24px; color: #8ea196; display: flex; gap: 18px; align-items: center; white-space: nowrap; }
+      #arc-sub .live { color: #2fe58c; display: flex; align-items: center; gap: 10px; }
+      #arc-sub .url { color: #edf2ee; text-transform: none; letter-spacing: 0.06em; }
+      #win { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: #0a0e0c; clip-path: inset(50% 50% 50% 50%); }
+      #win-bar { position: absolute; left: 0; top: 0; width: 1920px; height: 40px; background: #0d1210; border-bottom: 1px solid rgba(237, 242, 238, 0.09); display: flex; align-items: center; padding: 0 18px; gap: 9px; }
+      #win-bar i { width: 11px; height: 11px; border-radius: 50%; background: rgba(237, 242, 238, 0.16); display: block; }
+      #win-url { margin-left: 18px; font-size: 18px; color: #8ea196; letter-spacing: 0.04em; text-transform: none; }
+      #win-view { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; clip-path: inset(0px); }
+      .shot { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+      .shot img { width: 1920px; height: 1080px; display: block; }
+      #cursor { position: absolute; left: 0; top: 0; width: 34px; height: 40px; }
+      #ripple { position: absolute; left: 0; top: 0; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; border: 3px solid #2fe58c; }
+      #steps { position: absolute; left: 96px; top: 300px; width: 380px; }
+      .st { position: relative; padding: 0 0 0 26px; height: 128px; }
+      .st .n { font-size: 22px; color: #8ea196; }
+      .st .t { font-size: 29px; font-weight: 600; color: #edf2ee; margin-top: 8px; line-height: 1.2; }
+      .st .bar2 { position: absolute; left: 0; top: 2px; width: 4px; height: 78px; border-radius: 2px; background: #2fe58c; transform-origin: 50% 0; }
+
+      /* ---------- F6 end ---------- */
+      #end-lock { position: absolute; left: 0; top: 268px; width: 1920px; display: flex; justify-content: center; align-items: center; gap: 34px; }
+      #end-lock img { width: 196px; height: 126px; display: block; }
+      #wm1 { font-size: 112px; font-weight: 700; letter-spacing: -0.02em; line-height: 0.95; color: #edf2ee; }
+      #wm2 { font-size: 46px; font-weight: 500; color: #8ea196; margin-top: 8px; }
+      #cta-wrap { position: absolute; left: 0; top: 520px; width: 1920px; display: flex; justify-content: center; }
+      #cta {
+        display: flex; align-items: center; gap: 22px; padding: 0 58px; height: 112px; border-radius: 999px;
+        background: #2fe58c; color: #05130b; font-size: 52px; font-weight: 600; letter-spacing: -0.01em;
+      }
+      #end-url { position: absolute; left: 0; top: 688px; width: 1920px; text-align: center; font-size: 72px; font-weight: 600; letter-spacing: -0.02em; }
+      #end-sub { position: absolute; left: 0; top: 820px; width: 1920px; text-align: center; font-size: 26px; color: #8ea196; }
+      #end-sub .url { color: #d7e2da; text-transform: none; letter-spacing: 0.06em; }
+      .corner { position: absolute; top: 46px; font-size: 24px; color: #8ea196; white-space: nowrap; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="30" data-width="1920" data-height="1080">
+      <div id="glow" class="full"></div>
+      <svg id="grid" class="full" viewBox="0 0 1920 1080" data-layout-ignore></svg>
+
+      <!-- ======================= F1-F3: portfolio / market / connection ======================= -->
+      <div id="s13" class="clip full" data-start="0" data-duration="9.9" data-track-index="1">
+        <div id="world" class="full">
+          <div id="f1" class="frag"><span class="lbl"><i class="dot" style="background:#2fe58c"></i>Crypto assets</span><span class="val">45%</span></div>
+          <div id="f2" class="frag"><span class="lbl"><i class="dot" style="background:#1f8a57"></i>Stablecoins</span><span class="val">30%</span></div>
+          <div id="f3" class="frag"><span class="lbl"><i class="dot" style="background:#c99f3f"></i>DeFi positions</span><span class="val">25%</span></div>
+          <div id="f4" class="frag"><span class="stack"><span class="mono tag">DeFi · Lending</span><span class="lbl">Lending position</span></span></div>
+          <div id="f5" class="frag"><span class="stack"><span class="mono tag">DeFi · Liquidity</span><span class="lbl">Liquidity position</span></span></div>
+          <div id="f6" class="frag"><span class="lbl">Wallet 01</span><span class="mono tag">Holdings</span></div>
+          <div id="f7" class="frag"><span class="lbl">Wallet 02</span><span class="mono tag">Holdings</span></div>
+          <div id="f8" class="frag"><span class="minibar"><i style="width:45%;background:#2fe58c"></i><i style="width:30%;background:#1f8a57"></i><i style="width:25%;background:#c99f3f"></i></span></div>
+
+          <svg id="links" class="full" viewBox="0 0 1920 1080" data-layout-ignore>
+            <path id="sig" d="M 1152 -20 L 1152 204" stroke="#2fe58c" stroke-width="3" fill="none" />
+            <path class="lk" d="M 960 252 L 1152 252" stroke="#2fe58c" stroke-width="2.5" fill="none" />
+            <path class="lk" d="M 960 444 L 1152 444" stroke="#2fe58c" stroke-width="2.5" fill="none" />
+            <path class="lk" d="M 960 540 L 1056 540 L 1056 348 L 1152 348" stroke="#2fe58c" stroke-width="2.5" fill="none" />
+          </svg>
+
+          <div id="market">
+            <div class="head"><span class="mono" style="font-size:20px;color:#8ea196">Market</span><span class="badge"><i class="dot" style="background:#e8b84b"></i>Sideways market</span></div>
+            <div style="margin-top:34px;display:flex;flex-direction:column;gap:18px">
+              <div class="row mrow"><span class="k"><i class="dot" style="background:#8ea196"></i>Trend</span><b>Flat</b></div>
+              <div class="row mrow"><span class="k"><i class="dot" style="background:#e8b84b"></i>Volatility</span><b>Elevated</b></div>
+              <div class="row mrow"><span class="k"><i class="dot" style="background:#8ea196"></i>Momentum</span><b>Mixed</b></div>
+            </div>
+            <svg width="508" height="70" viewBox="0 0 508 70" style="margin-top:26px;display:block" data-layout-ignore>
+              <polyline id="trace" fill="none" stroke="#8ea196" stroke-width="2.5" stroke-linejoin="round"
+                points="0,38 30,30 52,46 80,22 104,44 128,28 150,50 178,24 204,40 230,20 256,48 282,30 306,42 334,18 360,46 386,32 410,44 436,26 462,40 488,34 508,36" />
+            </svg>
+          </div>
+        </div>
+
+        <div id="h1" class="hero-line"><span class="slot"><span class="w">Your</span></span> <span class="slot"><span class="w">portfolio.</span></span></div>
+        <div id="h2" class="hero-line"><span class="slot"><span class="w">The</span></span> <span class="slot"><span class="w">market.</span></span></div>
+        <div id="h3" class="hero-line"><span class="slot"><span class="w">A</span></span> <span class="slot"><span class="w">clearer</span></span> <span class="slot"><span class="w">next</span></span> <span class="slot"><span class="w">move<span id="hdot" class="g">.</span></span></span></div>
+
+        <svg id="shock" class="full" viewBox="0 0 1920 1080" data-layout-ignore>
+          <rect id="cell" x="912" y="218" width="96" height="96" fill="none" stroke="#2fe58c" stroke-width="2" />
+          <line id="shx" x1="0" y1="266" x2="1920" y2="266" stroke="#2fe58c" stroke-width="1.5" />
+          <line id="shy" x1="960" y1="0" x2="960" y2="1080" stroke="#2fe58c" stroke-width="1.5" />
+        </svg>
+        <div id="mark-wrap"><img src="assets/brand/matrix-mark.svg" alt="Matrix mark" /></div>
+      </div>
+
+      <!-- ======================= F4: product concept ======================= -->
+      <div id="s4" class="clip full" data-start="9.3" data-duration="10.233" data-track-index="2">
+        <div id="rail">
+          <svg id="rail-lines" class="abs" style="left:0;top:0;width:5600px;height:1080px;overflow:visible" viewBox="0 0 5600 1080" data-layout-ignore>
+            <path id="rl1" d="M 836 190 L 2676 190" stroke="rgba(237,242,238,0.22)" stroke-width="2" fill="none" />
+            <path id="rl2" d="M 2676 190 L 4516 190" stroke="rgba(237,242,238,0.22)" stroke-width="2" fill="none" />
+            <path id="cn1" stroke="#2fe58c" stroke-width="2.5" fill="none" />
+            <path id="cn2" stroke="#2fe58c" stroke-width="2.5" fill="none" />
+          </svg>
+          <div class="stepbox mono" id="sb1" style="left:760px">01</div>
+          <div class="stepbox mono" id="sb2" style="left:2600px">02</div>
+          <div class="stepbox mono" id="sb3" style="left:4440px">03</div>
+
+          <div class="panel" id="p1" style="left:760px">
+            <div class="ph"><h3>Illustrative portfolio</h3><span class="mono muted" style="font-size:22px">100%</span></div>
+            <div class="bar"><i id="b1" style="width:45%;background:#2fe58c"></i><i id="b2" style="width:30%;background:#1f8a57"></i><i id="b3" style="width:25%;background:#c99f3f"></i></div>
+            <div class="prow p1r"><span class="k"><i class="dot" style="background:#2fe58c"></i>Crypto assets</span><b>45%</b></div>
+            <div class="prow p1r"><span class="k"><i class="dot" style="background:#1f8a57"></i>Stablecoins</span><b>30%</b></div>
+            <div class="prow p1r" id="p1defi"><span class="k"><i class="dot" style="background:#c99f3f"></i>DeFi positions</span><b>25%</b></div>
+            <div class="note p1r">DeFi · Lending and liquidity positions</div>
+            <div class="check p1r"><span class="ck">✓</span><span>Most of your exposure moves with the crypto market.</span></div>
+          </div>
+
+          <div class="panel" id="p2" style="left:2600px">
+            <div class="ph"><h3>Market analyzer</h3><span class="badge" id="p2badge"><i class="dot" style="background:#e8b84b"></i>Sideways market</span></div>
+            <div class="prow p2r"><span class="k"><i class="dot" style="background:#8ea196"></i>Trend</span><b>Flat</b></div>
+            <div class="prow p2r"><span class="k"><i class="dot" style="background:#e8b84b"></i>Volatility</span><b>Elevated</b></div>
+            <div class="prow p2r"><span class="k"><i class="dot" style="background:#8ea196"></i>Momentum</span><b>Mixed</b></div>
+            <div class="note p2r" style="padding-left:0;margin-top:22px">Direction is unclear. Price swings remain elevated.</div>
+            <div class="greenbox p2r" id="p2box">Your portfolio in this environment: concentrated exposure may amplify market swings.</div>
+          </div>
+
+          <div class="panel" id="p3" style="left:4440px">
+            <div class="ph"><h3>Strategies to explore</h3></div>
+            <div class="strat" id="p3card">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:44px;font-weight:600;color:#edf2ee">Capital preservation</span>
+                <svg width="34" height="34" viewBox="0 0 24 24" data-layout-ignore><path d="M12 2 L13.8 10.2 L22 12 L13.8 13.8 L12 22 L10.2 13.8 L2 12 L10.2 10.2 Z" fill="none" stroke="#2fe58c" stroke-width="1.6" /></svg>
+              </div>
+              <div class="chips"><span class="chip p3c">Your exposure</span><span class="chip p3c">Market conditions</span><span class="chip p3c">Risk tradeoffs</span></div>
+              <div class="why p3r" id="p3why"><b>Why it’s surfaced:</b> Surfaced because your portfolio is concentrated and the illustrative market environment is volatile and directionless.</div>
+            </div>
+            <div class="check p3r"><span class="ck">✓</span><span>Explore how a more defensive allocation could change your exposure.</span></div>
+          </div>
+        </div>
+
+        <div class="callout-step mono" id="cs">01 / 03 · Portfolio</div>
+        <div class="callout" id="c1"><span class="slot"><span class="w">Understand</span></span> <span class="slot"><span class="w">your</span></span> <span class="slot"><span class="w">portfolio.</span></span></div>
+        <div class="callout" id="c2"><span class="slot"><span class="w">Read</span></span> <span class="slot"><span class="w">the</span></span> <span class="slot"><span class="w">market.</span></span></div>
+        <div class="callout" id="c3"><span class="slot"><span class="w">Explore</span></span> <span class="slot"><span class="w">what</span></span> <span class="slot"><span class="w">fits.</span></span></div>
+
+        <div id="concept-label" class="mono"><i class="dot" id="cl-dot"></i><span>Product concept · In development</span></div>
+        <div id="concept-illus" class="mono">Illustrative data</div>
+      </div>
+
+      <!-- ======================= F5: live Strategy Archive ======================= -->
+      <div id="s5" class="clip full" data-start="19.5" data-duration="6.3" data-track-index="3">
+        <div id="arc-head"><span class="slot"><span class="w">Explore</span></span> <span class="slot"><span class="w">the</span></span> <span class="slot"><span class="w">Strategy</span></span> <span class="slot"><span class="w">Archive</span></span> <span class="slot"><span class="w">now.</span></span></div>
+        <div id="arc-sub" class="mono"><span class="live"><i class="dot" style="background:#2fe58c"></i>Live site</span><span class="url">strategies.matrix.finance</span><span>· captured 7 Oct 2026</span></div>
+        <div id="steps">
+          <div class="st"><i class="bar2"></i><div class="n mono">01 · Archive</div><div class="t">Enter the Archive</div></div>
+          <div class="st"><i class="bar2"></i><div class="n mono">02 · Market</div><div class="t">Sideways</div></div>
+          <div class="st"><i class="bar2"></i><div class="n mono">03 · Results</div><div class="t">Capital preservation</div></div>
+          <div class="st"><i class="bar2"></i><div class="n mono">04 · Record</div><div class="t">Stablecoin Yield Rotation</div></div>
+        </div>
+        <div id="win">
+          <div id="win-bar"><i></i><i></i><i></i><span id="win-url" class="mono">strategies.matrix.finance</span></div>
+          <div id="win-view">
+            <div class="shot" id="sh1"><img src="assets/archive/arc-1-home.png" alt="Strategy Archive home (live capture)" /></div>
+            <div class="shot" id="sh2"><img src="assets/archive/arc-2-market.png" alt="Archive market step (live capture)" /></div>
+            <div class="shot" id="sh3"><img src="assets/archive/arc-6-results.png" alt="Archive results (live capture)" /></div>
+            <div class="shot" id="sh4"><img src="assets/archive/arc-7-record-top.png" alt="Strategy record (live capture)" /></div>
+            <div class="shot" id="sh5"><img src="assets/archive/arc-8-record-risk.png" alt="Strategy record risk section (live capture)" /></div>
+            <div id="ripple"></div>
+            <svg id="cursor" viewBox="0 0 34 40" data-layout-ignore><path d="M3 2 L3 32 L11 25 L16.5 37 L22 34.5 L16.5 23 L27 23 Z" fill="#edf2ee" stroke="#070a09" stroke-width="2.2" stroke-linejoin="round" /></svg>
+          </div>
+        </div>
+        <svg id="win-frame" class="full" viewBox="0 0 1920 1080" data-layout-ignore><rect id="wf" x="0" y="0" width="0" height="0" rx="14" fill="none" stroke="rgba(237,242,238,0.18)" stroke-width="2" /></svg>
+      </div>
+
+      <!-- ======================= F6: end card ======================= -->
+      <div id="s6" class="clip full" data-start="25.3" data-duration="4.7" data-track-index="4">
+        <svg id="end-cell" class="full" viewBox="0 0 1920 1080" data-layout-ignore>
+          <rect id="ecell" x="912" y="290" width="96" height="96" fill="none" stroke="#2fe58c" stroke-width="2.5" />
+        </svg>
+        <div class="corner mono" style="left:64px">Matrix.Finance — pre-launch</div>
+        <div class="corner mono" style="right:64px;color:#2fe58c">● Waitlist open</div>
+        <div id="end-lock">
+          <img id="end-mark" src="assets/brand/matrix-mark.svg" alt="Matrix mark" />
+          <div id="end-wm"><div id="wm1">Matrix<span class="g">.</span></div><div id="wm2">Finance</div></div>
+        </div>
+        <div id="cta-wrap"><div id="cta"><span>Join the waitlist</span><svg width="44" height="44" viewBox="0 0 24 24" data-layout-ignore><path d="M4 12 H19 M13 6 L19 12 L13 18" fill="none" stroke="#05130b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg></div></div>
+        <div id="end-url">matrix.finance</div>
+        <div id="end-sub" class="mono">Strategy Archive live now · <span class="url">strategies.matrix.finance</span></div>
+      </div>
+
+      <audio id="music" src="assets/audio/music.wav" data-start="0" data-duration="30" data-track-index="10" data-volume="0.7"></audio>
+      <audio id="sfx" src="assets/audio/sfx.wav" data-start="0" data-duration="30" data-track-index="11" data-volume="0.8"></audio>
+    </div>
+
+    <script>
+      (function () {
+        var $ = function (s) { return document.querySelector(s); };
+        var $$ = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
+        var NS = "http://www.w3.org/2000/svg";
+
+        // ---------------- grid (96 px cells, rows offset 12 px) + registration marks
+        var grid = $("#grid");
+        var gl = [];
+        for (var x = 0; x <= 1920; x += 96) { var l = document.createElementNS(NS, "line"); l.setAttribute("x1", x); l.setAttribute("x2", x); l.setAttribute("y1", 0); l.setAttribute("y2", 1080); l.setAttribute("pathLength", 1); grid.appendChild(l); gl.push(l); }
+        for (var y = 12; y <= 1080; y += 96) { var h = document.createElementNS(NS, "line"); h.setAttribute("x1", 0); h.setAttribute("x2", 1920); h.setAttribute("y1", y); h.setAttribute("y2", y); h.setAttribute("pathLength", 1); grid.appendChild(h); gl.push(h); }
+        var regs = [[192, 108], [1728, 108], [192, 972], [1728, 972]];
+        regs.forEach(function (p) {
+          var g = document.createElementNS(NS, "path");
+          g.setAttribute("d", "M" + (p[0] - 12) + " " + p[1] + " H" + (p[0] + 12) + " M" + p[0] + " " + (p[1] - 12) + " V" + (p[1] + 12));
+          g.setAttribute("class", "reg"); grid.appendChild(g);
+        });
+
+        // ---------------- fragments: grid targets (snap) and scattered offsets (seeded, hand-placed)
+        var FR = [
+          // id, grid target x, y | scattered absolute x, y, rot, scale | drift dx, dy | open time
+          ["#f1", 192, 204,  140, 150, -6, 1.08,  18, -10, 0.30],
+          ["#f2", 576, 204,  700, 100,  5, 0.86, -12,   8, 0.80],
+          ["#f3", 192, 300,  380, 330, -3, 1.12,  10,  12, 0.55],
+          ["#f4", 576, 300,  850, 280,  7, 0.84, -16,  -6, 1.05],
+          ["#f5", 192, 396,   80, 520,  4, 0.95,  14,  -8, 1.30],
+          ["#f6", 576, 396,  540, 545, -5, 0.80,  -8,  14, 1.55],
+          ["#f7", 192, 492,  830, 455,  3, 0.88, -14, -12, 1.80],
+          ["#f8", 576, 492,  300, 660, -8, 1.02,  12,   6, 0.05]
+        ];
+        FR.forEach(function (f) { f[3] = f[3] - f[1]; f[4] = f[4] - f[2]; });
+        FR.forEach(function (f) { var el = $(f[0]); el.style.left = f[1] + "px"; el.style.top = f[2] + "px"; });
+
+        // hero line positions
+        var h1 = $("#h1"), h2 = $("#h2"), h3 = $("#h3");
+        h1.style.left = "128px"; h1.style.top = "800px";
+        h3.style.top = "640px";
+
+        $$(".slot, .w, #rail, .panel, .stepbox, #cs, #concept-label").forEach(function (e) { e.setAttribute("data-layout-allow-overflow", ""); });
+        function build() {
+          var w2 = h2.getBoundingClientRect().width, w1 = h1.getBoundingClientRect().width, w3 = h3.getBoundingClientRect().width;
+          h2.style.left = (1792 - w2) + "px"; h2.style.top = "800px";
+          h3.style.left = Math.round((1920 - w3) / 2) + "px";
+          // stacked hero targets (site hero: three centred lines)
+          var T1 = { x: Math.round((1920 - w1) / 2) - 128, y: 404 - 800 };
+          var T2 = { x: Math.round((1920 - w2) / 2) - (1792 - w2), y: 522 - 800 };
+
+          // concept connection paths (rail space)
+          var s4 = $("#s4"), s4d = s4.style.display, s4v = s4.style.visibility, s4o = s4.style.opacity;
+          s4.style.display = "block"; s4.style.visibility = "visible"; s4.style.opacity = "1";
+          var rail = $("#rail").getBoundingClientRect();
+          function rr(sel) { var r = $(sel).getBoundingClientRect(); return { x: r.left - rail.left, y: r.top - rail.top, w: r.width, h: r.height }; }
+          var a = rr("#p1defi"), b = rr("#p2box"), c = rr("#p2box"), d = rr("#p3why");
+          var ax = a.x + a.w + 46, ay = a.y + a.h / 2, bx = b.x - 46, by = b.y + b.h / 2;
+          $("#cn1").setAttribute("d", "M " + (a.x + a.w) + " " + ay + " L " + ax + " " + ay + " L " + ax + " " + Math.round((ay + by) / 2) + " L " + bx + " " + Math.round((ay + by) / 2) + " L " + bx + " " + by + " L " + b.x + " " + by);
+          var cx = c.x + c.w + 46, cy = c.y + c.h / 2, dx2 = d.x - 78, dy2 = d.y + d.h / 2;
+          $("#cn2").setAttribute("d", "M " + (c.x + c.w) + " " + cy + " L " + cx + " " + cy + " L " + cx + " " + Math.round((cy + dy2) / 2) + " L " + dx2 + " " + Math.round((cy + dy2) / 2) + " L " + dx2 + " " + dy2 + " L " + (d.x - 32) + " " + dy2);
+          ["#cn1", "#cn2", "#rl1", "#rl2", "#sig"].forEach(function (s) { var p = $(s), L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; });
+          $$(".lk").forEach(function (p) { var L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; });
+          var tr = $("#trace"), TL = tr.getTotalLength(); tr.style.strokeDasharray = TL; tr.style.strokeDashoffset = TL;
+
+          // capital preservation card → browser window (match cut geometry)
+          var card = rr("#p3card");
+          s4.style.display = s4d; s4.style.visibility = s4v; s4.style.opacity = s4o;
+          var s6 = $("#s6"), s6d = s6.style.display, s6v = s6.style.visibility, s6o = s6.style.opacity;
+          s6.style.display = "block"; s6.style.visibility = "visible"; s6.style.opacity = "1";
+          var mr = $("#end-mark").getBoundingClientRect(), MC = { x: mr.left + mr.width / 2, y: mr.top + mr.height / 2 };
+          s6.style.display = s6d; s6.style.visibility = s6v; s6.style.opacity = s6o;
+          var WIN0 = { x: 528, y: 232, w: 1328, h: 787 };   // nav window (40 px bar + 747 px view)
+          var WIN1 = { x: 64, y: 236, w: 1792, h: 800 };    // close-up window
+          var kCard = 1.75, railX = -3680;
+          var cardCx = card.x + railX + card.w / 2, cardCy = card.y + card.h / 2;
+
+          var tl = gsap.timeline({ paused: true });
+          var T = function (sel, from, to, at) { tl.fromTo(sel, from, to, at); };
+
+          // ============ F1 0-3: grid draws, fragments open off-grid ============
+          gl.forEach(function (l, i) {
+            var k = i < 21 ? Math.abs(i - 10) : Math.abs(i - 21 - 5.5);
+            T(l, { attr: { "stroke-dasharray": "1 1", "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.7, ease: "power2.out" }, 0.02 * k);
+          });
+          tl.fromTo("#world", { scale: 1, transformOrigin: "50% 45%" }, { scale: 1.035, duration: 6, ease: "none" }, 0);
+          FR.forEach(function (f) {
+            T(f[0], { x: f[3], y: f[4], rotation: f[5], scale: f[6] }, { x: f[3] + f[7], y: f[4] + f[8], rotation: f[5] * 0.6, scale: f[6], duration: 6, ease: "none" }, 0);
+            T(f[0], { clipPath: "inset(0% 100% 100% 0% round 10px)" }, { clipPath: "inset(0% 0% 0% 0% round 10px)", duration: 0.45, ease: "expo.out" }, f[9]);
+          });
+          T("#h1 .w", { yPercent: 115 }, { yPercent: 0, duration: 0.6, ease: "expo.out", stagger: 0.08 }, 0.7);
+          // F2 3-6: signal line drops, market module opens elsewhere
+          tl.to("#world", { x: -40, duration: 3, ease: "sine.inOut" }, 3.0);
+          tl.to("#sig", { strokeDashoffset: 0, duration: 0.3, ease: "power3.in" }, 2.95);
+          T("#market", { x: 70, y: 46, rotation: 3.5, clipPath: "inset(0% 0% 100% 0% round 12px)" }, { clipPath: "inset(0% 0% 0% 0% round 12px)", duration: 0.55, ease: "expo.out" }, 3.25);
+          tl.to("#market", { x: 52, y: 30, rotation: 2.4, duration: 2.75, ease: "none" }, 3.25);
+          T(".mrow", { xPercent: -6, clipPath: "inset(0% 100% 0% 0%)" }, { xPercent: 0, clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power3.out", stagger: 0.12 }, 3.55);
+          tl.to("#trace", { strokeDashoffset: 0, duration: 1.4, ease: "power1.inOut" }, 3.7);
+          T("#h2 .w", { yPercent: 115 }, { yPercent: 0, duration: 0.6, ease: "expo.out", stagger: 0.08 }, 3.6);
+
+          // ============ F3 6-9.5: accelerate, snap, connect, converge, MARK ============
+          FR.forEach(function (f, i) {
+            tl.to(f[0], { x: 0, y: 0, rotation: 0, scale: 1, duration: 0.75, ease: "power4.in" }, 6.0 + i * 0.01);
+          });
+          tl.to("#world", { x: 0, scale: 1, duration: 0.75, ease: "power3.in" }, 6.0);
+          tl.to("#market", { x: 0, y: 0, rotation: 0, duration: 0.75, ease: "power4.in" }, 6.0);
+          tl.to("#sig", { opacity: 0, duration: 0.1 }, 6.0);
+          T(".frag, #market", { borderColor: "rgba(47,229,140,0.75)" }, { borderColor: "rgba(237,242,238,0.11)", duration: 0.5, ease: "power2.out" }, 6.75);
+          tl.to(".lk", { strokeDashoffset: 0, duration: 0.3, ease: "power2.out", stagger: 0.06 }, 6.8);
+          // converge into one cell (riser) → the mark at 7.5
+          FR.forEach(function (f) {
+            var cxF = f[1] + 192, cyF = f[2] + 48;
+            tl.to(f[0], { x: 960 - cxF, y: 266 - cyF, scale: 0.12, duration: 0.42, ease: "power3.in" }, 7.06);
+          });
+          tl.to("#market", { x: 960 - 1440, y: 266 - 396, scale: 0.12, duration: 0.42, ease: "power3.in" }, 7.06);
+          tl.to("#links", { opacity: 0, duration: 0.2 }, 7.1);
+          tl.set(".frag, #market", { opacity: 0 }, 7.48);
+          T("#mark-wrap", { scale: 1.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "expo.out" }, 7.5);
+          tl.set("#cell, #shx, #shy", { opacity: 0 }, 0);
+          T("#cell", { attr: { x: 912, y: 218, width: 96, height: 96 }, opacity: 1 }, { attr: { x: 360, y: -334, width: 1200, height: 1200 }, opacity: 0, duration: 0.7, ease: "expo.out" }, 7.5);
+          T("#shx", { opacity: 0.9, attr: { "stroke-width": 3 } }, { opacity: 0, attr: { "stroke-width": 1 }, duration: 0.6, ease: "power2.out" }, 7.5);
+          T("#shy", { opacity: 0.9, attr: { "stroke-width": 3 } }, { opacity: 0, attr: { "stroke-width": 1 }, duration: 0.6, ease: "power2.out" }, 7.5);
+          // the two phrases fly into the site's hero stack, the new line opens
+          tl.to("#h1", { x: T1.x, y: T1.y, duration: 0.5, ease: "expo.out" }, 7.55);
+          tl.to("#h2", { x: T2.x, y: T2.y, duration: 0.5, ease: "expo.out" }, 7.6);
+          T("#h3 .w", { yPercent: 115 }, { yPercent: 0, duration: 0.5, ease: "expo.out", stagger: 0.06 }, 7.68);
+          // exit 9.25-9.75: camera rides down the grid; the green period flies to the concept label
+          tl.to("#h1, #h2, #h3, #mark-wrap", { y: "-=760", duration: 0.35, ease: "power3.in" }, 9.2);
+
+          // ============ F4 9.5-19.5: product concept rail ============
+          var railMoves = [[12.65, -1840], [16.15, -3680]];
+          T("#rail", { x: 0, y: 1000, scale: 1, transformOrigin: "0px 0px" }, { y: 0, duration: 0.6, ease: "expo.out" }, 9.55);
+          T("#concept-label", { clipPath: "inset(0% 100% 0% 0% round 999px)" }, { clipPath: "inset(0% 0% 0% 0% round 999px)", duration: 0.5, ease: "expo.out" }, 9.5);
+          T("#cl-dot", { scale: 3 }, { scale: 1, duration: 0.5, ease: "back.out(2)" }, 9.55);
+          T("#concept-illus", { clipPath: "inset(0% 0% 0% 100%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "expo.out" }, 9.7);
+          T("#cs", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power3.out" }, 9.9);
+          tl.set("#c2, #c3", { visibility: "hidden" }, 0);
+          tl.set("#c1", { visibility: "hidden" }, 13.0);
+          tl.set("#c2", { visibility: "visible" }, 13.0);
+          tl.set("#c2", { visibility: "hidden" }, 16.5);
+          tl.set("#c3", { visibility: "visible" }, 16.5);
+          T("#c1 .w", { yPercent: 115 }, { yPercent: 0, duration: 0.6, ease: "expo.out", stagger: 0.08 }, 9.9);
+          T("#b1, #b2, #b3", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "expo.out", stagger: 0.18 }, 10.2);
+          T(".p1r", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power3.out", stagger: 0.16 }, 10.6);
+          // 01 → 02
+          tl.to("#rail", { x: railMoves[0][1], duration: 0.7, ease: "power3.inOut" }, railMoves[0][0]);
+          tl.to("#rl1", { strokeDashoffset: 0, duration: 0.7, ease: "power3.inOut" }, railMoves[0][0]);
+          tl.to("#c1 .w", { yPercent: -115, duration: 0.3, ease: "power3.in", stagger: 0.03 }, 12.3);
+          tl.to("#cs", { clipPath: "inset(0% 100% 0% 0%)", duration: 0.25, ease: "power3.in" }, 12.3);
+          tl.set("#cs", { textContent: "02 / 03 · Market" }, 12.9);
+          tl.to("#cs", { clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power3.out" }, 13.05);
+          T("#c2 .w", { yPercent: 115 }, { yPercent: 0, duration: 0.6, ease: "expo.out", stagger: 0.08 }, 13.05);
+          T("#p2badge", { scale: 0.6, clipPath: "inset(0% 50% 0% 50% round 999px)" }, { scale: 1, clipPath: "inset(0% 0% 0% 0% round 999px)", duration: 0.5, ease: "back.out(2)" }, 13.3);
+          T(".p2r", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power3.out", stagger: 0.16 }, 13.5);
+          tl.to("#sb2", { borderColor: "rgba(47,229,140,0.6)", color: "#2fe58c", duration: 0.2 }, 13.0);
+          // 02 → 03
+          tl.to("#rail", { x: railMoves[1][1], duration: 0.7, ease: "power3.inOut" }, railMoves[1][0]);
+          tl.to("#rl2", { strokeDashoffset: 0, duration: 0.7, ease: "power3.inOut" }, railMoves[1][0]);
+          tl.to("#c2 .w", { yPercent: -115, duration: 0.3, ease: "power3.in", stagger: 0.03 }, 15.8);
+          tl.to("#cs", { clipPath: "inset(0% 100% 0% 0%)", duration: 0.25, ease: "power3.in" }, 15.8);
+          tl.set("#cs", { textContent: "03 / 03 · Strategy discovery" }, 16.4);
+          tl.to("#cs", { clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power3.out" }, 16.55);
+          T("#c3 .w", { yPercent: 115 }, { yPercent: 0, duration: 0.6, ease: "expo.out", stagger: 0.08 }, 16.55);
+          T("#p3card", { clipPath: "inset(0% 0% 100% 0% round 12px)" }, { clipPath: "inset(0% 0% 0% 0% round 12px)", duration: 0.55, ease: "expo.out" }, 16.75);
+          T(".p3c", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)", stagger: 0.08 }, 17.1);
+          T(".p3r", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out", stagger: 0.2 }, 17.35);
+          tl.to("#sb3", { borderColor: "rgba(47,229,140,0.6)", color: "#2fe58c", duration: 0.2 }, 16.5);
+          // push into the card (match cut source)
+          var lcx = card.x + card.w / 2, lcy = card.y + card.h / 2;
+          tl.to("#rail", { scale: kCard, x: 960 - kCard * lcx, y: 540 - kCard * lcy, duration: 0.45, ease: "power3.in" }, 19.05);
+          tl.to("#c3 .w, #cs", { yPercent: -115, duration: 0.3, ease: "power3.in" }, 19.05);
+
+          // ============ F5 19.5-25.5: live Strategy Archive ============
+          var S = WIN0.w / 1920; // screenshot scale inside the nav window
+          // window grows out of the card's on-screen rect
+          var cardW = card.w * kCard, cardH = card.h * kCard;
+          // the window is a clip rect + transforms driven by one proxy (sub-pixel, seek-safe)
+          var W = { x: 960 - cardW / 2, y: 540 - cardH / 2, w: cardW, h: cardH, g: 1, r: 14, s: cardW / WIN0.w };
+          var winEl = $("#win"), barEl = $("#win-bar"), viewEl = $("#win-view"), wf = $("#wf");
+          function applyWin() {
+            winEl.style.clipPath = "inset(" + W.y.toFixed(2) + "px " + (1920 - W.x - W.w).toFixed(2) + "px " + (1080 - W.y - W.h).toFixed(2) + "px " + W.x.toFixed(2) + "px round " + W.r.toFixed(1) + "px)";
+            barEl.style.transform = "translate(" + W.x.toFixed(2) + "px," + W.y.toFixed(2) + "px)";
+            viewEl.style.transform = "translate(" + W.x.toFixed(2) + "px," + (W.y + 40 * W.s).toFixed(2) + "px) scale(" + W.s.toFixed(4) + ")";
+            viewEl.style.transformOrigin = "0 0";
+            wf.setAttribute("x", W.x.toFixed(2)); wf.setAttribute("y", W.y.toFixed(2));
+            wf.setAttribute("width", Math.max(0, W.w).toFixed(2)); wf.setAttribute("height", Math.max(0, W.h).toFixed(2));
+            wf.setAttribute("rx", W.r.toFixed(1));
+            wf.setAttribute("stroke", W.g > 0.01 ? "rgba(47,229,140," + (0.18 + 0.7 * W.g).toFixed(3) + ")" : "rgba(237,242,238,0.18)");
+          }
+          applyWin();
+          T(W, { x: 960 - cardW / 2, y: 540 - cardH / 2, w: cardW, h: cardH, g: 1, s: cardW / WIN0.w }, { x: WIN0.x, y: WIN0.y, w: WIN0.w, h: WIN0.h, g: 0, s: 1, duration: 0.5, ease: "expo.out", onUpdate: applyWin }, 19.5);
+          $$(".shot").forEach(function (s) { gsap.set(s, { scale: S }); });
+          T("#arc-head .w", { yPercent: 115 }, { yPercent: 0, duration: 0.6, ease: "expo.out", stagger: 0.06 }, 19.7);
+          T("#arc-sub", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out" }, 20.0);
+          T(".st", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power3.out", stagger: 0.08 }, 19.9);
+          T(".st .bar2", { scaleY: 0 }, { scaleY: 0, duration: 0.01 }, 19.5);
+
+          // screen visibility (hard cuts on the real clicks)
+          var SH = [["#sh1", 19.45, 20.55], ["#sh2", 20.55, 21.65], ["#sh3", 21.65, 22.75], ["#sh4", 22.75, 23.5], ["#sh5", 23.5, 26.0]];
+          SH.forEach(function (s) { T(s[0], { visibility: "hidden" }, { visibility: "visible", duration: 0.01 }, s[1]); tl.set(s[0], { visibility: "hidden" }, s[2]); });
+          tl.set(SH.map(function (s) { return s[0]; }).join(","), { visibility: "hidden" }, 0);
+          // gentle pushes toward each click target (scale about the target keeps it fixed)
+          function push(sel, cx, cy, t0, t1) { T(sel, { scale: S, x: 0, y: 0 }, { scale: S * 1.05, x: -cx * S * 0.05, y: -cy * S * 0.05, duration: t1 - t0, ease: "none" }, t0); return function (px, py) { return { x: px * S * 1.05 - cx * S * 0.05, y: py * S * 1.05 - cy * S * 0.05 }; }; }
+          var CL = [ // click targets in page CSS px, from assets/archive/archive-capture-log.json
+            { x: 394, y: 809, t: 20.5, sh: "#sh1", t0: 19.5, t1: 20.55 },
+            { x: 600, y: 570, t: 21.6, sh: "#sh2", t0: 20.55, t1: 21.65 },
+            { x: 409, y: 816, t: 22.7, sh: "#sh3", t0: 21.65, t1: 22.75 }
+          ];
+          var prev = { x: 1180, y: 760 };
+          CL.forEach(function (c, i) {
+            var mapAt = push(c.sh, c.x, c.y, c.t0, c.t1);
+            var p = mapAt(c.x, c.y);
+            var from = i === 0 ? { x: 1240, y: 900 } : prev;
+            T("#cursor", { x: from.x, y: from.y }, { x: p.x, y: p.y, duration: Math.min(0.75, c.t - c.t0 - 0.1), ease: "power3.inOut" }, c.t - Math.min(0.75, c.t - c.t0 - 0.1) - 0.08);
+            tl.to("#cursor", { scale: 0.82, duration: 0.06, ease: "power2.in", transformOrigin: "3px 2px" }, c.t - 0.03);
+            tl.to("#cursor", { scale: 1, duration: 0.18, ease: "back.out(3)" }, c.t + 0.04);
+            T("#ripple", { x: p.x, y: p.y, scale: 0.3, opacity: 1 }, { scale: 1.4, opacity: 0, duration: 0.45, ease: "power2.out" }, c.t);
+            tl.to(".st:nth-child(" + (i + 1) + ") .bar2", { scaleY: 1, duration: 0.3, ease: "expo.out" }, c.t);
+            prev = p;
+          });
+          tl.set("#cursor", { opacity: 0 }, 0);
+          tl.set("#cursor", { opacity: 1 }, 19.85);
+          tl.set("#cursor, #ripple", { opacity: 0 }, 22.85);
+          tl.to(".st:nth-child(4) .bar2", { scaleY: 1, duration: 0.3, ease: "expo.out" }, 22.8);
+          // record: title, then a real scroll down to the Risk section
+          T("#sh4", { scale: S, x: 0, y: 0 }, { scale: S * 1.04, x: -60 * S, y: -20 * S, duration: 0.35, ease: "none" }, 22.75);
+          tl.to("#sh4", { y: -747, duration: 0.45, ease: "power3.in" }, 23.1);
+          // close-up of the Risk panel (page CSS region x 580-1550, y 100-520)
+          var RX = 580, RY = 98, RW = 970, RH = 424;
+          var kz = Math.min(WIN1.w / RW, (WIN1.h - 40) / RH);
+          var zx = (WIN1.w - RW * kz) / 2 - RX * kz, zy = (WIN1.h - 40 - RH * kz) / 2 - RY * kz;
+          T("#sh5", { scale: S, x: 0, y: 747 }, { y: 0, duration: 0.45, ease: "expo.out" }, 23.5);
+          tl.to(W, { x: WIN1.x, y: WIN1.y, w: WIN1.w, h: WIN1.h, duration: 0.6, ease: "expo.inOut", onUpdate: applyWin }, 23.75);
+          tl.to("#sh5", { scale: kz, x: zx, y: zy, duration: 0.6, ease: "expo.inOut" }, 23.75);
+          tl.to("#steps", { x: -520, duration: 0.5, ease: "power3.in" }, 23.7);
+          tl.to("#sh5", { scale: kz * 1.025, x: zx - RW * kz * 0.0125, y: zy - RH * kz * 0.0125, duration: 1.15, ease: "none" }, 24.35);
+          // collapse into one grid cell → end card
+          tl.to(W, { x: MC.x - 48, y: MC.y - 48, w: 96, h: 96, r: 2, g: 1, s: 96 / WIN1.w, duration: 0.45, ease: "power4.in", onUpdate: applyWin }, 25.1);
+          tl.to("#arc-head .w", { yPercent: -115, duration: 0.35, ease: "power3.in", stagger: 0.03 }, 25.1);
+          tl.to("#arc-sub", { clipPath: "inset(0% 0% 0% 100%)", duration: 0.35, ease: "power3.in" }, 25.1);
+
+          // ============ F6 25.5-30: end card ============
+          tl.set("#ecell", { opacity: 0 }, 0);
+          T("#ecell", { opacity: 1, attr: { x: MC.x - 48, y: MC.y - 48, width: 96, height: 96 } }, { opacity: 0, attr: { x: MC.x - 320, y: MC.y - 320, width: 640, height: 640 }, duration: 0.6, ease: "expo.out", immediateRender: false }, 25.55);
+          T("#end-mark", { scale: 0.45, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.55, ease: "expo.out" }, 25.55);
+          T("#end-wm", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.55, ease: "expo.out" }, 25.65);
+          T("#cta", { clipPath: "inset(0% 50% 0% 50% round 999px)", scale: 0.9 }, { clipPath: "inset(0% 0% 0% 0% round 999px)", scale: 1, duration: 0.5, ease: "expo.out" }, 25.9);
+          T("#end-url", { clipPath: "inset(0% 0% 100% 0%)", y: 24 }, { clipPath: "inset(0% 0% 0% 0%)", y: 0, duration: 0.45, ease: "expo.out" }, 26.05);
+          T("#end-sub", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out" }, 26.2);
+          T(".corner", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out" }, 26.1);
+          // the grid is the camera's floor: it travels with every move, wrapped to its 96 px period
+          var wrap = function (v) { v = parseFloat(v); return (((v % 96) + 96) % 96) - 96 + "px"; };
+          tl.to(".reg", { opacity: 0, duration: 0.3 }, 9.2);
+          T("#grid", { y: 0 }, { y: -760, duration: 0.35, ease: "power3.in", modifiers: { y: wrap } }, 9.2);
+          T("#grid", { y: 760 }, { y: 0, duration: 0.6, ease: "expo.out", immediateRender: false, modifiers: { y: wrap } }, 9.55);
+          T("#grid", { x: 0 }, { x: -1840, duration: 0.7, ease: "power3.inOut", immediateRender: false, modifiers: { x: wrap } }, railMoves[0][0]);
+          T("#grid", { x: -1840 }, { x: -3680, duration: 0.7, ease: "power3.inOut", immediateRender: false, modifiers: { x: wrap } }, railMoves[1][0]);
+          T("#grid", { scale: 1 }, { scale: kCard, transformOrigin: "50% 50%", duration: 0.45, ease: "power3.in", immediateRender: false }, 19.05);
+          tl.set("#grid", { scale: 1, x: 0, y: 0 }, 19.5);
+          tl.to("#grid", { opacity: 0.6, duration: 0.3 }, 19.5);
+          tl.to("#grid", { opacity: 1, duration: 0.6 }, 25.5);
+
+          tl.to({}, { duration: 30 }, 0);
+          window.__timelines["main"] = tl;
+        }
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(build); else build();
+      })();
+    </script>
+  </body>
+</html>

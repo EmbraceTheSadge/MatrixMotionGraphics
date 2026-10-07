@@ -1,0 +1,21 @@
+// Re-verifies every on-screen fact against the live sites. Usage: npm i playwright && node verify-facts.mjs
+import { chromium } from 'playwright';
+const b = await chromium.launch({ proxy: { server: process.env.HTTPS_PROXY } });
+const p = await b.newPage({ viewport: { width: 1920, height: 1080 } });
+const checks = [];
+const has = (txt, s) => checks.push([s, txt.includes(s)]);
+await p.goto('https://matrix.finance/', { waitUntil: 'networkidle', timeout: 60000 }); await p.waitForTimeout(2000);
+let t = await p.evaluate(()=>document.body.innerText);
+for (const s of ['Waitlist open','Currently in development','Your portfolio.','The market.','A clearer next move.','Product concept · Illustrative data','Illustrative portfolio','Crypto assets','45%','Stablecoins','30%','DeFi positions','25%','Market analyzer','Sideways market','Elevated','Capital preservation','Why it’s surfaced','Join the waitlist','All capabilities above are planned and in development, not yet available.','Strategy Archive · Live today']) has(t, s);
+await p.goto('https://strategies.matrix.finance/?view=strategy&slug=stablecoin-yield-rotation', { waitUntil: 'networkidle', timeout: 60000 }); await p.waitForTimeout(6000);
+t = await p.evaluate(()=>document.body.innerText);
+for (const s of ['Stablecoin Yield Rotation','STRATEGY_011','Liquidation exposure','Incentive reliance','MEDIUM','Smart contract risk']) has(t, s);
+await p.goto('https://strategies.matrix.finance/?view=results&market=sideways&phase=high-volatility-chop&objective=capital-preservation', { waitUntil: 'networkidle', timeout: 60000 }); await p.waitForTimeout(3000);
+t = await p.evaluate(()=>document.body.innerText);
+for (const s of ['4 records retrieved.','OPEN RECORD']) has(t, s);
+await p.goto('https://strategies.matrix.finance/?view=explore&step=market', { waitUntil: 'networkidle', timeout: 60000 }); await p.waitForTimeout(2000);
+t = await p.evaluate(()=>document.body.innerText);
+for (const s of ['Which market are you exploring?','Sideways']) has(t, s);
+console.log(new Date().toISOString());
+for (const [s, ok] of checks) console.log(ok ? 'OK ' : 'MISSING', s);
+await b.close();

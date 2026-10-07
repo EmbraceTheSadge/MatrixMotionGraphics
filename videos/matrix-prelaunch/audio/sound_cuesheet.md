@@ -2,62 +2,39 @@
 
 | time (s) | event |
 |---|---|
-| 1.02 | glass tab 1 opens |
-| 1.85 | whoosh · tab 1 joins the orbit |
-| 2.02 | glass tab 2 opens |
-| 2.85 | whoosh · tab 2 joins the orbit |
-| 3.02 | glass tab 3 opens |
-| 3.85 | whoosh · tab 3 joins the orbit |
-| 4.02 | glass tab 4 opens |
-| 4.85 | whoosh · tab 4 joins the orbit |
-| 5.32 | glass Your portfolio. |
-| 5.80 | shimmer · Everywhere. |
-| 6.45 | whoosh · zoom out |
-| 7.25 | whoosh · charts tab swings in |
-| 7.75 | whoosh · news tab swings in |
-| 8.00 | glass The market. |
-| 8.45 | shimmer · Elsewhere. |
-| 9.95 | whoosh · tabs fly into the mosaic |
-| 10.30 | six tiles lock (6 tuned clicks) |
-| 10.90 | gaps close |
-| 11.00 | IMPACT · the Matrix X (sub boom + air + Lydian bell chord) |
-| 11.15 | scan sweep shimmer |
-| 11.45 | glass Now together. |
-| 13.85 | whoosh · rectangle opens into the window |
-| 14.30 | logo settles in the header |
-| 15.50 | downtrend draws (dark air) |
-| 16.40 | glass trendline |
-| 17.10 | chart folds (reverse air) |
-| 17.17 | glass Bear market · Downtrend lands |
-| 18.82 | whoosh · badge tucks to the top row |
-| 19.32 | glass Asset accumulation card |
-| 19.75 | glass chip 1 |
-| 19.87 | glass chip 2 |
-| 19.99 | glass chip 3 |
-| 21.85 | whoosh · card opens into the LP explainer |
-| 22.45 | glass price at the top of the range |
-| 22.75 | Deposit · 4,000 USDC |
-| 23.65 | 8 USDC coins land (falling D-major scale) |
-| 24.00 | descent bed (low air) |
-| 24.90 | glass fee coin 1 |
-| 25.09 | glass fee coin 2 |
-| 25.27 | glass fee coin 3 |
-| 25.46 | glass fee coin 4 |
-| 25.65 | glass fee coin 5 |
-| 25.84 | glass fee coin 6 |
-| 26.02 | glass fee coin 7 |
-| 26.21 | glass fee coin 8 |
-| 26.25 | below range · fees paused (low D) |
-| 26.40 | glass fee coin 9 |
-| 26.58 | glass fee coin 10 |
-| 27.85 | summary chips (D-F#-A) |
-| 29.82 | whoosh · window becomes the live Archive |
-| 30.70 | click · ENTER THE ARCHIVE |
-| 31.80 | click · Bear |
-| 32.90 | click · OPEN RECORD |
-| 33.90 | whoosh · zoom into the Overview |
-| 34.60 | highlight sweep |
-| 36.10 | whoosh · window collapses into the mark |
-| 36.25 | mark lands (soft sub) |
-| 36.62 | glass Join the waitlist |
-| 36.75 | glass matrix.finance |
+| 0.48 | SONG · intro (piano states the hook) |
+| 1.00 | sfx glass · tab 1 |
+| 2.00 | sfx glass · tab 2 |
+| 3.00 | sfx glass · tab 3 |
+| 4.00 | sfx glass · tab 4 |
+| 6.45 | sfx whoosh · zoom out |
+| 7.50 | sfx whoosh · market tabs swing in |
+| 8.90 | SONG · pre-chorus build |
+| 9.95 | sfx whoosh · tabs fly into the mosaic |
+| 10.30 | sfx · six tiles lock |
+| 11.00 | SONG · CHORUS 1 lands with 'Now together' |
+| 11.00 | sfx · soft impact under the chorus hit |
+| 13.10 | SONG · half-time verse under the downtrend |
+| 13.85 | sfx whoosh · rectangle opens into the window |
+| 17.15 | sfx pop · Bear market lands |
+| 19.30 | sfx pop · Asset accumulation card |
+| 19.42 | SONG · pre-chorus 2 |
+| 19.75 | sfx glass · chip 1 |
+| 19.87 | sfx glass · chip 2 |
+| 19.99 | sfx glass · chip 3 |
+| 21.52 | SONG · CHORUS 2 (LP explainer); the hook falls with the price, lifts on the summary |
+| 21.85 | sfx whoosh · card opens into the LP explainer |
+| 22.75 | sfx pop · deposit |
+| 23.65 | sfx · USDC coins land (falling D-major scale) |
+| 24.90 | sfx · fee coins climb (soft) |
+| 27.85 | sfx pops · summary chips |
+| 29.82 | sfx whoosh · window becomes the live Archive |
+| 29.94 | SONG · bridge (live Archive) |
+| 30.70 | sfx click · ENTER THE ARCHIVE |
+| 31.80 | sfx click · Bear |
+| 32.90 | sfx click · OPEN RECORD |
+| 33.90 | sfx whoosh · zoom into the Overview |
+| 34.15 | SONG · build |
+| 36.10 | sfx whoosh · window collapses into the mark |
+| 36.25 | SONG · FINAL CHORUS on the end card, rings out |
+| 36.25 | sfx · soft sub as the mark lands |

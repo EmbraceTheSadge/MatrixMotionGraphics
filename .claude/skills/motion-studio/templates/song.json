@@ -1,0 +1,17 @@
+{
+  "title": "Sixty Frames Out",
+  "mode": "song",
+  "caption": "High-energy hyperpop electro-pop with drum-and-bass breakbeats at 140 BPM. Bright, confident, clear female pop lead vocal with attitude, every word crisp and intelligible, plus a shouted gang-chant hook. Fast rolling amen breakbeat, punchy kick and snare, deep wobbling sub bass, huge supersaw chords, glitchy pitched vocal chops, sparkling arps, a big white-noise riser into a euphoric drop. Glossy, loud, fun, futuristic club energy.",
+  "lyrics": "[intro]\nOne sentence in\n\n[verse]\nType it out, hit enter\nWatch the letters come alive\nEvery word becomes a picture\nEvery beat a brand new vibe\n\n[chorus]\nOne sentence in, sixty frames out\nOne sentence in, sixty frames out\nMake it move, make it loud\nOne sentence in, sixty frames out\n\n[bridge]\nRender, render, ready, go\n\n[outro]\nSixty frames out\n",
+  "instrumental": false,
+  "language": "en",
+  "bpm": 140,
+  "timesignature": "4",
+  "duration": 38,
+  "target_duration": 34,
+  "seeds": [11, 23, 47, 89],
+  "fps": 30,
+  "lm": "acestep-5Hz-lm-0.6B",
+  "inference_steps": 8,
+  "shift": 3.0
+}

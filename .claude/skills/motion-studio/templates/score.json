@@ -1,0 +1,19 @@
+{
+  "title": "One Conversation",
+  "mode": "score",
+  "caption": "Cinematic electronic film score with huge dynamic contrast, one continuous story arc. The first fifteen seconds are only a soft, lonely solo felt piano at night with a faint warm pad: no drums, no bass, very quiet. Then a ticking pulse and low drones add uneasy tension. A hopeful lift: shimmering strings and a bright piano chord. Then a long steady build: pulsing bass, driving synth arpeggios, cinematic toms and claps, layers stacking, getting louder bar after bar. A breakdown: everything drops out except a rising white-noise riser and a reverse swell. Then the drop hits at full power, the loudest part of the song: massive drums, big wide supersaw chords, heavy sub bass, a short wordless choir chant. Finally a calm resolve: soft piano and pads alone, fading out to silence. Instrumental, emotional, epic modern trailer production, wide stereo, polished mix.",
+  "lyrics": "[Intro - solo soft piano, no drums]\n\n[Intro - piano and warm pad, quiet]\n\n[Verse - ticking pulse, low drones, tension]\n\n[Pre-Chorus - hopeful lift, strings]\n\n[Build - pulsing bass, arpeggios, toms]\n\n[Build - louder, layers stacking]\n\n[Breakdown - riser, reverse swell]\n\n[Drop - full power, wordless choir]\nOhh, oh-oh, ohh\nOhh, oh-oh, ohh\n\n[Outro - soft piano alone, fade out]\n",
+  "instrumental": false,
+  "language": "en",
+  "bpm": 120,
+  "timesignature": "4",
+  "duration": 72,
+  "target_duration": 68,
+  "seeds": [11, 23, 47, 89],
+  "fps": 30,
+  "drop_window": [40, 58],
+  "arc": [[0, 0.05], [5, 0.12], [8, 0.3], [13, 0.42], [15, 0.35], [18, 0.45], [30, 0.6], [42, 0.78], [45, 0.72], [46, 1.0], [55, 0.98], [58, 0.5], [62, 0.25], [70, 0.05]],
+  "lm": "acestep-5Hz-lm-0.6B",
+  "inference_steps": 8,
+  "shift": 3.0
+}

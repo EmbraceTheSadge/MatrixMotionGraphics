@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=960, height=540" />
+    <title>motion-studio self-test</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 960px;
+        height: 540px;
+        overflow: hidden;
+        background: #0e1020;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: radial-gradient(ellipse at 50% 60%, #1c2142 0%, #0e1020 70%);
+        font-family: "Montserrat", sans-serif;
+      }
+      #dot {
+        position: absolute;
+        left: 455px;
+        top: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #ff6a4d;
+        transform-origin: 50% 100%;
+      }
+      #floor {
+        position: absolute;
+        left: 300px;
+        top: 330px;
+        width: 360px;
+        height: 2px;
+        background: #f2efe6;
+        opacity: 0.25;
+      }
+      #word {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top: 360px;
+        text-align: center;
+        color: #f2efe6;
+        font-weight: 800;
+        font-size: 64px;
+        letter-spacing: -0.02em;
+        clip-path: inset(0 100% 0 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="3" data-width="960" data-height="540">
+      <div id="floor"></div>
+      <div id="dot" data-layout-allow-overflow></div>
+      <div id="word">ready.</div>
+      <audio id="sfx" src="assets/audio/sfx.wav" data-start="0" data-duration="3" data-track-index="10" data-volume="0.9"></audio>
+    </div>
+    <script>
+      (function () {
+        var tl = gsap.timeline({ paused: true });
+        // fall, land on the impact at 1.0 s with squash and stretch, settle
+        tl.fromTo("#dot", { y: -80 }, { y: 280, duration: 1.0, ease: "power2.in" }, 0);
+        tl.fromTo("#dot", { scaleX: 0.85, scaleY: 1.2 }, { scaleX: 1, scaleY: 1, duration: 0.6, ease: "none" }, 0.4);
+        tl.to("#dot", { scaleX: 1.45, scaleY: 0.6, duration: 0.07, ease: "power1.out" }, 1.0);
+        tl.to("#dot", { scaleX: 1, scaleY: 1, duration: 0.5, ease: "elastic.out(1, 0.35)" }, 1.07);
+        tl.to("#dot", { y: 230, duration: 0.25, ease: "power2.out" }, 1.07);
+        tl.to("#dot", { y: 280, duration: 0.25, ease: "power2.in" }, 1.32);
+        // the word wipes in on the whoosh peak at 1.6 s
+        tl.to("#word", { clipPath: "inset(0 0% 0 0)", duration: 0.45, ease: "expo.out" }, 1.6);
+        tl.to("#dot", { x: 150, duration: 0.6, ease: "expo.inOut" }, 1.6);
+        tl.to({}, { duration: 3 }, 0);
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+You are the director, writer, animator, composer, sound designer and render engineer for a short story film made entirely in code. It must be impressive: real storytelling, a great score, full sound design, and fluid animation from start to finish. Work autonomously: do not ask me questions, make every decision yourself, say what you chose in one line, and keep going until a finished, verified MP4 exists.
+
+THE FILM IN ONE LINE
+"One Conversation": at 2:07 AM a solo creator with a big idea and no team types one sentence, and an entire film studio wakes up inside the conversation. Everything can be done with Claude. 60-75 seconds.
+
+STORY (beat sheet - keep the arc, improve the details)
+1. Hook (0-5 s): darkness, a single blinking cursor, "2:07 AM". On screen: "I have an idea. I don't have a team."
+2. The problem (5-12 s): the old way piles up - app windows, timelines, plugin errors, invoices and deadlines crash in until the screen is overwhelmed.
+3. The turn (12-17 s): everything freezes. One message is typed: "Can you help me make it?" The answer lands with weight.
+4. The studio wakes up (17-45 s): Claude becomes every role, each one its own visual world flowing into the next with no hard resets - Writer (the script writes itself), Art director (moodboard, palette, type), Animator (bezier curves and keyframes come alive), Composer (the actual score's waveform and piano roll), Sound designer (every effect visualised as it hits), Editor (a timeline assembles itself), Render (frames counting up).
+5. The climax (45-55 s): all the worlds converge into the finished film playing back in fast flashes, on the music's drop.
+6. The resolution (last 5-8 s): quiet. "Every frame you just watched was made in one conversation." End card.
+Use colour as story: it starts at night (deep blue-black, lonely) and each role adds colour until full daylight at the climax.
+
+WHERE TO WORK
+- Use the motion-studio skill (level 3). Start the project with: bash <motion-studio>/scripts/new_project.sh videos/uc3-one-conversation 3
+- First invoke the /hyperframes skill (mandatory entry point) and follow /general-video. Treat this message as the confirmed brief: flow automation, storyboard no, 1920x1080, 30fps. Write BRIEF.md, STORYBOARD.md (one "## Frame N" block per scene, each citing its blueprint/rules from /hyperframes-animation) and a design spec (frame.md) before writing composition HTML.
+- This film has many shots: use sub-compositions, and use parallel sub-agents for scene building as /general-video describes (2-3 scenes per worker, all workers in one wave).
+- Workflow gates, in order, do not skip: plan -> music + timing -> stills (key frame of every shot) -> full animation pass -> polish -> sound design + mix -> check -> render.
+
+IT MUST LOOK DIFFERENT FROM THE OTHER VIDEOS
+- An earlier video in this workspace already used: a cream / vermilion / cobalt / yellow print palette, Archivo Black + JetBrains Mono, terminal typing over contour rings, extruded slam type, a perspective grid tunnel, coloured letter tiles, a probability counter + line chart, a smiling sun with tracking brackets, a wall of code with RGB glitch, colour-bar wipes and white flashes.
+- Level 1 was soft pastel, Instrument Serif italic, one shape morphing continuously, no music. Level 2 was a maximal lyric music video.
+- Do not reuse those looks. This one should feel cinematic: real depth (Three.js / CSS 3D camera moves), lighting and colour grading, fluid match-cuts between worlds, overshoot springs, motion blur on fast moves, typography with a voice. Before hand-building any named effect, search the registry: npx hyperframes catalog --query "<effect>" --json
+
+MUSIC - 100% FREE AND LOCAL (motion-studio's ACE-Step pipeline, references/music.md)
+- Score: a cinematic electronic piece that follows the story - sparse and lonely at the start (soft piano/pads), tension during the problem, a lift at the turn, momentum building through the studio montage, a big drop at the climax, a calm resolve. Mostly instrumental; at most a short wordless chant or one sung line at the drop. Use section tags ([intro] [verse] [build] [drop] [outro]) and describe the arc in the caption. Duration = film length + 2 s.
+- Write it into audio/song.json in score mode (set drop_window and arc to the beat sheet) and generate at least 4 takes with scripts/music/run_music.sh (it waits in line if another chat is generating music).
+- Rank the takes with scripts/music/rank_takes.py: you need a clear quiet start, a build, and an obvious drop. If none fits, adjust the caption and generate 4 more with new seeds.
+- Measure the chosen take with scripts/music/timing.py: beat grid, downbeats, section boundaries, the exact drop time. Re-time the beat sheet to it: shot changes on downbeats, the climax exactly on the drop. Trim to the musical end with a short fade (scripts/music/trim.sh) and make the video exactly that long.
+- Tell me the paths of all takes so I can listen and swap if I prefer another one.
+
+SOUND DESIGN - also free, and it has to be good
+Synthesize a full effects layer with motion-studio (scripts/sfx/sfx_lib.py + build_sfx.py; scenes report their events in <id>.motion.json): keyboard clicks for typing, UI pops and blips, whooshes on every camera move and transition, a low impact when the answer lands, glitch crunches in the overwhelm, risers and reverse swells into the drop, a deep boom on the climax, a soft room tone in the quiet moments. Place every effect at an exact time from timing.json / the storyboard, mix them under the score with /hyperframes-audio (duck the score slightly under key hits, fade in and out), and make sure every <audio> element has an id. Narration is optional: the story should work with on-screen text alone. Add a voice only if you can generate it locally for free through /media-use (for example Kokoro); otherwise do not.
+
+QUALITY GATES
+- `npx hyperframes check` must pass with 0 errors. Fix contrast, layout and lint findings properly; only mark truly decorative elements with data-layout-ignore / data-layout-allow-overlap.
+- Critique loop: render a contact sheet at every shot's midpoint, score every shot 1-10 for story clarity, composition, motion fluidity, typography, sync with music and sound, and polish. Write down the 3 worst problems, fix them, and repeat until every score is 8+ (max 4 rounds). Also run the animation map (hyperframes-animation/scripts/animation-map.mjs) and remove dead zones.
+- Lessons already learned (motion-studio references/lessons.md):
+  * A sub-composition's inner element ids must never equal its host slot id, or the scene silently never mounts.
+  * Drive changing state from a clock tween that starts at 0 (onUpdate) instead of tl.call, so seeking is safe in both directions.
+  * Only bundled fonts render without setup (Montserrat, Oswald, League Gothic, Archivo Black, Space Mono, IBM Plex Mono, JetBrains Mono, Source Code Pro...). For any other font, download the woff2 into assets/fonts and declare @font-face.
+  * Use absolute paths in background shell commands.
+  * Render with --workers 2 because other renders may be running: npx hyperframes render -o renders/uc3-one-conversation.mp4 --fps 30 --workers 2
+  * Verify the final MP4 has an audio stream and that it is in sync.
+
+DELIVER
+renders/uc3-one-conversation.mp4, a contact sheet, the final beat sheet with timestamps, which music take you chose and why, and the list of sound effects with their times. Then open the MP4 with `open`.

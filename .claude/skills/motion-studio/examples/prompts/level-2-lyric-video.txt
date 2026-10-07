@@ -1,0 +1,41 @@
+You are the director, songwriter, animator, sound designer and render engineer for a lyric music video made entirely in code. Work autonomously: do not ask me questions, make every decision yourself, say what you chose in one line, and keep going until a finished, verified MP4 exists.
+
+THE FILM IN ONE LINE
+A 30-40 second, high-energy kinetic lyric video for an original song, where every word, cut and hit is locked to the vocal. Go maximal: it should feel like the best motion designer on the internet went completely crazy, while staying clean, readable and intentional.
+
+THE SONG
+Write an original, catchy song about making motion graphics with AI ("one sentence in, sixty frames a second out"). Short punchy lines, a chantable hook repeated at least 3 times, one big chorus/drop. Hyperpop / electro-pop / drum-and-bass energy, 128-150 BPM, bright confident vocal, fun and clean lyrics. Structure it with [intro] [verse] [chorus] [bridge] [outro] tags.
+
+WHERE TO WORK
+- Use the motion-studio skill (level 2). Start the project with: bash <motion-studio>/scripts/new_project.sh videos/uc2-lyric-music-video 2
+- First invoke the /hyperframes skill (mandatory entry point) and follow /general-video. Treat this message as the confirmed brief: flow automation, storyboard no, 1920x1080, 30fps. Write BRIEF.md, STORYBOARD.md (one "## Frame N" block per scene, each citing its blueprint/rules from /hyperframes-animation) and a design spec (frame.md) before writing composition HTML.
+
+IT MUST LOOK DIFFERENT FROM THE OTHER VIDEOS
+- An earlier video in this workspace already used: a cream / vermilion / cobalt / yellow print palette, Archivo Black + JetBrains Mono, terminal typing over contour rings, extruded slam type, a perspective grid tunnel, coloured letter tiles, a probability counter + line chart, a smiling sun with tracking brackets, a wall of code with RGB glitch, colour-bar wipes and white flashes.
+- Level 1 was soft pastel, Instrument Serif italic, one shape morphing continuously, no music.
+- Do NOT reuse any of those looks or techniques. 
+- Use techniques we have not used yet, for example: real 3D with Three.js (chrome or glass type, metaballs, a camera flying through a 3D world made of lyrics), WebGL/TypeGPU shader backgrounds (liquid, displacement, kaleidoscope), particle typography that assembles and explodes, mask and shape reveals, split-screen and grid multiplication, SVG shape morphing, stroke-drawn illustration, speed ramps, shader transitions, audio-reactive elements driven by the measured track. Before hand-building any named effect, search the registry: npx hyperframes catalog --query "<effect>" --json
+- Pick one bold, cohesive art direction (for example acid-chrome Y2K, neon risograph, or holographic) with at least 3 distinct visual "worlds" that switch at section changes. No visual idea is used twice.
+
+MUSIC - 100% FREE AND LOCAL (motion-studio's ACE-Step pipeline, references/music.md)
+- Write the song into audio/song.json (caption, lyrics, bpm, duration = target length + 2 s).
+- Generate at least 4 takes with scripts/music/run_music.sh (it waits in line if another chat is generating music).
+- Make vocal stems + transcripts for every take (scripts/music/stems.sh), rank them (scripts/music/rank_takes.py): highest lyric match on the VOCAL STEM, steady bpm, strong energy curve, music that lasts. If no take is good, rewrite the caption/lyrics and generate 4 more with new seeds.
+- Build audio/timing.json from the chosen take (scripts/music/timing.py): beats, downbeats, sections, the drop, every lyric word with its onset. Drive ALL animation timing from it: every word appears on its sung onset, cuts land on downbeats, the drop gets the biggest visual moment. Trim the song to its musical end with a short fade (scripts/music/trim.sh) and make the video exactly that long.
+- Tell me the paths of all takes so I can listen and swap if I prefer another one.
+
+SOUND EFFECTS - also free
+Synthesize them with motion-studio (scripts/sfx/build_sfx.py from audio/sfx_cues.json) (whooshes for transitions, impacts on slams, a riser into the drop, glitch ticks, sparkles) at the exact cut/hit times from timing.json. Keep them under the music and mix with /hyperframes-audio. Every <audio> element needs an id.
+
+QUALITY GATES
+- `npx hyperframes check` must pass with 0 errors. Fix contrast, layout and lint findings properly; only mark truly decorative elements with data-layout-ignore / data-layout-allow-overlap.
+- Critique loop: snapshot a contact sheet at scene midpoints and at key word onsets, score every scene 1-10 for composition, motion, typography, lyric sync and polish, write down the 3 worst problems, fix them, and repeat until every score is 8+ (max 3 rounds).
+- Lessons already learned (motion-studio references/lessons.md):
+  * A sub-composition's inner element ids must never equal its host slot id, or the scene silently never mounts.
+  * Drive changing state from a clock tween that starts at 0 (onUpdate) instead of tl.call, so seeking is safe in both directions.
+  * Only bundled fonts render without setup (Montserrat, Oswald, League Gothic, Archivo Black, Space Mono, IBM Plex Mono, JetBrains Mono, Source Code Pro...). For any other font, download the woff2 into assets/fonts and declare @font-face.
+  * Render with --workers 2 because other renders may be running: npx hyperframes render -o renders/uc2-lyric-music-video.mp4 --fps 30 --workers 2
+  * Verify the final MP4 has an audio stream and that it is in sync.
+
+DELIVER
+renders/uc2-lyric-music-video.mp4, a contact sheet, the lyrics, which take you chose and why, and timing.json. Then open the MP4 with `open`.

@@ -1,0 +1,7 @@
+#!/bin/sh
+# Runs Python with numpy (what the motion-studio audio scripts need). setup.sh decides which interpreter.
+D="$(cd "$(dirname "$0")/.." && pwd)"
+if [ -x "$D/.venv/bin/python" ]; then exec "$D/.venv/bin/python" "$@"; fi
+if [ -x "$D/.venv/Scripts/python.exe" ]; then exec "$D/.venv/Scripts/python.exe" "$@"; fi
+if [ -f "$D/.python" ]; then exec "$(cat "$D/.python")" "$@"; fi
+exec python3 "$@"

@@ -1,0 +1,10 @@
+{
+  "duration": 0,
+  "room_env": [],
+  "slots": {},
+  "cues": [
+    {"t": 0.5, "fx": "whoosh", "gain_db": -8, "peak": true, "args": {"dur": 0.7}, "label": "example: whoosh PEAKING on the first cut (delete me)"},
+    {"t": 4.0, "fx": "riser", "gain_db": -6, "align": "end", "args": {"dur": 3.0}, "label": "example: riser that ENDS on the big hit (delete me)"},
+    {"t": 4.0, "fx": "impact", "gain_db": -2, "label": "example: the big hit (delete me)"}
+  ]
+}

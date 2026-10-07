@@ -1,0 +1,10 @@
+{"duration": 5,
+ "cues": [
+  {"t": 0.5,  "fx": "impact", "gain_db": -7,  "args": {"dur": 0.9, "f0": 90, "f1": 45}, "label": "01 dot lands (squash)"},
+  {"t": 0.75, "fx": "pop",    "gain_db": -18, "label": "01 rebound settles"},
+  {"t": 1.3,  "fx": "whoosh", "gain_db": -10, "peak": true, "args": {"dur": 0.8, "pan_from": -0.6, "pan_to": 0.5}, "label": "02 dot draws the S-path"},
+  {"t": 2.75, "fx": "swell",  "gain_db": -12, "align": "end", "args": {"dur": 0.6, "freq": 196}, "label": "03 into the ring reveal"},
+  {"t": 2.75, "fx": "shimmer","gain_db": -20, "args": {"dur": 0.9}, "label": "03 MOTION revealed"},
+  {"t": 3.25, "fx": "snap",   "gain_db": -9,  "label": "04 MOTION crushes to the bar"},
+  {"t": 3.5,  "fx": "pop",    "gain_db": -11, "label": "04 period lands"}
+ ]}

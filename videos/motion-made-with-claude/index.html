@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>MOTION — made with Claude</title>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #16161a; }
+      #root {
+        position: relative; width: 100%; height: 100%; overflow: hidden;
+        background: #16161a; color: #f1ece2;
+        font-family: "Archivo Black", sans-serif;
+      }
+      .layer { position: absolute; inset: 0; }
+
+      /* 03 — the word the ring reveals */
+      #word-wrap { clip-path: circle(0px at 960px 540px); }
+      #word {
+        position: absolute; left: 0; top: 0; width: 1920px; height: 1080px;
+        display: flex; align-items: center; justify-content: center;
+      }
+      #word-text {
+        display: block; font-size: 400px; line-height: 1; letter-spacing: -0.035em;
+        color: #f1ece2; white-space: nowrap;
+      }
+
+      /* 04 — the lockup the bar wipes on */
+      #lockup-wrap { clip-path: inset(0px 1920px 0px 0px); }
+      #lockup { position: absolute; left: 0; top: 0; }
+      .lk-line { display: block; white-space: nowrap; line-height: 0.86; color: #f1ece2; }
+      #lk-1 { font-size: 132px; letter-spacing: -0.02em; }
+      #lk-2 { font-size: 300px; letter-spacing: -0.035em; }
+      #sub-mask { position: absolute; overflow: hidden; height: 34px; }
+      #sub {
+        display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px;
+        letter-spacing: 0.14em; color: #9c978d; white-space: nowrap;
+      }
+
+      /* the lime actor */
+      #fx { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+      #dot-pos { position: absolute; left: 0; top: 0; width: 64px; height: 64px; }
+      #dot-rot { width: 64px; height: 64px; }
+      #dot-land { width: 64px; height: 64px; border-radius: 50%; background: #c8ff2e; }
+      #floor { position: absolute; height: 3px; width: 160px; background: #3a3a42; border-radius: 2px; }
+
+      /* chrome */
+      .chrome {
+        position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px;
+        letter-spacing: 0.12em; color: #9c978d; white-space: nowrap; line-height: 1;
+      }
+      #c-tl { left: 64px; top: 56px; }
+      #c-tr { right: 64px; top: 56px; text-align: right; }
+      #c-bl { left: 64px; bottom: 56px; }
+      #c-br { right: 64px; bottom: 64px; width: 280px; height: 3px; background: #2e2e35; }
+      #c-bar { width: 280px; height: 3px; background: #9c978d; transform-origin: 0 50%; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="5" data-width="1920" data-height="1080">
+      <div id="floor" data-layout-ignore></div>
+
+      <div id="word-wrap" class="layer">
+        <div id="word"><span id="word-text">MOTION</span></div>
+      </div>
+
+      <div id="lockup-wrap" class="layer">
+        <div id="lockup">
+          <span id="lk-1" class="lk-line">MADE WITH</span>
+          <span id="lk-2" class="lk-line">CLAUDE</span>
+        </div>
+        <div id="sub-mask"><span id="sub" data-layout-allow-overflow>A MOTION STUDIO TEST · 1920×1080 · 60 FPS</span></div>
+      </div>
+
+      <svg id="fx" viewBox="0 0 1920 1080" data-layout-ignore>
+        <path id="trail" fill="none" stroke="#c8ff2e" stroke-width="12" stroke-linecap="round"
+          d="M 420 700 C 470 330, 720 230, 900 330 S 1400 840, 1440 620 S 1170 420, 960 540" />
+        <circle id="ring" cx="960" cy="540" r="0" fill="none" stroke="#c8ff2e" stroke-width="0" />
+        <rect id="bar" x="0" y="0" width="0" height="0" rx="7" fill="#c8ff2e" />
+      </svg>
+
+      <div id="dot-pos" data-layout-allow-overlap><div id="dot-rot"><div id="dot-land"></div></div></div>
+
+      <div id="c-tl" class="chrome">MOTION STUDIO — L1 TEST</div>
+      <div id="c-tr" class="chrome">01/04 LAND</div>
+      <div id="c-bl" class="chrome">00.00 S · FR 000/300</div>
+      <div id="c-br"><div id="c-bar"></div></div>
+
+      <audio id="sfx" src="assets/audio/sfx.wav" data-start="0" data-duration="5" data-track-index="10" data-volume="1"></audio>
+    </div>
+
+    <script>
+      (function () {
+        var W = 1920, H = 1080, DUR = 5, R0 = 32; // dot radius
+        var E = function (name) { return gsap.parseEase(name); };
+        var clamp = function (v, a, b) { return Math.max(a, Math.min(b, v)); };
+        var seg = function (t, a, b) { return clamp((t - a) / (b - a), 0, 1); };
+        var lerp = function (a, b, u) { return a + (b - a) * u; };
+        var $ = function (id) { return document.getElementById(id); };
+
+        var power2in = E("power2.in"), power2out = E("power2.out"), power3in = E("power3.in"),
+            power3inout = E("power3.inOut"), power4in = E("power4.in"), expoOut = E("expo.out"),
+            elastic = E("elastic.out(1, 0.4)"), sineInOut = E("sine.inOut"), backOut = E("back.out(2)");
+
+        var dotPos = $("dot-pos"), dotRot = $("dot-rot"), dotLand = $("dot-land");
+        var trail = $("trail"), ring = $("ring"), bar = $("bar"), floor = $("floor");
+        var wordWrap = $("word-wrap"), wordText = $("word-text");
+        var lockWrap = $("lockup-wrap"), lockup = $("lockup"), subMask = $("sub-mask"), sub = $("sub");
+        var cTR = $("c-tr"), cBL = $("c-bl"), cBar = $("c-bar");
+
+        // ---- layout, measured once (fonts are local; deterministic)
+        var L = { x: 420, y: 700 };                // landing point (dot centre)
+        var C = { x: 960, y: 540 };                // path end / ring centre
+        var len = trail.getTotalLength();
+
+        // fit MOTION to 1700 px wide
+        var ww = wordText.getBoundingClientRect().width;
+        wordText.style.fontSize = (400 * 1700 / ww).toFixed(2) + "px";
+        var wordBox = wordText.getBoundingClientRect();
+
+        // lockup: block centred, left-aligned lines, period (the dot) after CLAUDE
+        var l1 = $("lk-1").getBoundingClientRect(), l2 = $("lk-2").getBoundingClientRect();
+        var PERIOD_R = 30, GAP = 16;
+        var blockW = Math.max(l1.width, l2.width + GAP + PERIOD_R * 2);
+        var subH = 34, subGap = 44;
+        var blockH = l1.height + l2.height + subGap + subH;
+        var bx = Math.round((W - blockW) / 2), by = Math.round((H - blockH) / 2) - 6;
+        lockup.style.left = bx + "px"; lockup.style.top = by + "px";
+        var l2b = $("lk-2").getBoundingClientRect();
+        // baseline of CLAUDE ≈ bottom of the cap height; Archivo Black caps sit ~0.12em above the box bottom at lh .86
+        var capBottom = l2b.top + l2b.height * 0.875;
+        var P = { x: l2b.right + GAP + PERIOD_R, y: capBottom - PERIOD_R };
+        subMask.style.left = bx + "px"; subMask.style.top = Math.round(l2b.bottom + subGap) + "px";
+        subMask.style.width = blockW + "px";
+        var lockLeft = bx, lockRight = P.x + PERIOD_R;
+
+        // ---- the one clock: everything is a pure function of t (seek-safe both ways)
+        function setDot(x, y, rot, sx, sy, lx, ly, show) {
+          dotPos.style.display = show ? "block" : "none";
+          dotPos.style.transform = "translate(" + (x - R0).toFixed(2) + "px," + (y - R0).toFixed(2) + "px)";
+          dotRot.style.transform = "rotate(" + rot.toFixed(2) + "deg) scale(" + sx.toFixed(4) + "," + sy.toFixed(4) + ")";
+          dotLand.style.transformOrigin = "50% 100%";
+          dotLand.style.transform = "scale(" + lx.toFixed(4) + "," + ly.toFixed(4) + ")";
+        }
+        function pathPt(u) { var p = trail.getPointAtLength(clamp(u, 0, 1) * len); return { x: p.x, y: p.y }; }
+
+        function render(t) {
+          // chrome
+          var phase = t < 1 ? "01/04 LAND" : t < 2 ? "02/04 PATH" : t < 3 ? "03/04 MASK" : "04/04 LOCKUP";
+          cTR.textContent = phase;
+          var fr = Math.min(300, Math.round(t * 60));
+          cBL.textContent = t.toFixed(2).padStart(5, "0") + " S · FR " + String(fr).padStart(3, "0") + "/300";
+          cBar.style.transform = "scaleX(" + (t / DUR).toFixed(4) + ")";
+
+          // defaults for this frame
+          var dx = L.x, dy = L.y, rot = 0, sx = 1, sy = 1, lx = 1, ly = 1, showDot = true;
+          trail.style.strokeDasharray = "0 " + (len * 2); trail.style.strokeDashoffset = "0"; trail.style.visibility = "hidden";
+          ring.setAttribute("r", 0); ring.setAttribute("stroke-width", 0);
+          bar.setAttribute("width", 0); bar.setAttribute("height", 0);
+          wordWrap.style.clipPath = "circle(0px at 960px 540px)";
+          wordText.style.transform = "none"; wordText.style.color = "#f1ece2";
+          wordWrap.style.display = "block";
+          lockWrap.style.clipPath = "inset(0px " + W + "px 0px 0px)";
+          sub.style.transform = "translateY(110%)";
+          floor.style.opacity = 0;
+
+          if (t < 1.0) {
+            // ---------------- 01 LAND: fall (gravity), squash, hop, settle, wind-up
+            if (t < 0.5) {
+              var u = seg(t, 0, 0.5), g = power2in(u);
+              dx = lerp(540, L.x, u); dy = lerp(-40, L.y, g);
+              var v = u;                            // speed grows linearly under gravity
+              sx = 1 - 0.22 * v; sy = 1 + 0.38 * v; // stretch along the fall
+              rot = 0;
+            } else if (t < 0.75) {
+              var hu = seg(t, 0.53, 0.75);
+              var hop = hu < 0.5 ? power2out(hu * 2) : 1 - power2in((hu - 0.5) * 2);
+              dy = L.y - 64 * hop;
+              // squash on contact (peaks at 0.53), recover into the hop with a slight stretch
+              var su = seg(t, 0.5, 0.53), ru = seg(t, 0.53, 0.66);
+              if (t < 0.53) { lx = lerp(1, 1.6, power2out(su)); ly = lerp(1, 0.52, power2out(su)); }
+              else { lx = lerp(1.6, 0.9, power2out(ru)); ly = lerp(0.52, 1.14, power2out(ru)); }
+              if (t > 0.66) { var fu = seg(t, 0.66, 0.75); lx = lerp(0.9, 0.96, fu); ly = lerp(1.14, 1.06, fu); }
+            } else if (t < 0.86) {
+              var cu = seg(t, 0.75, 0.86), e = elastic(cu);
+              lx = lerp(1.22, 1, e); ly = lerp(0.82, 1, e);
+            } else {
+              // anticipation: gather down and lean toward the launch direction
+              var au = seg(t, 0.86, 1.0), ae = sineInOut(au);
+              lx = lerp(1, 1.18, ae); ly = lerp(1, 0.8, ae);
+              rot = lerp(0, -8, ae);
+            }
+            // floor tick at the landing
+            var fl = seg(t, 0.49, 0.56) * (1 - seg(t, 0.7, 0.95));
+            floor.style.opacity = fl.toFixed(3);
+            floor.style.left = (L.x - 80) + "px"; floor.style.top = (L.y + R0 + 6) + "px";
+            floor.style.transform = "scaleX(" + lerp(0.2, 1, expoOut(seg(t, 0.49, 0.62))).toFixed(3) + ")";
+          } else if (t < 2.2) {
+            // ---------------- 02 PATH: launch along an S-curve, stretch on velocity, swallow the trail
+            var pu = seg(t, 1.0, 1.75);
+            var p = power3inout(pu);
+            var q = power2in(seg(t, 1.42, 1.86));          // tail chases the head
+            var pt = pathPt(p);
+            dx = pt.x; dy = pt.y;
+            var a = pathPt(Math.max(0, p - 0.004)), b = pathPt(Math.min(1, p + 0.004));
+            rot = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
+            // velocity of the eased progress (power3.inOut peaks at the middle: 3x)
+            var eps = 0.002, vel = (power3inout(Math.min(1, pu + eps)) - power3inout(Math.max(0, pu - eps))) / (2 * eps) / 3;
+            if (t < 1.75) { sx = 1 + 0.75 * vel; sy = 1 - 0.28 * vel; }
+            if (t >= 1.75) {
+              // arrival: compress along the travel direction, then settle round
+              var ar = seg(t, 1.75, 2.05), ee = elastic(ar);
+              sx = lerp(0.74, 1, ee); sy = lerp(1.2, 1, ee);
+            }
+            if (t < 1.08) { var lu = seg(t, 1.0, 1.08); lx = lerp(1.18, 1, lu); ly = lerp(0.8, 1, lu); }
+            var on = (p - q) * len;
+            trail.style.visibility = on > 0.5 ? "visible" : "hidden";
+            trail.style.strokeDasharray = Math.max(0, on).toFixed(2) + " " + (len * 2).toFixed(2);
+            trail.style.strokeDashoffset = (-q * len).toFixed(2);
+            // 2.0–2.2: gather (anticipation for the ring)
+            if (t >= 2.0) { var gu = power2out(seg(t, 2.0, 2.2)); sx = sy = lerp(1, 0.75, gu); rot = 0; }
+          } else if (t < 3.0) {
+            // ---------------- 03 MASK: the dot hollows into a ring that opens the word
+            showDot = false;
+            var ru2 = seg(t, 2.2, 2.75);
+            var r = lerp(R0 * 0.75, 1150, power2in(ru2));
+            var hollow = power2out(seg(t, 2.2, 2.4));
+            var sw = lerp(2 * r, lerp(12, 26, ru2), hollow);
+            sw = Math.min(sw, 2 * r);
+            ring.setAttribute("r", Math.max(0, r - sw / 2).toFixed(2));
+            ring.setAttribute("stroke-width", sw.toFixed(2));
+            wordWrap.style.clipPath = "circle(" + Math.max(0, r - sw).toFixed(2) + "px at 960px 540px)";
+            // the word settles out of a push (counter-zoom), ease out to rest by 3.0
+            var zs = lerp(1.32, 1, expoOut(seg(t, 2.25, 3.0)));
+            wordText.style.transform = "scale(" + zs.toFixed(4) + ")";
+          } else {
+            // ---------------- 04 LOCKUP: crush, bar wipe, period lands, hold
+            wordWrap.style.clipPath = "none";
+            var midY = wordBox.top + wordBox.height / 2;
+            if (t < 3.25) {
+              showDot = false;
+              var ku = power4in(seg(t, 3.0, 3.25));
+              wordText.style.transform = "scale(" + lerp(1, 1.05, ku).toFixed(4) + "," + lerp(1, 0.035, ku).toFixed(4) + ")";
+              var tint = seg(t, 3.2, 3.245);
+              wordText.style.color = gsap.utils.interpolate("#f1ece2", "#c8ff2e", tint);
+            } else {
+              wordWrap.style.display = "none";
+              var bu = seg(t, 3.25, 3.5), be = power3in(bu);
+              if (t < 3.5) {
+                showDot = false;
+                var w0 = wordBox.width * 1.05, cx0 = W / 2;
+                var left = lerp(cx0 - w0 / 2, P.x - PERIOD_R, be);
+                var right = lerp(cx0 + w0 / 2, P.x + PERIOD_R, be);
+                var h = lerp(14, PERIOD_R * 2 * 0.8, be);
+                var cy = lerp(midY, P.y, be);
+                bar.setAttribute("x", left.toFixed(2)); bar.setAttribute("width", Math.max(0, right - left).toFixed(2));
+                bar.setAttribute("y", (cy - h / 2).toFixed(2)); bar.setAttribute("height", h.toFixed(2));
+                bar.setAttribute("rx", (h / 2).toFixed(2));
+                // the lockup appears behind the bar's retreating left edge
+                lockWrap.style.clipPath = "inset(0px " + Math.max(0, W - left).toFixed(2) + "px 0px 0px)";
+              } else {
+                lockWrap.style.clipPath = "none";
+                var k = PERIOD_R / R0;
+                dx = P.x; dy = P.y; sx = sy = k;
+                var lu2 = seg(t, 3.5, 3.78);
+                lx = lerp(1.45, 1, elastic(lu2)); ly = lerp(0.62, 1, elastic(lu2));
+                // the sub-line rises out of its slot
+                var su2 = expoOut(seg(t, 3.62, 4.05));
+                sub.style.transform = "translateY(" + lerp(110, 0, su2).toFixed(2) + "%)";
+              }
+            }
+          }
+          setDot(dx, dy, rot, sx, sy, lx, ly, showDot);
+        }
+
+        var clock = { t: 0 };
+        var tl = gsap.timeline({ paused: true });
+        tl.to(clock, { t: DUR, duration: DUR, ease: "none", onUpdate: function () { render(clock.t); } }, 0);
+        render(0);
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>

@@ -9,6 +9,9 @@ SKILL_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 T="${1:-$HOME/motion-studio/_selftest}"
 mkdir -p "$T/audio" "$T/renders"
 cp "$SKILL_DIR/templates/selftest/index.html" "$T/index.html"
+# Load GSAP from a local copy when the CDN is unreachable (network allow-lists, cloud sandboxes).
+curl -sfI --max-time 5 https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js >/dev/null 2>&1 \
+  || bash "$SKILL_DIR/scripts/vendor_gsap.sh" "$T" || exit 1
 cat > "$T/audio/sfx_cues.json" <<'JSON'
 {"duration": 3, "cues": [
   {"t": 1.0, "fx": "riser", "gain_db": -10, "align": "end", "args": {"dur": 0.9}, "label": "fall"},

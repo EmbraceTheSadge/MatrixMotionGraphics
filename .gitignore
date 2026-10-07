@@ -24,3 +24,16 @@ tmp/
 
 .DS_Store
 Thumbs.db
+
+# motion-studio machine-local state (written by setup.sh)
+.claude/skills/motion-studio/.venv/
+.claude/skills/motion-studio/.python
+.claude/skills/motion-studio/.acestep
+
+# HyperFrames project build products (regenerate: build_sfx.py, vendor_gsap.sh, snapshot)
+videos/*/snapshots/
+videos/*/assets/audio/*.wav
+videos/*/assets/vendor/
+
+__pycache__/
+*.pyc

@@ -2,7 +2,7 @@
 
     python audio/make_music.py [project_dir]   ->  assets/audio/music.wav (30.0 s, 48 kHz stereo)
 
-Structure (120 BPM, beat = 0.5 s; times match STORYBOARD.md; intro 0-13 s, then the original sections +3.5 s):
+Structure (120 BPM, beat = 0.5 s; times match STORYBOARD.md; intro 0-13.5 s, then the original sections +4.0 s):
   0.0-3.0   sparse sub pulse every bar-half (1 s) + a soft tick           Portfolio
   3.0-6.0   pulse on every beat, closed hats on the off-beats            Market
   6.0-7.5   build: 16th hats crescendo, filtered-noise riser, kick roll   Connection
@@ -15,7 +15,7 @@ import sys, os
 import numpy as np
 
 SR = 48000
-DUR = 33.5
+DUR = 34.0
 BPM = 120
 BEAT = 60.0 / BPM
 N = int(SR * DUR)
@@ -132,7 +132,7 @@ A1, C2, D2, E2, G1, F1 = 55.0, 65.41, 73.42, 82.41, 49.0, 43.65
 PENTA = [220.0, 261.63, 293.66, 329.63, 392.0, 440.0, 523.25]  # A minor pentatonic
 PROG = [A1, A1, F1, G1]  # one bar (2 s) each
 
-S = 3.5  # everything after the intro is shifted by the longer intro
+S = 4.0  # everything after the intro is shifted by the longer intro
 
 # --- 0-6: one soft pulse per portfolio tab (1, 2, 3, 4 s), ticks between — "one at a time"
 add(sub_pulse(55, 0.9), 0.0, 0.35)
@@ -146,7 +146,7 @@ add(kick(0.35, 0.25), 5.0)
 add(sub_pulse(55, 0.7), 5.0, 0.45)
 
 # --- 6-9: zoom out, the market arrives — pulse on every beat, off-beat hats
-for t in np.arange(6.0, 9.0, BEAT):
+for t in np.arange(6.0, 9.5, BEAT):
     add(kick(0.55, 0.28), t)
     add(sub_pulse(55, 0.45), t, 0.35)
     add(hat(), t + BEAT / 2, 0.5, 0.25)
@@ -154,19 +154,19 @@ add(pad([110, 164.81, 220, 261.63], 3.0, 1.0), 6.0, 0.6)
 add(pluck(329.63, 0.5, 0.5), 7.0, 0.35, 0.4)
 add(pluck(392.0, 0.5, 0.5), 7.5, 0.35, 0.5)
 
-# --- 9-10.5: build into the merge — 16th hats crescendo, kick roll, riser
-for k, t in enumerate(np.arange(9.0, 10.45, BEAT / 4)):
-    add(hat(0.03), t, 0.25 + 0.6 * (t - 9.0) / 1.45, -0.3 if k % 2 else 0.3)
-for t in np.arange(9.0, 10.0, BEAT):
+# --- 9-11: build into the merge — 16th hats crescendo, kick roll, riser
+for k, t in enumerate(np.arange(9.5, 10.95, BEAT / 4)):
+    add(hat(0.03), t, 0.25 + 0.6 * (t - 9.5) / 1.45, -0.3 if k % 2 else 0.3)
+for t in np.arange(9.5, 10.5, BEAT):
     add(kick(0.6, 0.25), t)
-for t in np.arange(10.0, 10.4, BEAT / 4):
+for t in np.arange(10.5, 10.9, BEAT / 4):
     add(kick(0.45, 0.12), t)
-add(riser(1.45), 9.0, 0.9)
+add(riser(1.45), 9.5, 0.9)
 
-# --- 10.5: "Now together" — drop-out to drone + pad (the impact itself lives in sfx.wav)
-add(pad([55, 110, 164.81, 246.94, 329.63], 2.4, 0.05), 10.5, 1.0)
-add(sub_pulse(55, 1.8), 10.5, 0.7)
-for t in np.arange(11.5, 13.0, BEAT):
+# --- 11: "Now together" — drop-out to drone + pad (the impact itself lives in sfx.wav)
+add(pad([55, 110, 164.81, 246.94, 329.63], 2.4, 0.05), 11, 1.0)
+add(sub_pulse(55, 1.8), 11, 0.7)
+for t in np.arange(12, 13.5, BEAT):
     add(kick(0.45, 0.25), t)
     add(hat(), t + BEAT / 2, 0.45, 0.2)
 

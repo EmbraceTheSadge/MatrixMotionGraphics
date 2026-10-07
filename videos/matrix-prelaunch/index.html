@@ -6,11 +6,12 @@
     <title>Matrix Finance — prelaunch film</title>
     <script src="assets/vendor/gsap.min.js"></script>
     <style>
+      @font-face { font-family: "Onest"; font-style: normal; font-weight: 100 900; font-display: block; src: url("assets/fonts/Onest-Variable-latin.woff2") format("woff2"); }
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html, body { width: 1920px; height: 1080px; overflow: hidden; background: #070a09; }
       #root {
         position: relative; width: 100%; height: 100%; overflow: hidden; background: #070a09;
-        color: #edf2ee; font-family: "Inter", sans-serif; -webkit-font-smoothing: antialiased;
+        color: #edf2ee; font-family: "Onest", sans-serif; -webkit-font-smoothing: antialiased;
       }
       .abs { position: absolute; }
       .full { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
@@ -87,7 +88,7 @@
       #steps { position: absolute; left: 96px; top: 300px; width: 380px; }
       .st { position: relative; padding: 0 0 0 26px; height: 128px; }
       .st .n { font-size: 22px; color: #8ea196; }
-      .st .t { font-size: 29px; font-weight: 600; color: #edf2ee; margin-top: 8px; line-height: 1.2; }
+      .st .t { font-size: 26px; font-weight: 600; color: #edf2ee; margin-top: 8px; line-height: 1.2; }
       .st .bar2 { position: absolute; left: 0; top: 2px; width: 4px; height: 78px; border-radius: 2px; background: #2fe58c; transform-origin: 50% 0; }
 
       /* ---------- F6 end ---------- */
@@ -138,18 +139,24 @@
       #one-txt .w { font-size: 88px; font-weight: 600; letter-spacing: -0.035em; line-height: 1.1; }
       .oc { position: absolute; font-size: 18px; color: #8ea196; white-space: nowrap; }
       #one-shock { position: absolute; left: 360px; top: 200px; width: 1200px; height: 600px; border-radius: 18px; border: 2px solid #2fe58c; }
-      #nmc { position: absolute; left: 0; top: 0; font-size: 22px; color: #2fe58c; white-space: nowrap; }
-      .ilbl, #nmc { z-index: 70; }
+            .ilbl { z-index: 70; }
       #one { z-index: 75; } #one-shock { z-index: 76; } #seams { z-index: 80; }
+      /* kinetic type */
+      .wd { display: inline-block; white-space: nowrap; }
+      .ch { display: inline-block; }
+      .kin { perspective: 900px; }
+      .ln2 { position: relative; display: inline-block; color: #8ea196; font-weight: 500; }
+      .ul { position: absolute; left: 0; bottom: -4px; width: 100%; height: 4px; border-radius: 2px; background: #2fe58c; display: block; transform: scaleX(0); }
+      .nmx { position: absolute; left: 0; top: 0; white-space: nowrap; z-index: 70; }
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="33.5" data-width="1920" data-height="1080">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="34" data-width="1920" data-height="1080">
       <div id="glow" class="full"></div>
       <svg id="grid" class="full" viewBox="0 0 1920 1080" data-layout-ignore></svg>
 
       <!-- ======================= F1: many tabs → now together ======================= -->
-      <div id="s1" class="clip full" data-start="0" data-duration="13.1" data-track-index="1">
+      <div id="s1" class="clip full" data-start="0" data-duration="13.6" data-track-index="1">
         <div id="s1-wrap" class="full">
           <div class="tb" id="tb0"><div class="tbar"><i></i><i></i><i></i><span class="ttl"><i class="ico" style="background:#2fe58c"></i>wallet</span></div>
             <div class="tbody"><div class="lab">Balance</div><div class="sk" style="width:58%;height:26px;margin:10px 0 16px;background:rgba(237,242,238,.2)"></div>
@@ -185,10 +192,16 @@
               <div class="nw"><div class="h"><span class="pill" style="color:#d7e2da;border-color:rgba(237,242,238,.25)">Volatility</span><span class="lab">Today</span></div><div class="sk" style="width:84%;margin-bottom:7px;background:rgba(237,242,238,.16)"></div><div class="sk" style="width:52%"></div></div>
               <div class="nw" style="border-bottom:0"><div class="h"><span class="pill" style="color:#d7e2da;border-color:rgba(237,242,238,.25)">Macro</span><span class="lab">This week</span></div><div class="sk" style="width:76%"></div></div></div></div>
 
-          <div id="nm" class="ilbl" style="font-size:80px"></div>
-          <div id="nmc" class="mono"></div>
-          <div id="tp" class="ilbl" style="font-size:104px">Your portfolio.</div>
-          <div id="tm" class="ilbl" style="font-size:104px">The market.</div>
+          <div class="nmx kin ilbl" id="nm0" style="font-size:84px">Wallet</div>
+          <div class="nmx kin ilbl" id="nm1" style="font-size:84px">Exchange</div>
+          <div class="nmx kin ilbl" id="nm2" style="font-size:84px">DeFi positions</div>
+          <div class="nmx kin ilbl" id="nm3" style="font-size:84px">Staking</div>
+          <div class="nmx mono" id="nc0" style="font-size:22px;color:#2fe58c">01 / 04 · Portfolio</div>
+          <div class="nmx mono" id="nc1" style="font-size:22px;color:#2fe58c">02 / 04 · Portfolio</div>
+          <div class="nmx mono" id="nc2" style="font-size:22px;color:#2fe58c">03 / 04 · Portfolio</div>
+          <div class="nmx mono" id="nc3" style="font-size:22px;color:#2fe58c">04 / 04 · Portfolio</div>
+          <div id="tp" class="ilbl kin" style="text-align:center"><div class="ln1" style="font-size:108px">Your portfolio.</div><div class="ln2" style="font-size:76px;margin-top:16px"><span class="lt">Everywhere.</span><i class="ul"></i></div></div>
+          <div id="tm" class="ilbl kin" style="text-align:right"><div class="ln1" style="font-size:108px">The market.</div><div class="ln2" style="font-size:76px;margin-top:16px"><span class="lt">Elsewhere.</span><i class="ul" style="background:#e8b84b"></i></div></div>
 
           <div id="one-shock"></div>
           <div id="one">
@@ -211,7 +224,7 @@
       </div>
 
       <!-- ======================= F4: product concept ======================= -->
-      <div id="s4" class="clip full" data-start="12.8" data-duration="10.233" data-track-index="2">
+      <div id="s4" class="clip full" data-start="13.3" data-duration="10.233" data-track-index="2">
         <div id="rail">
           <svg id="rail-lines" class="abs" style="left:0;top:0;width:5600px;height:1080px;overflow:visible" viewBox="0 0 5600 1080" data-layout-ignore>
             <path id="rl1" d="M 836 190 L 2676 190" stroke="rgba(237,242,238,0.22)" stroke-width="2" fill="none" />
@@ -266,7 +279,7 @@
       </div>
 
       <!-- ======================= F5: live Strategy Archive ======================= -->
-      <div id="s5" class="clip full" data-start="23.0" data-duration="6.3" data-track-index="3">
+      <div id="s5" class="clip full" data-start="23.5" data-duration="6.3" data-track-index="3">
         <div id="arc-head"><span class="slot"><span class="w">Explore</span></span> <span class="slot"><span class="w">the</span></span> <span class="slot"><span class="w">Strategy</span></span> <span class="slot"><span class="w">Archive</span></span> <span class="slot"><span class="w">now.</span></span></div>
         <div id="arc-sub" class="mono"><span class="live"><i class="dot" style="background:#2fe58c"></i>Live site</span><span class="url">strategies.matrix.finance</span><span>· captured 7 Oct 2026</span></div>
         <div id="steps">
@@ -291,7 +304,7 @@
       </div>
 
       <!-- ======================= F6: end card ======================= -->
-      <div id="s6" class="clip full" data-start="28.8" data-duration="4.7" data-track-index="4">
+      <div id="s6" class="clip full" data-start="29.3" data-duration="4.7" data-track-index="4">
         <svg id="end-cell" class="full" viewBox="0 0 1920 1080" data-layout-ignore>
           <rect id="ecell" x="912" y="290" width="96" height="96" fill="none" stroke="#2fe58c" stroke-width="2.5" />
         </svg>
@@ -306,8 +319,8 @@
         <div id="end-sub" class="mono">Strategy Archive live now · <span class="url">strategies.matrix.finance</span></div>
       </div>
 
-      <audio id="music" src="assets/audio/music.wav" data-start="0" data-duration="33.5" data-track-index="10" data-volume="0.7"></audio>
-      <audio id="sfx" src="assets/audio/sfx.wav" data-start="0" data-duration="33.5" data-track-index="11" data-volume="0.8"></audio>
+      <audio id="music" src="assets/audio/music.wav" data-start="0" data-duration="34" data-track-index="10" data-volume="0.7"></audio>
+      <audio id="sfx" src="assets/audio/sfx.wav" data-start="0" data-duration="34" data-track-index="11" data-volume="0.8"></audio>
     </div>
 
     <script>
@@ -364,13 +377,54 @@
             T(l, { attr: { "stroke-dasharray": "1 1", "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.7, ease: "power2.out" }, 0.02 * k);
           });
 
+
+          // ============ kinetic type: every headline is set character by character ============
+          function splitChars(el) {
+            if (el._ch) return el._ch;
+            var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), nodes = [];
+            while (walker.nextNode()) nodes.push(walker.currentNode);
+            nodes.forEach(function (n) {
+              if (!n.textContent.trim()) return;
+              var frag = document.createDocumentFragment();
+              n.textContent.split(/(\s+)/).forEach(function (part) {
+                if (!part) return;
+                if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(" ")); return; }
+                var wd = document.createElement("span"); wd.className = "wd";
+                part.split("").forEach(function (c) { var sp = document.createElement("span"); sp.className = "ch"; sp.textContent = c; wd.appendChild(sp); });
+                frag.appendChild(wd);
+              });
+              n.parentNode.replaceChild(frag, n);
+            });
+            el._ch = Array.prototype.slice.call(el.querySelectorAll(".ch"));
+            return el._ch;
+          }
+          // in: each glyph rises out of a tilt, sharpens out of blur, staggered — out: glyphs lift away and dissolve
+          function kIn(tlx, el, at, o) {
+            o = o || {};
+            tlx.fromTo(splitChars(el), { yPercent: 105, rotationX: -88, opacity: 0, filter: "blur(14px)", transformOrigin: "50% 100% -24px" },
+              { yPercent: 0, rotationX: 0, opacity: 1, filter: "blur(0px)", duration: o.d || 0.9, ease: "expo.out", stagger: { each: o.st || 0.026, from: o.from || "start" } }, at);
+          }
+          function kOut(tlx, el, at, o) {
+            o = o || {};
+            tlx.to(splitChars(el), { yPercent: -80, rotationX: 50, opacity: 0, filter: "blur(10px)", duration: 0.42, ease: "power3.in", stagger: { each: o.st || 0.014, from: o.from || "start" } }, at);
+          }
+          // sub-lines: glyphs slide in on a tight track from the right, then a coloured underline sweeps through
+          function kSub(tlx, el, at) {
+            tlx.fromTo(splitChars(el.querySelector(".lt")), { x: 46, opacity: 0, filter: "blur(10px)" },
+              { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.8, ease: "expo.out", stagger: 0.032 }, at);
+            var ul = el.querySelector(".ul");
+            tlx.fromTo(ul, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.45, ease: "power3.inOut" }, at + 0.18);
+            tlx.to(ul, { scaleX: 0, transformOrigin: "100% 50%", duration: 0.45, ease: "power3.inOut" }, at + 0.75);
+          }
+          ["#nm0", "#nm1", "#nm2", "#nm3", "#nc0", "#nc1", "#nc2", "#nc3", "#tp .ln1", "#tm .ln1", "#one-txt .w", "#c1", "#c2", "#c3", "#arc-head", "#end-url", "#wm1", "#wm2"].forEach(function (q) { splitChars($(q)); });
+          $$("#tp .lt, #tm .lt").forEach(splitChars);
           // ============ F1 0–13: many tabs → now together (one procedural clock, seek-safe) ============
           var TB = [0, 1, 2, 3, 4, 5].map(function (i) { return $("#tb" + i); });
           var TBI = TB.map(function (el) { return [el.querySelector(".tbar"), el.querySelector(".tbody")]; });
           var NAMES = ["Wallet", "Exchange", "DeFi positions", "Staking"];
           var TILE = [[0, 0], [1, 0], [0, 1], [1, 1], [2, 0], [2, 1]];   // portfolio and market interleave in the mosaic
           var MK = [0, 1, 3, 4, 2, 5];
-          var nm = $("#nm"), nmc = $("#nmc"), tp = $("#tp"), tm = $("#tm");
+          var tp = $("#tp"), tm = $("#tm");
           var one = $("#one"), oneMark = $("#one-mark"), oneTxt = $("#one-txt .w"), shock = $("#one-shock"), scan = $("#scan");
           var oneGrid = $("#one-grid"), oneGlow = $("#one-glow"), frame = $("#one-frame");
           var sv1 = $("#sv1"), sv2 = $("#sv2"), sh0 = $("#sh0"), ocs = $$(".oc");
@@ -403,10 +457,10 @@
             var z = io3(sg(t, 6.0, 6.9));
             var cx = lp(960, 480, z), cy = lp(440, 470, z), R = lp(430, 245, z), Ry = lp(165, 100, z);
             var base = lp(0.78, 0.46, z), dim = lp(1, 0.42, z), theta = 0.72 * t;
-            var gap = lp(24, 0, i4(sg(t, 9.95, 10.4)));
+            var gap = lp(24, 0, i4(sg(t, 10.45, 10.9)));
             var ts = ((1200 - 2 * gap) / 3) / 400;
-            var cop = 1 - sg(t, 9.95, 10.3);
-            var glowB = sg(t, 10.05, 10.4);
+            var cop = 1 - sg(t, 10.45, 10.8);
+            var glowB = sg(t, 10.55, 10.9);
             TB.forEach(function (el, i) {
               var x = 960, y = 440, sc = 1, ry = 0, op = 1, zi = 30;
               if (i < 4) {
@@ -417,77 +471,79 @@
                 else if (t < t0 + 0.6) { var u = sg(t, t0, t0 + 0.5); x = 960; y = 410 + lp(36, 0, ex(u)); sc = lp(1.05, 1.4, bk(u)); op = sg(t, t0, t0 + 0.18); zi = 60; }
                 else { var v = io3(sg(t, t0 + 0.6, t0 + 1.05)); x = lp(960, ox, v); y = lp(410, oy, v); sc = lp(1.4, osc, v); op = lp(1, oop, v); ry = lp(0, ory, v); zi = v < 0.5 ? 60 : 10 + Math.round(d * 20); }
               } else {
-                var j = i - 4, m0 = 7 + 0.5 * j, px = [1350, 1440][j], py = [300, 702][j];
+                var j = i - 4, m0 = 7 + 0.5 * j, px = [1350, 1440][j], py = [262, 640][j];
                 var w = ex(sg(t, m0, m0 + 0.85));
                 x = lp(px + 340, px, w); y = py + 7 * Math.sin(t * 1.4 + j * 1.7); sc = 1.3;
                 ry = lp(-62, -20, w) + 1.5 * Math.sin(t * 1.1 + j); op = sg(t, m0, m0 + 0.3); zi = 50;
               }
-              // 9.0+: everything flies into one 3×2 mosaic, then the gaps close
-              var m = io3(sg(t, 9.0 + 0.07 * MK[i], 9.85 + 0.07 * MK[i]));
+              // 9.5+: everything flies into one 3×2 mosaic, then the gaps close
+              var m = io3(sg(t, 9.5 + 0.07 * MK[i], 10.35 + 0.07 * MK[i]));
               if (m > 0) {
                 var c = TILE[i][0], r = TILE[i][1], tw = 400 * ts, th = 300 * ts;
                 var tx = 360 + tw / 2 + c * (tw + gap), ty = 200 + th / 2 + r * (th + gap);
                 x = lp(x, tx, m); y = lp(y, ty, m); sc = lp(sc, ts, m); ry = lp(ry, 0, m); op = lp(op, 1, m); zi = 40;
               }
-              el.style.opacity = t >= 10.45 ? 0 : op.toFixed(3);
+              el.style.opacity = t >= 10.95 ? 0 : op.toFixed(3);
               el.style.zIndex = zi;
               el.style.transform = "translate(" + (x - 200).toFixed(2) + "px," + (y - 150).toFixed(2) + "px) perspective(1600px) rotateY(" + ry.toFixed(2) + "deg) scale(" + sc.toFixed(4) + ")";
               TBI[i][0].style.opacity = cop.toFixed(3); TBI[i][1].style.opacity = cop.toFixed(3);
-              el.style.borderColor = t > 9.95 ? "rgba(47,229,140," + (0.16 + 0.7 * glowB).toFixed(3) + ")" : "";
-              el.style.boxShadow = t > 9.95 ? "none" : "";
+              el.style.borderColor = t > 10.45 ? "rgba(47,229,140," + (0.16 + 0.7 * glowB).toFixed(3) + ")" : "";
+              el.style.boxShadow = t > 10.45 ? "none" : "";
             });
 
-            // the name of each portfolio piece, one at a time
-            var k = Math.floor(t - 1);
-            if (k >= 0 && k < 4) {
-              var a0 = 1 + k, uin = ex(sg(t, a0 + 0.08, a0 + 0.45)), uout = sg(t, a0 + 0.8, a0 + 0.98);
-              if (nm.textContent !== NAMES[k]) { nm.textContent = NAMES[k]; nmc.textContent = "0" + (k + 1) + " / 04 · Portfolio"; }
-              nm.style.opacity = (uin * (1 - uout)).toFixed(3);
-              nm.style.transform = "translate(" + (960 - nm.offsetWidth / 2).toFixed(1) + "px," + (664 + lp(46, 0, uin) - 30 * uout).toFixed(1) + "px)";
-              nmc.style.opacity = (uin * (1 - uout)).toFixed(3);
-              nmc.style.transform = "translate(" + (960 - nmc.offsetWidth / 2).toFixed(1) + "px," + (770 + lp(20, 0, uin)).toFixed(1) + "px)";
-            } else { nm.style.opacity = 0; nmc.style.opacity = 0; }
-
             // "Your portfolio." settles under the spinning group and travels with the zoom-out
-            var pu = ex(sg(t, 5.0, 5.5)), pout = io3(sg(t, 9.0, 9.35));
-            var px0 = lp(960, 480, z) - tpW / 2, py0 = lp(690, 868, z) + lp(50, 0, pu) + 40 * pout;
-            tp.style.opacity = (pu * (1 - pout) * lp(1, 0.6, sg(t, 7.0, 7.6))).toFixed(3);
-            tp.style.transform = "translate(" + px0.toFixed(1) + "px," + py0.toFixed(1) + "px) scale(" + lp(1, 0.74, z).toFixed(4) + ")";
-            var mu = ex(sg(t, 8.0, 8.5));
-            tm.style.opacity = (mu * (1 - pout)).toFixed(3);
-            tm.style.transform = "translate(" + (1830 - tmW + lp(40, 0, mu)).toFixed(1) + "px," + (928 + 40 * pout).toFixed(1) + "px)";
+            var px0 = lp(960, 480, z) - tpW / 2, py0 = lp(712, 852, z);
+            tp.style.opacity = lp(1, 0.6, sg(t, 7.0, 7.6)).toFixed(3);
+            tp.style.transform = "translate(" + px0.toFixed(1) + "px," + py0.toFixed(1) + "px) scale(" + lp(1, 0.72, z).toFixed(4) + ")";
+            tm.style.transform = "translate(" + (1830 - tmW).toFixed(1) + "px,858px)";
 
             // one rectangle: seams glow, then zip open from the centre; frame draws; the X lands
-            var on = t >= 10.45;
+            var on = t >= 10.95;
             one.style.opacity = on ? 1 : 0;
-            var seamOp = sg(t, 10.0, 10.4) * (1 - sg(t, 10.85, 11.0));
-            var zip = o3(sg(t, 10.5, 10.95));
+            var seamOp = sg(t, 10.5, 10.9) * (1 - sg(t, 11.35, 11.5));
+            var zip = o3(sg(t, 11, 11.45));
             [sv1, sv2, sh0].forEach(function (ln) { ln.style.opacity = seamOp.toFixed(3); });
             seamDash(sv1, 300, zip); seamDash(sv2, 300, zip); seamDash(sh0, 600, zip);
             frame.style.opacity = on ? 1 : 0;
             frame.style.strokeDasharray = "1 1";
-            frame.style.strokeDashoffset = (1 - o3(sg(t, 10.45, 11.05))).toFixed(4);
-            var lu = ex(sg(t, 10.5, 11.0));
-            oneMark.style.opacity = sg(t, 10.5, 10.58).toFixed(3);
-            oneMark.style.transform = "scale(" + (lp(1.75, 1, lu) * lp(1, 1.025, sg(t, 11.0, 12.7))).toFixed(4) + ")";
-            var su = o3(sg(t, 10.5, 11.15));
-            shock.style.opacity = (t >= 10.5 ? 0.85 * (1 - su) : 0).toFixed(3);
+            frame.style.strokeDashoffset = (1 - o3(sg(t, 10.95, 11.55))).toFixed(4);
+            var lu = ex(sg(t, 11, 11.5));
+            oneMark.style.opacity = sg(t, 11, 11.08).toFixed(3);
+            oneMark.style.transform = "scale(" + (lp(1.75, 1, lu) * lp(1, 1.025, sg(t, 11.5, 13.2))).toFixed(4) + ")";
+            var su = o3(sg(t, 11, 11.65));
+            shock.style.opacity = (t >= 11 ? 0.85 * (1 - su) : 0).toFixed(3);
             shock.style.transform = "scale(" + lp(1, 1.12, su).toFixed(4) + ")";
-            var scu = io3(sg(t, 10.6, 11.4));
-            scan.style.opacity = (sg(t, 10.6, 10.7) * (1 - sg(t, 11.3, 11.4))).toFixed(3);
+            var scu = io3(sg(t, 11.1, 11.9));
+            scan.style.opacity = (sg(t, 11.1, 11.2) * (1 - sg(t, 11.8, 11.9))).toFixed(3);
             scan.style.transform = "translateX(" + lp(-240, 1220, scu).toFixed(1) + "px)";
-            oneGrid.style.opacity = (0.15 + 0.85 * o3(sg(t, 10.7, 11.4))).toFixed(3);
-            oneGlow.style.opacity = (o3(sg(t, 10.5, 11.2)) * lp(1, 0.75, sg(t, 11.2, 12.7))).toFixed(3);
-            oneTxt.style.transform = "translateY(" + lp(110, 0, ex(sg(t, 10.95, 11.5))).toFixed(2) + "%)";
-            ocs.forEach(function (o, n) { var u2 = o3(sg(t, 11.1 + 0.12 * n, 11.5 + 0.12 * n)); o.style.clipPath = "inset(0% " + ((1 - u2) * 100).toFixed(2) + "% 0% 0%)"; });
+            oneGrid.style.opacity = (0.15 + 0.85 * o3(sg(t, 11.2, 11.9))).toFixed(3);
+            oneGlow.style.opacity = (o3(sg(t, 11, 11.7)) * lp(1, 0.75, sg(t, 11.7, 13.2))).toFixed(3);
+            ocs.forEach(function (o, n) { var u2 = o3(sg(t, 11.6 + 0.12 * n, 12 + 0.12 * n)); o.style.clipPath = "inset(0% " + ((1 - u2) * 100).toFixed(2) + "% 0% 0%)"; });
           }
+          // names of the portfolio pieces, one at a time (centred under the tab)
+          [0, 1, 2, 3].forEach(function (i) {
+            var nmE = $("#nm" + i), ncE = $("#nc" + i), t0 = 1 + i;
+            nmE.style.transform = "translate(" + (960 - nmE.offsetWidth / 2).toFixed(1) + "px,676px)";
+            ncE.style.transform = "translate(" + (960 - ncE.offsetWidth / 2).toFixed(1) + "px,786px)";
+            kIn(tl, nmE, t0 + 0.08, { st: 0.03, from: "center" });
+            kIn(tl, ncE, t0 + 0.22, { st: 0.012, d: 0.6 });
+            kOut(tl, nmE, t0 + 0.78, { from: "center" });
+            kOut(tl, ncE, t0 + 0.78);
+          });
+          kIn(tl, $("#tp .ln1"), 5.32, { st: 0.028 });
+          kSub(tl, $("#tp .ln2"), 5.8);
+          kIn(tl, $("#tm .ln1"), 8.0, { st: 0.028 });
+          kSub(tl, $("#tm .ln2"), 8.45);
+          kOut(tl, $("#tp .ln1"), 9.5); kOut(tl, $("#tp .lt"), 9.55);
+          kOut(tl, $("#tm .ln1"), 9.5); kOut(tl, $("#tm .lt"), 9.55);
+          kIn(tl, $("#one-txt .w"), 11.45, { st: 0.03, d: 1.0 });
           var IC = { t: 0 };
           renderIntro(0);
-          tl.to(IC, { t: 13.2, duration: 13.2, ease: "none", onUpdate: function () { renderIntro(IC.t); } }, 0);
-          // exit 12.7: camera rides down the grid into the product concept
-          tl.to("#s1-wrap", { y: -760, duration: 0.35, ease: "power3.in" }, 12.7);
+          tl.to(IC, { t: 13.7, duration: 13.7, ease: "none", onUpdate: function () { renderIntro(IC.t); } }, 0);
+          // exit 13.2: camera rides down the grid into the product concept
+          tl.to("#s1-wrap", { y: -760, duration: 0.35, ease: "power3.in" }, 13.2);
 
-          // everything after the intro keeps its tuned timings, shifted by 3.5 s
+          // everything after the intro keeps its tuned timings, shifted by 4.0 s
           var rootTL = tl; tl = gsap.timeline();
           // ============ F4 9.5-19.5: product concept rail ============
           var railMoves = [[12.65, -1840], [16.15, -3680]];
@@ -501,28 +557,28 @@
           tl.set("#c2", { visibility: "visible" }, 13.0);
           tl.set("#c2", { visibility: "hidden" }, 16.5);
           tl.set("#c3", { visibility: "visible" }, 16.5);
-          T("#c1 .w", { yPercent: 115 }, { yPercent: 0, duration: 0.6, ease: "expo.out", stagger: 0.08 }, 9.9);
+          kIn(tl, $("#c1"), 9.9);
           T("#b1, #b2, #b3", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "expo.out", stagger: 0.18 }, 10.2);
           T(".p1r", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power3.out", stagger: 0.16 }, 10.6);
           // 01 → 02
           tl.to("#rail", { x: railMoves[0][1], duration: 0.7, ease: "power3.inOut" }, railMoves[0][0]);
           tl.to("#rl1", { strokeDashoffset: 0, duration: 0.7, ease: "power3.inOut" }, railMoves[0][0]);
-          tl.to("#c1 .w", { yPercent: -115, duration: 0.3, ease: "power3.in", stagger: 0.03 }, 12.3);
+          kOut(tl, $("#c1"), 12.25);
           tl.to("#cs", { clipPath: "inset(0% 100% 0% 0%)", duration: 0.25, ease: "power3.in" }, 12.3);
           tl.set("#cs", { textContent: "02 / 03 · Market" }, 12.9);
           tl.to("#cs", { clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power3.out" }, 13.05);
-          T("#c2 .w", { yPercent: 115 }, { yPercent: 0, duration: 0.6, ease: "expo.out", stagger: 0.08 }, 13.05);
+          kIn(tl, $("#c2"), 13.05);
           T("#p2badge", { scale: 0.6, clipPath: "inset(0% 50% 0% 50% round 999px)" }, { scale: 1, clipPath: "inset(0% 0% 0% 0% round 999px)", duration: 0.5, ease: "back.out(2)" }, 13.3);
           T(".p2r", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power3.out", stagger: 0.16 }, 13.5);
           tl.to("#sb2", { borderColor: "rgba(47,229,140,0.6)", color: "#2fe58c", duration: 0.2 }, 13.0);
           // 02 → 03
           tl.to("#rail", { x: railMoves[1][1], duration: 0.7, ease: "power3.inOut" }, railMoves[1][0]);
           tl.to("#rl2", { strokeDashoffset: 0, duration: 0.7, ease: "power3.inOut" }, railMoves[1][0]);
-          tl.to("#c2 .w", { yPercent: -115, duration: 0.3, ease: "power3.in", stagger: 0.03 }, 15.8);
+          kOut(tl, $("#c2"), 15.75);
           tl.to("#cs", { clipPath: "inset(0% 100% 0% 0%)", duration: 0.25, ease: "power3.in" }, 15.8);
           tl.set("#cs", { textContent: "03 / 03 · Strategy discovery" }, 16.4);
           tl.to("#cs", { clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power3.out" }, 16.55);
-          T("#c3 .w", { yPercent: 115 }, { yPercent: 0, duration: 0.6, ease: "expo.out", stagger: 0.08 }, 16.55);
+          kIn(tl, $("#c3"), 16.55);
           T("#p3card", { clipPath: "inset(0% 0% 100% 0% round 12px)" }, { clipPath: "inset(0% 0% 0% 0% round 12px)", duration: 0.55, ease: "expo.out" }, 16.75);
           T(".p3c", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)", stagger: 0.08 }, 17.1);
           T(".p3r", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out", stagger: 0.2 }, 17.35);
@@ -530,7 +586,8 @@
           // push into the card (match cut source)
           var lcx = card.x + card.w / 2, lcy = card.y + card.h / 2;
           tl.to("#rail", { scale: kCard, x: 960 - kCard * lcx, y: 540 - kCard * lcy, duration: 0.45, ease: "power3.in" }, 19.05);
-          tl.to("#c3 .w, #cs", { yPercent: -115, duration: 0.3, ease: "power3.in" }, 19.05);
+          kOut(tl, $("#c3"), 19.0);
+          tl.to("#cs", { yPercent: -115, duration: 0.3, ease: "power3.in" }, 19.05);
 
           // ============ F5 19.5-25.5: live Strategy Archive ============
           var S = WIN0.w / 1920; // screenshot scale inside the nav window
@@ -552,7 +609,7 @@
           applyWin();
           T(W, { x: 960 - cardW / 2, y: 540 - cardH / 2, w: cardW, h: cardH, g: 1, s: cardW / WIN0.w }, { x: WIN0.x, y: WIN0.y, w: WIN0.w, h: WIN0.h, g: 0, s: 1, duration: 0.5, ease: "expo.out", onUpdate: applyWin }, 19.5);
           $$(".shot").forEach(function (s) { gsap.set(s, { scale: S }); });
-          T("#arc-head .w", { yPercent: 115 }, { yPercent: 0, duration: 0.6, ease: "expo.out", stagger: 0.06 }, 19.7);
+          kIn(tl, $("#arc-head"), 19.7, { st: 0.02 });
           T("#arc-sub", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out" }, 20.0);
           T(".st", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power3.out", stagger: 0.08 }, 19.9);
           T(".st .bar2", { scaleY: 0 }, { scaleY: 0, duration: 0.01 }, 19.5);
@@ -598,16 +655,16 @@
           tl.to("#sh5", { scale: kz * 1.025, x: zx - RW * kz * 0.0125, y: zy - RH * kz * 0.0125, duration: 1.15, ease: "none" }, 24.35);
           // collapse into one grid cell → end card
           tl.to(W, { x: MC.x - 48, y: MC.y - 48, w: 96, h: 96, r: 2, g: 1, s: 96 / WIN1.w, duration: 0.45, ease: "power4.in", onUpdate: applyWin }, 25.1);
-          tl.to("#arc-head .w", { yPercent: -115, duration: 0.35, ease: "power3.in", stagger: 0.03 }, 25.1);
+          kOut(tl, $("#arc-head"), 25.05, { st: 0.008 });
           tl.to("#arc-sub", { clipPath: "inset(0% 0% 0% 100%)", duration: 0.35, ease: "power3.in" }, 25.1);
 
           // ============ F6 25.5-30: end card ============
           tl.set("#ecell", { opacity: 0 }, 0);
           T("#ecell", { opacity: 1, attr: { x: MC.x - 48, y: MC.y - 48, width: 96, height: 96 } }, { opacity: 0, attr: { x: MC.x - 320, y: MC.y - 320, width: 640, height: 640 }, duration: 0.6, ease: "expo.out", immediateRender: false }, 25.55);
           T("#end-mark", { scale: 0.45, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.55, ease: "expo.out" }, 25.55);
-          T("#end-wm", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.55, ease: "expo.out" }, 25.65);
+          kIn(tl, $("#wm1"), 25.65, { st: 0.04 }); kIn(tl, $("#wm2"), 25.85, { st: 0.03, d: 0.7 });
           T("#cta", { clipPath: "inset(0% 50% 0% 50% round 999px)", scale: 0.9 }, { clipPath: "inset(0% 0% 0% 0% round 999px)", scale: 1, duration: 0.5, ease: "expo.out" }, 25.9);
-          T("#end-url", { clipPath: "inset(0% 0% 100% 0%)", y: 24 }, { clipPath: "inset(0% 0% 0% 0%)", y: 0, duration: 0.45, ease: "expo.out" }, 26.05);
+          kIn(tl, $("#end-url"), 26.05, { st: 0.03 });
           T("#end-sub", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out" }, 26.2);
           T(".corner", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out" }, 26.1);
           // the grid is the camera's floor: it travels with every move, wrapped to its 96 px period
@@ -622,8 +679,8 @@
           tl.to("#grid", { opacity: 0.6, duration: 0.3 }, 19.5);
           tl.to("#grid", { opacity: 1, duration: 0.6 }, 25.5);
 
-          rootTL.add(tl, 3.5);
-          rootTL.to({}, { duration: 33.5 }, 0);
+          rootTL.add(tl, 4.0);
+          rootTL.to({}, { duration: 34 }, 0);
           window.__timelines["main"] = rootTL;
         }
         if (document.fonts && document.fonts.ready) document.fonts.ready.then(build); else build();

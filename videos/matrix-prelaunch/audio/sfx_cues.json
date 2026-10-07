@@ -1,5 +1,5 @@
 {
- "duration": 33.5,
+ "duration": 34.0,
  "cues": [
   {
    "t": 0.15,
@@ -92,7 +92,7 @@
    "label": "F1 Staking joins the orbit"
   },
   {
-   "t": 5.0,
+   "t": 5.32,
    "fx": "blip",
    "gain_db": -20,
    "args": {
@@ -147,7 +147,7 @@
    "label": "F2 The market."
   },
   {
-   "t": 9.45,
+   "t": 9.95,
    "fx": "whoosh",
    "gain_db": -10,
    "peak": true,
@@ -157,19 +157,19 @@
    "label": "F3 all tabs fly into the mosaic"
   },
   {
-   "t": 9.9,
+   "t": 10.4,
    "fx": "snap",
    "gain_db": -12,
    "label": "F3 tiles lock"
   },
   {
-   "t": 10.4,
+   "t": 10.9,
    "fx": "snap",
    "gain_db": -14,
    "label": "F3 gaps close"
   },
   {
-   "t": 10.5,
+   "t": 11.0,
    "fx": "swell",
    "gain_db": -12,
    "align": "end",
@@ -180,7 +180,7 @@
    "label": "F3 into the X"
   },
   {
-   "t": 10.5,
+   "t": 11.0,
    "fx": "impact",
    "gain_db": -3,
    "args": {
@@ -189,7 +189,7 @@
    "label": "F3 MATRIX X LANDS"
   },
   {
-   "t": 10.5,
+   "t": 11.0,
    "fx": "subdrop",
    "gain_db": -6,
    "args": {
@@ -198,7 +198,7 @@
    "label": "F3 sub under the X"
   },
   {
-   "t": 10.65,
+   "t": 11.15,
    "fx": "shimmer",
    "gain_db": -20,
    "args": {
@@ -207,13 +207,13 @@
    "label": "F3 scan sweep"
   },
   {
-   "t": 10.95,
+   "t": 11.45,
    "fx": "chime",
    "gain_db": -17,
    "label": "F3 Now together."
   },
   {
-   "t": 12.75,
+   "t": 13.25,
    "fx": "whoosh",
    "gain_db": -13,
    "peak": true,
@@ -223,7 +223,7 @@
    "label": "F3 camera rides down into the concept"
   },
   {
-   "t": 16.5,
+   "t": 17.0,
    "fx": "whoosh",
    "gain_db": -13,
    "peak": true,
@@ -235,7 +235,7 @@
    "label": "F4 rail move 01 -> 02"
   },
   {
-   "t": 20.0,
+   "t": 20.5,
    "fx": "whoosh",
    "gain_db": -13,
    "peak": true,
@@ -247,7 +247,7 @@
    "label": "F4 rail move 02 -> 03"
   },
   {
-   "t": 20.5,
+   "t": 21.0,
    "fx": "shimmer",
    "gain_db": -24,
    "args": {
@@ -256,7 +256,7 @@
    "label": "F4 strategy surfaced"
   },
   {
-   "t": 23.0,
+   "t": 23.5,
    "fx": "whoosh",
    "gain_db": -10,
    "peak": true,
@@ -266,25 +266,25 @@
    "label": "F5 match cut into the live Archive"
   },
   {
-   "t": 24.0,
+   "t": 24.5,
    "fx": "key",
    "gain_db": -12,
    "label": "F5 click ENTER THE ARCHIVE"
   },
   {
-   "t": 25.1,
+   "t": 25.6,
    "fx": "key",
    "gain_db": -12,
    "label": "F5 click Sideways"
   },
   {
-   "t": 26.2,
+   "t": 26.7,
    "fx": "key",
    "gain_db": -12,
    "label": "F5 click OPEN RECORD"
   },
   {
-   "t": 26.9,
+   "t": 27.4,
    "fx": "paper",
    "gain_db": -18,
    "args": {
@@ -293,7 +293,7 @@
    "label": "F5 scroll to Risk"
   },
   {
-   "t": 29.0,
+   "t": 29.5,
    "fx": "whoosh",
    "gain_db": -13,
    "peak": true,
@@ -303,10 +303,34 @@
    "label": "F6 window collapses to the grid"
   },
   {
-   "t": 29.5,
+   "t": 30.0,
    "fx": "chime",
    "gain_db": -14,
    "label": "F6 Join the waitlist lands"
+  },
+  {
+   "t": 5.85,
+   "fx": "whoosh",
+   "gain_db": -22,
+   "peak": true,
+   "args": {
+    "dur": 0.5,
+    "pan_from": -0.2,
+    "pan_to": 0.3
+   },
+   "label": "F1 Everywhere."
+  },
+  {
+   "t": 8.5,
+   "fx": "whoosh",
+   "gain_db": -22,
+   "peak": true,
+   "args": {
+    "dur": 0.5,
+    "pan_from": 0.6,
+    "pan_to": 0.2
+   },
+   "label": "F2 Elsewhere."
   }
  ]
 }

@@ -1,4 +1,6 @@
-"""Original minimal electronic rhythm for the Matrix prelaunch film — synthesized with numpy, seeded, $0.
+"""SUPERSEDED by audio/score.py from v6 on (kept to reproduce v1-v5).
+
+Original minimal electronic rhythm for the Matrix prelaunch film — synthesized with numpy, seeded, $0.
 
     python audio/make_music.py [project_dir]   ->  assets/audio/music.wav (30.0 s, 48 kHz stereo)
 

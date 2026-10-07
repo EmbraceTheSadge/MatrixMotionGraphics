@@ -1,5 +1,5 @@
 {
- "duration": 34.0,
+ "duration": 40.4,
  "cues": [
   {
    "t": 0.15,
@@ -213,102 +213,6 @@
    "label": "F3 Now together."
   },
   {
-   "t": 13.25,
-   "fx": "whoosh",
-   "gain_db": -13,
-   "peak": true,
-   "args": {
-    "dur": 0.6
-   },
-   "label": "F3 camera rides down into the concept"
-  },
-  {
-   "t": 17.0,
-   "fx": "whoosh",
-   "gain_db": -13,
-   "peak": true,
-   "args": {
-    "dur": 0.7,
-    "pan_from": 0.6,
-    "pan_to": -0.6
-   },
-   "label": "F4 rail move 01 -> 02"
-  },
-  {
-   "t": 20.5,
-   "fx": "whoosh",
-   "gain_db": -13,
-   "peak": true,
-   "args": {
-    "dur": 0.7,
-    "pan_from": 0.6,
-    "pan_to": -0.6
-   },
-   "label": "F4 rail move 02 -> 03"
-  },
-  {
-   "t": 21.0,
-   "fx": "shimmer",
-   "gain_db": -24,
-   "args": {
-    "dur": 1.2
-   },
-   "label": "F4 strategy surfaced"
-  },
-  {
-   "t": 23.5,
-   "fx": "whoosh",
-   "gain_db": -10,
-   "peak": true,
-   "args": {
-    "dur": 0.8
-   },
-   "label": "F5 match cut into the live Archive"
-  },
-  {
-   "t": 24.5,
-   "fx": "key",
-   "gain_db": -12,
-   "label": "F5 click ENTER THE ARCHIVE"
-  },
-  {
-   "t": 25.6,
-   "fx": "key",
-   "gain_db": -12,
-   "label": "F5 click Sideways"
-  },
-  {
-   "t": 26.7,
-   "fx": "key",
-   "gain_db": -12,
-   "label": "F5 click OPEN RECORD"
-  },
-  {
-   "t": 27.4,
-   "fx": "paper",
-   "gain_db": -18,
-   "args": {
-    "dur": 0.5
-   },
-   "label": "F5 scroll to Risk"
-  },
-  {
-   "t": 29.5,
-   "fx": "whoosh",
-   "gain_db": -13,
-   "peak": true,
-   "args": {
-    "dur": 0.7
-   },
-   "label": "F6 window collapses to the grid"
-  },
-  {
-   "t": 30.0,
-   "fx": "chime",
-   "gain_db": -14,
-   "label": "F6 Join the waitlist lands"
-  },
-  {
    "t": 5.85,
    "fx": "whoosh",
    "gain_db": -22,
@@ -331,6 +235,381 @@
     "pan_to": 0.2
    },
    "label": "F2 Elsewhere."
+  },
+  {
+   "t": 13.85,
+   "fx": "whoosh",
+   "gain_db": -13,
+   "peak": true,
+   "args": {
+    "dur": 0.9,
+    "pan_from": -0.3,
+    "pan_to": 0.4
+   },
+   "label": "F2 rectangle opens into the app window"
+  },
+  {
+   "t": 14.3,
+   "fx": "tick",
+   "gain_db": -20,
+   "label": "F2 logo settles in the header"
+  },
+  {
+   "t": 15.5,
+   "fx": "whoosh",
+   "gain_db": -19,
+   "peak": true,
+   "args": {
+    "dur": 1.6,
+    "pan_from": -0.5,
+    "pan_to": 0.5,
+    "f_lo": 180,
+    "f_hi": 1800
+   },
+   "label": "F2 downtrend draws"
+  },
+  {
+   "t": 16.5,
+   "fx": "tick",
+   "gain_db": -20,
+   "label": "F2 lower-highs trendline"
+  },
+  {
+   "t": 17.1,
+   "fx": "tapestop",
+   "gain_db": -15,
+   "args": {
+    "dur": 0.5
+   },
+   "label": "F2 chart folds"
+  },
+  {
+   "t": 17.2,
+   "fx": "pop",
+   "gain_db": -12,
+   "label": "F2 Bear market \u00b7 Downtrend lands"
+  },
+  {
+   "t": 18.8,
+   "fx": "whoosh",
+   "gain_db": -17,
+   "peak": true,
+   "args": {
+    "dur": 0.6
+   },
+   "label": "F2 badge tucks into the top row"
+  },
+  {
+   "t": 19.35,
+   "fx": "pop",
+   "gain_db": -12,
+   "args": {
+    "f0": 500,
+    "f1": 900
+   },
+   "label": "F2 Asset accumulation card rises"
+  },
+  {
+   "t": 19.8,
+   "fx": "tick",
+   "gain_db": -21,
+   "label": "F2 chip"
+  },
+  {
+   "t": 19.92,
+   "fx": "tick",
+   "gain_db": -21,
+   "label": "F2 chip"
+  },
+  {
+   "t": 20.04,
+   "fx": "tick",
+   "gain_db": -21,
+   "label": "F2 chip"
+  },
+  {
+   "t": 21.85,
+   "fx": "whoosh",
+   "gain_db": -13,
+   "peak": true,
+   "args": {
+    "dur": 0.7
+   },
+   "label": "F2 card opens into the LP explainer"
+  },
+  {
+   "t": 22.45,
+   "fx": "blip",
+   "gain_db": -19,
+   "args": {
+    "freq": 990
+   },
+   "label": "F2 price at the top of the range"
+  },
+  {
+   "t": 22.75,
+   "fx": "pop",
+   "gain_db": -17,
+   "label": "F2 Deposit \u00b7 4,000 USDC"
+  },
+  {
+   "t": 23.65,
+   "fx": "key",
+   "gain_db": -19,
+   "label": "F2 USDC coin lands in the range"
+  },
+  {
+   "t": 23.75,
+   "fx": "key",
+   "gain_db": -19,
+   "label": "F2 USDC coin lands in the range"
+  },
+  {
+   "t": 23.85,
+   "fx": "key",
+   "gain_db": -19,
+   "label": "F2 USDC coin lands in the range"
+  },
+  {
+   "t": 23.95,
+   "fx": "key",
+   "gain_db": -19,
+   "label": "F2 USDC coin lands in the range"
+  },
+  {
+   "t": 24.05,
+   "fx": "key",
+   "gain_db": -19,
+   "label": "F2 USDC coin lands in the range"
+  },
+  {
+   "t": 24.15,
+   "fx": "key",
+   "gain_db": -19,
+   "label": "F2 USDC coin lands in the range"
+  },
+  {
+   "t": 24.25,
+   "fx": "key",
+   "gain_db": -19,
+   "label": "F2 USDC coin lands in the range"
+  },
+  {
+   "t": 24.35,
+   "fx": "key",
+   "gain_db": -19,
+   "label": "F2 USDC coin lands in the range"
+  },
+  {
+   "t": 24.0,
+   "fx": "swell",
+   "gain_db": -18,
+   "args": {
+    "dur": 1.0,
+    "freq": 147
+   },
+   "label": "F2 descent begins"
+  },
+  {
+   "t": 24.9,
+   "fx": "blip",
+   "gain_db": -21,
+   "args": {
+    "freq": 1480,
+    "pan": 0.45
+   },
+   "label": "F2 fee coin lands"
+  },
+  {
+   "t": 25.087,
+   "fx": "blip",
+   "gain_db": -21,
+   "args": {
+    "freq": 1540,
+    "pan": 0.45
+   },
+   "label": "F2 fee coin lands"
+  },
+  {
+   "t": 25.274,
+   "fx": "blip",
+   "gain_db": -21,
+   "args": {
+    "freq": 1600,
+    "pan": 0.45
+   },
+   "label": "F2 fee coin lands"
+  },
+  {
+   "t": 25.461,
+   "fx": "blip",
+   "gain_db": -21,
+   "args": {
+    "freq": 1660,
+    "pan": 0.45
+   },
+   "label": "F2 fee coin lands"
+  },
+  {
+   "t": 25.648,
+   "fx": "blip",
+   "gain_db": -21,
+   "args": {
+    "freq": 1720,
+    "pan": 0.45
+   },
+   "label": "F2 fee coin lands"
+  },
+  {
+   "t": 25.835,
+   "fx": "blip",
+   "gain_db": -21,
+   "args": {
+    "freq": 1780,
+    "pan": 0.45
+   },
+   "label": "F2 fee coin lands"
+  },
+  {
+   "t": 26.022,
+   "fx": "blip",
+   "gain_db": -21,
+   "args": {
+    "freq": 1840,
+    "pan": 0.45
+   },
+   "label": "F2 fee coin lands"
+  },
+  {
+   "t": 26.209,
+   "fx": "blip",
+   "gain_db": -21,
+   "args": {
+    "freq": 1900,
+    "pan": 0.45
+   },
+   "label": "F2 fee coin lands"
+  },
+  {
+   "t": 26.396,
+   "fx": "blip",
+   "gain_db": -21,
+   "args": {
+    "freq": 1960,
+    "pan": 0.45
+   },
+   "label": "F2 fee coin lands"
+  },
+  {
+   "t": 26.583,
+   "fx": "blip",
+   "gain_db": -21,
+   "args": {
+    "freq": 2020,
+    "pan": 0.45
+   },
+   "label": "F2 fee coin lands"
+  },
+  {
+   "t": 26.25,
+   "fx": "tick",
+   "gain_db": -17,
+   "label": "F2 below range \u00b7 fees paused"
+  },
+  {
+   "t": 27.85,
+   "fx": "pop",
+   "gain_db": -14,
+   "label": "F2 ETH price \u2193"
+  },
+  {
+   "t": 28.0,
+   "fx": "pop",
+   "gain_db": -14,
+   "args": {
+    "f0": 500,
+    "f1": 900
+   },
+   "label": "F2 ETH held \u2191"
+  },
+  {
+   "t": 28.15,
+   "fx": "pop",
+   "gain_db": -14,
+   "args": {
+    "f0": 600,
+    "f1": 1000
+   },
+   "label": "F2 Fees earned +"
+  },
+  {
+   "t": 28.4,
+   "fx": "chime",
+   "gain_db": -19,
+   "label": "F2 the explanation"
+  },
+  {
+   "t": 29.75,
+   "fx": "whoosh",
+   "gain_db": -11,
+   "peak": true,
+   "args": {
+    "dur": 0.8
+   },
+   "label": "F3 window becomes the live Archive"
+  },
+  {
+   "t": 30.7,
+   "fx": "key",
+   "gain_db": -12,
+   "label": "F3 click ENTER THE ARCHIVE"
+  },
+  {
+   "t": 31.8,
+   "fx": "key",
+   "gain_db": -12,
+   "label": "F3 click Bear"
+  },
+  {
+   "t": 32.9,
+   "fx": "key",
+   "gain_db": -12,
+   "label": "F3 click OPEN RECORD"
+  },
+  {
+   "t": 33.85,
+   "fx": "whoosh",
+   "gain_db": -15,
+   "peak": true,
+   "args": {
+    "dur": 0.7
+   },
+   "label": "F3 zoom into the Overview"
+  },
+  {
+   "t": 34.7,
+   "fx": "shimmer",
+   "gain_db": -23,
+   "args": {
+    "dur": 0.9
+   },
+   "label": "F3 highlight sweep"
+  },
+  {
+   "t": 36.0,
+   "fx": "whoosh",
+   "gain_db": -13,
+   "peak": true,
+   "args": {
+    "dur": 0.7
+   },
+   "label": "F4 window collapses into the mark"
+  },
+  {
+   "t": 36.7,
+   "fx": "chime",
+   "gain_db": -14,
+   "label": "F4 Join the waitlist lands"
   }
  ]
 }

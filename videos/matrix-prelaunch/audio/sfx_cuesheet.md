@@ -24,14 +24,49 @@
 | 11.000 | subdrop | -6 | start | sfx | F3 sub under the X |
 | 11.150 | shimmer | -20 | start | sfx | F3 scan sweep |
 | 11.450 | chime | -17 | start | sfx | F3 Now together. |
-| 13.250 | whoosh | -13 | peak | sfx | F3 camera rides down into the concept |
-| 17.000 | whoosh | -13 | peak | sfx | F4 rail move 01 -> 02 |
-| 20.500 | whoosh | -13 | peak | sfx | F4 rail move 02 -> 03 |
-| 21.000 | shimmer | -24 | start | sfx | F4 strategy surfaced |
-| 23.500 | whoosh | -10 | peak | sfx | F5 match cut into the live Archive |
-| 24.500 | key | -12 | start | sfx | F5 click ENTER THE ARCHIVE |
-| 25.600 | key | -12 | start | sfx | F5 click Sideways |
-| 26.700 | key | -12 | start | sfx | F5 click OPEN RECORD |
-| 27.400 | paper | -18 | start | sfx | F5 scroll to Risk |
-| 29.500 | whoosh | -13 | peak | sfx | F6 window collapses to the grid |
-| 30.000 | chime | -14 | start | sfx | F6 Join the waitlist lands |
+| 13.850 | whoosh | -13 | peak | sfx | F2 rectangle opens into the app window |
+| 14.300 | tick | -20 | start | sfx | F2 logo settles in the header |
+| 15.500 | whoosh | -19 | peak | sfx | F2 downtrend draws |
+| 16.500 | tick | -20 | start | sfx | F2 lower-highs trendline |
+| 17.100 | tapestop | -15 | start | sfx | F2 chart folds |
+| 17.200 | pop | -12 | start | sfx | F2 Bear market · Downtrend lands |
+| 18.800 | whoosh | -17 | peak | sfx | F2 badge tucks into the top row |
+| 19.350 | pop | -12 | start | sfx | F2 Asset accumulation card rises |
+| 19.800 | tick | -21 | start | sfx | F2 chip |
+| 19.920 | tick | -21 | start | sfx | F2 chip |
+| 20.040 | tick | -21 | start | sfx | F2 chip |
+| 21.850 | whoosh | -13 | peak | sfx | F2 card opens into the LP explainer |
+| 22.450 | blip | -19 | start | sfx | F2 price at the top of the range |
+| 22.750 | pop | -17 | start | sfx | F2 Deposit · 4,000 USDC |
+| 23.650 | key | -19 | start | sfx | F2 USDC coin lands in the range |
+| 23.750 | key | -19 | start | sfx | F2 USDC coin lands in the range |
+| 23.850 | key | -19 | start | sfx | F2 USDC coin lands in the range |
+| 23.950 | key | -19 | start | sfx | F2 USDC coin lands in the range |
+| 24.000 | swell | -18 | start | sfx | F2 descent begins |
+| 24.050 | key | -19 | start | sfx | F2 USDC coin lands in the range |
+| 24.150 | key | -19 | start | sfx | F2 USDC coin lands in the range |
+| 24.250 | key | -19 | start | sfx | F2 USDC coin lands in the range |
+| 24.350 | key | -19 | start | sfx | F2 USDC coin lands in the range |
+| 24.900 | blip | -21 | start | sfx | F2 fee coin lands |
+| 25.087 | blip | -21 | start | sfx | F2 fee coin lands |
+| 25.274 | blip | -21 | start | sfx | F2 fee coin lands |
+| 25.461 | blip | -21 | start | sfx | F2 fee coin lands |
+| 25.648 | blip | -21 | start | sfx | F2 fee coin lands |
+| 25.835 | blip | -21 | start | sfx | F2 fee coin lands |
+| 26.022 | blip | -21 | start | sfx | F2 fee coin lands |
+| 26.209 | blip | -21 | start | sfx | F2 fee coin lands |
+| 26.250 | tick | -17 | start | sfx | F2 below range · fees paused |
+| 26.396 | blip | -21 | start | sfx | F2 fee coin lands |
+| 26.583 | blip | -21 | start | sfx | F2 fee coin lands |
+| 27.850 | pop | -14 | start | sfx | F2 ETH price ↓ |
+| 28.000 | pop | -14 | start | sfx | F2 ETH held ↑ |
+| 28.150 | pop | -14 | start | sfx | F2 Fees earned + |
+| 28.400 | chime | -19 | start | sfx | F2 the explanation |
+| 29.750 | whoosh | -11 | peak | sfx | F3 window becomes the live Archive |
+| 30.700 | key | -12 | start | sfx | F3 click ENTER THE ARCHIVE |
+| 31.800 | key | -12 | start | sfx | F3 click Bear |
+| 32.900 | key | -12 | start | sfx | F3 click OPEN RECORD |
+| 33.850 | whoosh | -15 | peak | sfx | F3 zoom into the Overview |
+| 34.700 | shimmer | -23 | start | sfx | F3 highlight sweep |
+| 36.000 | whoosh | -13 | peak | sfx | F4 window collapses into the mark |
+| 36.700 | chime | -14 | start | sfx | F4 Join the waitlist lands |

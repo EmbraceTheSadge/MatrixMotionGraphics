@@ -1,0 +1,105 @@
+{
+ "captured_at": "2026-10-07T19:27:53.112Z",
+ "viewport": "1920x1080 @2x",
+ "method": "Playwright/Chromium, real clicks on the live site",
+ "path": "Home → Enter the Archive → Bear → All Bear Phases → (all assets) Continue → Accumulation → Results → Open record (Accumulation LP)",
+ "steps": [
+  {
+   "name": "bear-1-home",
+   "url": "https://strategies.matrix.finance/",
+   "click": {
+    "x": 334,
+    "y": 801,
+    "w": 120,
+    "h": 17
+   },
+   "clickLabel": "ENTER THE ARCHIVE"
+  },
+  {
+   "name": "bear-2-market",
+   "url": "https://strategies.matrix.finance/?view=explore&step=market",
+   "click": {
+    "x": 488,
+    "y": 696,
+    "w": 958,
+    "h": 48
+   },
+   "clickLabel": "Bear"
+  },
+  {
+   "name": "bear-3-phase",
+   "url": "https://strategies.matrix.finance/?view=explore&step=phase&market=bear",
+   "click": {
+    "x": 329,
+    "y": 873,
+    "w": 1164,
+    "h": 29
+   },
+   "clickLabel": "All Bear Phases"
+  },
+  {
+   "name": "bear-4-assets",
+   "url": "https://strategies.matrix.finance/?view=explore&step=assets&market=bear",
+   "click": {
+    "x": 1518,
+    "y": 801,
+    "w": 62,
+    "h": 17
+   },
+   "clickLabel": "CONTINUE"
+  },
+  {
+   "name": "bear-5-objective",
+   "url": "https://strategies.matrix.finance/?view=explore&step=objective&market=bear",
+   "click": {
+    "x": 488,
+    "y": 533,
+    "w": 958,
+    "h": 34
+   },
+   "clickLabel": "Accumulation"
+  },
+  {
+   "name": "bear-6-results",
+   "url": "https://strategies.matrix.finance/?view=results&market=bear&objective=accumulation",
+   "click": {
+    "x": 367,
+    "y": 783,
+    "w": 84,
+    "h": 17
+   },
+   "clickLabel": "OPEN RECORD"
+  },
+  {
+   "name": "bear-7-record-top",
+   "url": "https://strategies.matrix.finance/?view=strategy&slug=accumulation-lp",
+   "click": null,
+   "clickLabel": null
+  },
+  {
+   "name": "bear-8-record-risk",
+   "url": "https://strategies.matrix.finance/?view=strategy&slug=accumulation-lp",
+   "click": null,
+   "clickLabel": null
+  },
+  {
+   "name": "bear-9-record-fit",
+   "url": "https://strategies.matrix.finance/?view=strategy&slug=accumulation-lp",
+   "click": null,
+   "clickLabel": null
+  }
+ ],
+ "riskGeometry": {
+  "x": 586,
+  "y": 85.1875,
+  "w": 1032,
+  "h": 838.6875
+ },
+ "fitGeometry": {
+  "x": 586,
+  "y": 84.515625,
+  "w": 1032,
+  "h": 1195.671875
+ },
+ "recordText": "ALL RECORDS\nARCHIVE RECORD / STRATEGY_001\nAccumulation LP\n\nYIELD / ACCUMULATION · CONCENTRATED LIQUIDITY\n\nETH\nUSD\nWBT\nSOL\nETH / USDC / WBTC / SOL / USDT\nU\nUniswap, Raydium\nE\nEthereum, Solana\nAPY 13.2% · TVL 9.3M\n↘ BEAR\n→ SIDEWAYS\nMEDIUM RISK\nLAST REVIEWED SEP 2026\n\nRECORD INDEX\n\n01\nOVERVIEW\n02\nINSTRUCTIONS\n03\nENTRY / EXIT\n04\nMARKET FIT\n05\nRISK\n06\nASSETS\n07\nPLATFORMS\n08\nREQUIREMENTS\n09\nREFERENCES\n01\nOverview\n\nAccumulate assets during weak markets while earning trading fees inside a defined liquidity range.\n\nAccumulation LP is a concentrated liquidity strategy designed for investors who want to build exposure to a chosen crypto asset during weak or ranging market conditions. You provide liquidity in an asset–stablecoin pair, with a price range positioned around or below the current market price. The starting mix depends on where the range sits: a range entirely below the current price can begin with only stablecoins.\n\nWhile price trades inside the range, the position earns a share of trading fees from swaps using its liquidity. As the asset’s price falls through the range, the position progressively converts stablecoins into the target asset, spreading accumulation across a predefined price zone. Below the lower boundary, the position holds entirely the target asset and stops earning trading fees until price re-enters the range.\n\nThis conversion is reversible. If price rises back through the range, the position progressively converts the asset back into stablecoins. Investors who want to retain the accumulated asset must withdraw or adjust the position according to their exit rules.\n\nThe strategy deliberately accepts increasing exposure as prices fall. Trading fees may help offset losses, but they do not guarantee protection against further declines or underperformance relative to simply holding the starting assets. Accumulation LP offers a patient, rules-based approach to buying within a chosen price zone, with the potential to earn fees while liquidity is active. The objective is not to grow your capital, but accumulate more assets during a sideways or downward trending market.\n\n\nTYPE\nConcentrated Liquidity\nOBJECTIVES\nYield / Accumulation\nREGIMES\nBEAR · SIDEWAYS\nOVERALL RISK\nMEDIUM\nMIN CAPITAL\n$500\nRECORD OPENED\nSep 12, 2026\nLAST REVIEWED\nSep 10, 2026\n02\nMethodology\n01\nChoose your asset and starting mix\n\nChoose the crypto asset you want to accumulate and pair it with a stablecoin such as USDC. Your starting mix depends on when you want to begin buying: • Start with 100% USDC if you want to wait for a lower price. Place the entire range below the current market price. Buying and trading fees only begin once the price enters your range. • Start with a blend of the asset and USDC if you want some exposure immediately and to accumulate more if the price falls. Choose a range that includes the current price so the position can begin earning trading fees immediately, provided swaps use your liquidity. The platform calculates the required amounts based on your range—it is not necessarily a 50/50 split. In either case, you take on more of the asset as its price falls through the range, so choose an asset you are comfortable holding if it falls further.\n\n02\nSet your buying range\n\nChoose the upper and lower prices of the range, measured in USDC per unit of your chosen asset. • The upper price marks where buying begins as the price falls into the range. • The lower price marks where all the USDC in your position has converted into the asset. For a 100% USDC start, set both boundaries below the current price. For a blended start, set the boundaries on either side of the current price. A narrower range concentrates your buying into a smaller price move and may earn more fees while active, but the price can leave it sooner. A wider range spreads your buying over a larger price move. Choose prices at which you are comfortable accumulating—not just a range advertising high fees.\n\n03\nOpen your liquidity position\n\nOn your chosen concentrated liquidity platform, select the correct asset–USDC pool and enter the range from Step 2. Check that prices are displayed in USDC per unit of the asset. Enter your deposit amount. The platform will calculate the required asset mix: USDC only for a range entirely below the current price, or both assets for a range containing it. Review the token pair, range, deposit amounts, pool fee tier, and network transaction cost before approving and confirming. The fee tier is the rate charged on swaps, not your expected return. The most common fee tiers are 0.05% in a high volume pool or 0.3% in a lower volume pool. Once confirmed, your position earns a share of trading fees when the price is inside your range and swaps use your liquidity. If your range is below the current price, it waits in USDC until the price enters.\n\n04\nMonitor your range and asset balance\n\nCheck the current price, how much of each asset your position holds, and the trading fees earned. • Inside the range: falling prices increase your holdings of the target asset; rising prices convert it back into USDC. • Below the range: your position holds only the target asset. Accumulation is complete for this deposit, and trading fees stop until price re-enters. • Above the range: your position holds only USDC and earns no trading fees until price re-enters. These balances exclude any separately accrued fees. Fees depend on trading activity and your share of active liquidity—not simply whether the price is near the middle of your range.\n\n05\nAdjust only if your buying plan changes\n\nLeaving the range does not automatically mean you need to reset it. First decide whether you want to keep the accumulated asset, buy more, or wait. To keep buying in a new, lower range, you need more USDC. You can add new funds or sell some accumulated assets, but selling reverses part of your accumulation. Moving the range alone does not create more buying funds. Only open a new range if it still fits your budget and buying plan, after consid"
+}

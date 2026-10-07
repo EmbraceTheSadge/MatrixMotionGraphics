@@ -15,7 +15,7 @@ import sys, os
 import numpy as np
 
 SR = 48000
-DUR = 34.0
+DUR = 40.4
 BPM = 120
 BEAT = 60.0 / BPM
 N = int(SR * DUR)
@@ -170,44 +170,61 @@ for t in np.arange(12, 13.5, BEAT):
     add(kick(0.45, 0.25), t)
     add(hat(), t + BEAT / 2, 0.45, 0.2)
 
-# --- 13-23: groove (product concept)
-t = 9.5 + S
+# --- 13.5-21.6: calm, simple pulse under "markets" and "next move" — fewer layers, one soft hit per beat
+for t in np.arange(13.5, 21.5, BEAT):
+    k = int(round((t - 13.5) / BEAT))
+    add(kick(0.42 if k % 2 == 0 else 0.25, 0.26), t)
+    if k % 2 == 1:
+        add(hat(), t, 0.35, 0.25)
+    if k % 4 == 2:
+        add(bass(A1 * 2 if int((t - 13.5) // 2) % 2 == 0 else F1 * 2, 0.24), t, 0.55)
+add(pad([110, 130.81, 164.81, 220], 4.0, 1.2), 14.4, 0.55)            # minor colour under the downtrend
+add(pad([110, 164.81, 220, 261.63], 3.5, 0.8), 18.6, 0.5)
+for k, t in enumerate([17.2, 19.3]):
+    add(pluck([329.63, 392.0][k], 0.6, 0.6), t, 0.4)
+
+# --- 21.6-29.7: "and exactly why" — the groove opens up, ticks follow the falling price, resolves on the summary
+t = 21.5
 step = 0
-while t < 19.5 + S - 1e-6:
-    bar_i = int((t - 9.5 - S) // 2.0)
+while t < 29.5 - 1e-6:
+    bar_i = int((t - 21.5) // 2.0)
     root = PROG[bar_i % 4]
     if step % 2 == 0:
-        add(kick(0.75, 0.3), t)
+        add(kick(0.62, 0.3), t)
     else:
-        add(bass(root * 2, 0.22), t, 0.9)
-        add(hat(), t, 0.55, 0.25)
-    if t >= 13.0 + S and step % 4 == 2:
-        add(clap(), t, 0.9, -0.1)
-    idx = [0, 2, 4, 3, 5, 3, 2, 4][step % 8]
-    note = PENTA[idx] * (0.5 if root < 50 else 1.0)
-    add(pluck(note, 0.3, bright=1.0 if t >= 16.5 + S else 0.4), t, 0.55 if t >= 16.5 + S else 0.42, 0.35 if step % 2 else -0.35)
+        add(bass(root * 2, 0.22), t, 0.75)
+        add(hat(), t, 0.5, 0.25)
+    if t >= 24.0 and step % 4 == 2:
+        add(clap(), t, 0.7, -0.1)
+    if 24.0 <= t < 27.6:
+        idx = [5, 4, 3, 2, 1, 0, 1, 0][step % 8]           # descending figure while the price falls
+        add(pluck(PENTA[idx], 0.28, 0.6), t, 0.45, 0.35 if step % 2 else -0.35)
+    elif t >= 27.8:
+        idx = [0, 2, 4, 5][step % 4]
+        add(pluck(PENTA[idx], 0.32, 1.0), t, 0.5, 0.3 if step % 2 else -0.3)
     t += BEAT / 2
     step += 1
+add(pad([110, 164.81, 220, 277.18, 329.63], 2.0, 0.3), 27.8, 0.6)
 
-# --- 23-29: thinner groove (live Archive)
-t = 19.5 + S
+# --- 29.7-36: thinner groove (live Archive)
+t = 29.5
 step = 0
-while t < 25.5 + S - 1e-6:
-    if step % 4 == 0 and t >= 20.0 + S:
+while t < 36.0 - 1e-6:
+    if step % 4 == 0 and t >= 30.0:
         add(kick(0.6, 0.3), t)
     if step % 2 == 1:
         add(hat(), t, 0.45, 0.25)
-        add(bass(A1 * 2 if int((t - 19.5 - S) // 2) % 2 == 0 else F1 * 2, 0.2), t, 0.6)
+        add(bass(A1 * 2 if int((t - 29.5) // 2) % 2 == 0 else F1 * 2, 0.2), t, 0.6)
     if step % 4 == 2:
-        add(pluck(PENTA[[4, 5, 3, 2][int((t - 19.5 - S) // 2) % 4]], 0.4, 0.5), t, 0.35)
+        add(pluck(PENTA[[4, 5, 3, 2][int((t - 29.5) // 2) % 4]], 0.4, 0.5), t, 0.35)
     t += BEAT / 2
     step += 1
 
-# --- 29-33.5: resolve
-add(pad([110, 164.81, 220, 277.18, 329.63], 4.3, 0.25), 25.5 + S, 1.1)
-add(sub_pulse(55, 2.0), 25.5 + S, 0.6)
-add(pluck(110, 1.2, 0.3), 26.0 + S, 0.6)
-for t, g in ((26.5 + S, 0.35), (27.5 + S, 0.22), (28.5 + S, 0.12)):
+# --- 36-40.4: resolve on the end card
+add(pad([110, 164.81, 220, 277.18, 329.63], 4.4, 0.25), 36.0, 1.1)
+add(sub_pulse(55, 2.0), 36.0, 0.6)
+add(pluck(110, 1.2, 0.3), 36.5, 0.6)
+for t, g in ((37.0, 0.35), (38.0, 0.22), (39.0, 0.12)):
     add(kick(g, 0.3), t)
 
 mix = np.stack([L, R], 1)

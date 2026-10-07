@@ -148,10 +148,37 @@
       .ln2 { position: relative; display: inline-block; color: #8ea196; font-weight: 500; }
       .ul { position: absolute; left: 0; bottom: -4px; width: 100%; height: 4px; border-radius: 2px; background: #2fe58c; display: block; transform: scaleX(0); }
       .nmx { position: absolute; left: 0; top: 0; white-space: nowrap; z-index: 70; }
+
+      /* ---------- F2 middle: markets → next move → exactly why ---------- */
+      #mwin { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: #0a0e0c; clip-path: inset(50% 50% 50% 50%); }
+      #mhead { position: absolute; left: 0; top: 0; width: 1920px; height: 64px; display: flex; align-items: center; gap: 14px; padding: 0 26px;
+        background: #0d1210; border-bottom: 1px solid rgba(237, 242, 238, 0.08); }
+      #mhead img { height: 30px; width: auto; display: block; }
+      #mhead .wm { font-size: 24px; font-weight: 700; letter-spacing: -0.01em; }
+      #mhead .tag { position: absolute; font-size: 15px; color: #8ea196; }
+      .mco { position: absolute; left: 0; top: 0; width: 680px; font-size: 70px; font-weight: 600; letter-spacing: -0.035em; line-height: 1.04; z-index: 60; }
+      #mexpl { position: absolute; left: 0; top: 0; width: 620px; font-size: 34px; font-weight: 500; line-height: 1.38; color: #d7e2da; z-index: 60; }
+      .mbadge { display: inline-flex; align-items: center; gap: 16px; padding: 16px 34px; border-radius: 999px; font-size: 46px; font-weight: 600; color: #f6a49c;
+        border: 1.5px solid rgba(240, 101, 90, 0.55); background: rgba(240, 101, 90, 0.09); white-space: nowrap; }
+      .mbadge i { width: 16px; height: 16px; border-radius: 50%; background: #f0655a; display: block; }
+      #mcard { position: absolute; left: 0; top: 0; width: 720px; border-radius: 18px; border: 1.5px solid rgba(47, 229, 140, 0.55);
+        background: linear-gradient(180deg, #0f1814, #0b110e); padding: 40px 46px 44px; box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45); }
+      #mcard h3 { margin: 0; font-size: 56px; font-weight: 600; letter-spacing: -0.025em; }
+      #mcard p { margin: 12px 0 0; font-size: 33px; color: #d7e2da; line-height: 1.3; }
+      .mchip { display: inline-flex; align-items: center; gap: 10px; font-size: 24px; padding: 8px 18px; border-radius: 999px; background: #121814;
+        border: 1px solid rgba(237, 242, 238, 0.12); color: #d7e2da; white-space: nowrap; }
+      .mstat { position: absolute; left: 0; top: 0; }
+      .mstat .k { font-size: 16px; color: #8ea196; }
+      .mstat .v { font-size: 52px; font-weight: 600; letter-spacing: -0.02em; margin-top: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+      .msum { position: absolute; left: 0; top: 0; display: inline-flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 12px; font-size: 30px; font-weight: 600; white-space: nowrap; }
+      .mcoin { position: absolute; left: 0; top: 0; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        font-family: "IBM Plex Mono", monospace; font-size: 15px; font-weight: 600; background: radial-gradient(circle at 35% 30%, #3a4a43, #1d2622); color: #edf2ee; border: 2px solid #8ea196; box-shadow: 0 6px 16px rgba(0,0,0,.4); }
+      .mfee { width: 24px; height: 24px; margin: -12px 0 0 -12px; font-size: 14px; background: radial-gradient(circle at 35% 30%, #4df0a3, #1c9a5e); color: #05130b; border: 0; box-shadow: 0 0 0 3px rgba(47,229,140,.18); }
+      .mtag { position: absolute; left: 0; top: 0; font-family: "IBM Plex Mono", monospace; font-size: 18px; padding: 6px 12px; border-radius: 8px; white-space: nowrap; }
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="34" data-width="1920" data-height="1080">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="40.4" data-width="1920" data-height="1080">
       <div id="glow" class="full"></div>
       <svg id="grid" class="full" viewBox="0 0 1920 1080" data-layout-ignore></svg>
 
@@ -223,79 +250,89 @@
         </div>
       </div>
 
-      <!-- ======================= F4: product concept ======================= -->
-      <div id="s4" class="clip full" data-start="13.3" data-duration="10.233" data-track-index="2">
-        <div id="rail">
-          <svg id="rail-lines" class="abs" style="left:0;top:0;width:5600px;height:1080px;overflow:visible" viewBox="0 0 5600 1080" data-layout-ignore>
-            <path id="rl1" d="M 836 190 L 2676 190" stroke="rgba(237,242,238,0.22)" stroke-width="2" fill="none" />
-            <path id="rl2" d="M 2676 190 L 4516 190" stroke="rgba(237,242,238,0.22)" stroke-width="2" fill="none" />
-            <path id="cn1" stroke="#2fe58c" stroke-width="2.5" fill="none" />
-            <path id="cn2" stroke="#2fe58c" stroke-width="2.5" fill="none" />
-          </svg>
-          <div class="stepbox mono" id="sb1" style="left:760px">01</div>
-          <div class="stepbox mono" id="sb2" style="left:2600px">02</div>
-          <div class="stepbox mono" id="sb3" style="left:4440px">03</div>
+      <!-- ======================= F2: markets → next move → exactly why ======================= -->
+      <div id="s2" class="clip full" data-start="13.45" data-duration="16.3" data-track-index="2">
+        <div id="mwin">
+          <div id="mhead"><img id="mhlogo" src="assets/brand/matrix-mark.svg" alt="Matrix" /><span class="wm">Matrix<span class="g">.</span></span><span class="tag mono" id="mhtag">Illustrative data</span></div>
+        </div>
+        <svg id="mframe" class="full" viewBox="0 0 1920 1080" data-layout-ignore><rect id="mfr" x="0" y="0" width="0" height="0" rx="18" fill="none" stroke="#2fe58c" stroke-width="2.5" /></svg>
+        <img id="mbig" class="abs" src="assets/brand/matrix-mark.svg" alt="Matrix mark" style="left:0;top:0;width:300px;height:192px;transform-origin:0 0" />
+        <div id="mnt" class="abs kin" style="left:0;top:0;white-space:nowrap"><div class="w" style="font-size:88px;font-weight:600;letter-spacing:-0.035em;line-height:1.1">Now together<span class="g">.</span></div></div>
 
-          <div class="panel" id="p1" style="left:760px">
-            <div class="ph"><h3>Illustrative portfolio</h3><span class="mono muted" style="font-size:22px">100%</span></div>
-            <div class="bar"><i id="b1" style="width:45%;background:#2fe58c"></i><i id="b2" style="width:30%;background:#1f8a57"></i><i id="b3" style="width:25%;background:#c99f3f"></i></div>
-            <div class="prow p1r"><span class="k"><i class="dot" style="background:#2fe58c"></i>Crypto assets</span><b>45%</b></div>
-            <div class="prow p1r"><span class="k"><i class="dot" style="background:#1f8a57"></i>Stablecoins</span><b>30%</b></div>
-            <div class="prow p1r" id="p1defi"><span class="k"><i class="dot" style="background:#c99f3f"></i>DeFi positions</span><b>25%</b></div>
-            <div class="note p1r">DeFi · Lending and liquidity positions</div>
-            <div class="check p1r"><span class="ck">✓</span><span>Most of your exposure moves with the crypto market.</span></div>
-          </div>
+        <div class="mco kin" id="mc1">Understanding markets shouldn’t slow you down.</div>
+        <div class="mco kin" id="mc2">Know your next move.</div>
+        <div class="mco kin" id="mc3">And exactly why.</div>
+        <div id="mexpl" class="kin">Your USDC buys ETH as the price falls, while the pool pays you trading fees.</div>
 
-          <div class="panel" id="p2" style="left:2600px">
-            <div class="ph"><h3>Market analyzer</h3><span class="badge" id="p2badge"><i class="dot" style="background:#e8b84b"></i>Sideways market</span></div>
-            <div class="prow p2r"><span class="k"><i class="dot" style="background:#8ea196"></i>Trend</span><b>Flat</b></div>
-            <div class="prow p2r"><span class="k"><i class="dot" style="background:#e8b84b"></i>Volatility</span><b>Elevated</b></div>
-            <div class="prow p2r"><span class="k"><i class="dot" style="background:#8ea196"></i>Momentum</span><b>Mixed</b></div>
-            <div class="note p2r" style="padding-left:0;margin-top:22px">Direction is unclear. Price swings remain elevated.</div>
-            <div class="greenbox p2r" id="p2box">Your portfolio in this environment: concentrated exposure may amplify market swings.</div>
-          </div>
+        <!-- beat 1: a realistic downtrend that folds into one plain line -->
+        <div class="abs mono" id="mlab" style="font-size:18px;color:#8ea196;white-space:nowrap">Market · ETH / USD</div>
+        <svg id="mchart" class="full" viewBox="0 0 1920 1080" data-layout-ignore>
+          <defs><linearGradient id="mfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0655a" stop-opacity="0.22" /><stop offset="1" stop-color="#f0655a" stop-opacity="0" /></linearGradient></defs>
+          <g id="mgridl" stroke="rgba(237,242,238,0.07)" stroke-dasharray="4 8"></g>
+          <g id="maxis" fill="#8ea196" font-family="IBM Plex Mono" font-size="15"></g>
+          <path id="marea" fill="url(#mfill)" stroke="none" />
+          <polyline id="mline" fill="none" stroke="#f0655a" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" />
+          <polyline id="mtrend" fill="none" stroke="#f0655a" stroke-width="2" stroke-dasharray="10 9" stroke-opacity="0.75" />
+          <circle id="mhalo" r="16" fill="#f0655a" fill-opacity="0.18" /><circle id="mhd" r="8" fill="#f0655a" stroke="#0a0e0c" stroke-width="3" />
+        </svg>
+        <div class="mtag" id="mtag1" style="background:#2a1513;color:#f6a49c;border:1px solid rgba(240,101,90,.5)">ETH $3,900</div>
+        <div class="abs" id="mbadge"><span class="mbadge"><i></i>Bear market · Downtrend</span></div>
+        <div class="abs" id="mplain" style="font-size:34px;color:#d7e2da;white-space:nowrap">Prices are trending lower.</div>
 
-          <div class="panel" id="p3" style="left:4440px">
-            <div class="ph"><h3>Strategies to explore</h3></div>
-            <div class="strat" id="p3card">
-              <div style="display:flex;justify-content:space-between;align-items:center">
-                <span style="font-size:44px;font-weight:600;color:#edf2ee">Capital preservation</span>
-                <svg width="34" height="34" viewBox="0 0 24 24" data-layout-ignore><path d="M12 2 L13.8 10.2 L22 12 L13.8 13.8 L12 22 L10.2 13.8 L2 12 L10.2 10.2 Z" fill="none" stroke="#2fe58c" stroke-width="1.6" /></svg>
-              </div>
-              <div class="chips"><span class="chip p3c">Your exposure</span><span class="chip p3c">Market conditions</span><span class="chip p3c">Risk tradeoffs</span></div>
-              <div class="why p3r" id="p3why"><b>Why it’s surfaced:</b> Surfaced because your portfolio is concentrated and the illustrative market environment is volatile and directionless.</div>
-            </div>
-            <div class="check p3r"><span class="ck">✓</span><span>Explore how a more defensive allocation could change your exposure.</span></div>
-          </div>
+        <!-- beat 2: one strategy card -->
+        <div class="abs" id="mprow" style="width:848px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span class="mono" style="font-size:18px;color:#8ea196">Your portfolio</span><span class="mono" style="font-size:16px;color:#8ea196">Crypto · Stablecoins · DeFi</span></div>
+          <div style="display:flex;gap:6px;height:18px"><i style="display:block;width:45%;height:18px;border-radius:4px;background:#2fe58c"></i><i style="display:block;width:30%;height:18px;border-radius:4px;background:#1f8a57"></i><i style="display:block;width:25%;height:18px;border-radius:4px;background:#c99f3f"></i></div></div>
+        <div id="mcard">
+          <div style="display:flex;align-items:center;gap:18px;margin-bottom:10px">
+            <svg width="58" height="58" viewBox="0 0 56 56" data-layout-ignore><rect x="1" y="1" width="54" height="54" rx="14" fill="rgba(47,229,140,.1)" stroke="#2fe58c" stroke-width="1.5" /><path d="M15 38 L25 28 L31 33 L41 21" fill="none" stroke="#2fe58c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /><path d="M34 21 H41 V28" fill="none" stroke="#2fe58c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <span class="mono" style="font-size:18px;color:#2fe58c">Strategy to explore</span></div>
+          <h3>Asset accumulation</h3>
+          <p>Grow your assets during a downtrend.</p>
+          <div style="display:flex;gap:12px;margin-top:28px"><span class="mchip mcp"><i style="width:12px;height:12px;border-radius:50%;background:#f0655a;display:block"></i>Bear market</span><span class="mchip mcp">ETH / USDC</span><span class="mchip mcp">Liquidity range</span></div>
         </div>
 
-        <div class="callout-step mono" id="cs">01 / 03 · Portfolio</div>
-        <div class="callout" id="c1"><span class="slot"><span class="w">Understand</span></span> <span class="slot"><span class="w">your</span></span> <span class="slot"><span class="w">portfolio.</span></span></div>
-        <div class="callout" id="c2"><span class="slot"><span class="w">Read</span></span> <span class="slot"><span class="w">the</span></span> <span class="slot"><span class="w">market.</span></span></div>
-        <div class="callout" id="c3"><span class="slot"><span class="w">Explore</span></span> <span class="slot"><span class="w">what</span></span> <span class="slot"><span class="w">fits.</span></span></div>
-
-        <div id="concept-label" class="mono"><i class="dot" id="cl-dot"></i><span>Product concept · In development</span></div>
-        <div id="concept-illus" class="mono">Illustrative data</div>
+        <!-- beat 3: the ETH / USDC liquidity position -->
+        <div class="abs" id="lpt" style="white-space:nowrap;font-size:40px;font-weight:600;letter-spacing:-0.02em">ETH / USDC liquidity position</div>
+        <svg id="lpsvg" class="full" viewBox="0 0 1920 1080" data-layout-ignore>
+          <g id="lpaxis" fill="#8ea196" font-family="IBM Plex Mono" font-size="15"></g>
+          <rect id="lpband" fill="rgba(47,229,140,0.09)" stroke="rgba(47,229,140,0.65)" stroke-width="1.5" stroke-dasharray="7 6" />
+          <text id="lpblab" fill="#2fe58c" font-family="IBM Plex Mono" font-size="16" letter-spacing="2">YOUR RANGE · $2,600 – $3,200</text>
+          <polyline id="lpline" fill="none" stroke="#f0655a" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" />
+          <circle id="lphalo" r="16" fill="#f0655a" fill-opacity="0.18" /><circle id="lphd" r="8" fill="#f0655a" stroke="#0a0e0c" stroke-width="3" />
+        </svg>
+        <div class="mtag" id="lptag" style="background:#2a1513;color:#f6a49c;border:1px solid rgba(240,101,90,.5)">ETH $3,200</div>
+        <div class="mtag" id="lpout" style="background:#121814;color:#d7e2da;border:1px solid rgba(237,242,238,.2)">Below range · fully ETH · fees paused</div>
+        <div class="mtag" id="lpdep" style="background:#121814;color:#edf2ee;border:1px solid rgba(237,242,238,.25);font-size:20px">Deposit · 4,000 USDC</div>
+        <div class="mstat" id="lsEth"><div class="k mono">ETH held</div><div class="v" id="lvEth" style="color:#2fe58c">0.00 ETH</div></div>
+        <div class="mstat" id="lsUsd"><div class="k mono">USDC in position</div><div class="v" id="lvUsd">0</div></div>
+        <div class="mstat" id="lsMix" style="width:360px"><div class="k mono" style="margin-bottom:10px">Position mix</div>
+          <div style="display:flex;height:22px;border-radius:6px;overflow:hidden;background:#121814"><i id="lmE" style="display:block;height:22px;background:#2fe58c;width:0"></i><i id="lmU" style="display:block;height:22px;background:#5d6b64;width:0"></i></div>
+          <div style="display:flex;justify-content:space-between;margin-top:8px;font-family:'IBM Plex Mono';font-size:15px;color:#8ea196"><span>ETH</span><span>USDC</span></div></div>
+        <div class="mstat" id="lsFee"><div class="k mono">Trading fees</div><div style="display:flex;gap:6px;margin-top:14px" id="lfeeRow"></div></div>
+        <div class="msum" id="lsu1" style="background:rgba(240,101,90,.1);border:1px solid rgba(240,101,90,.5);color:#f6a49c">ETH price ↓</div>
+        <div class="msum" id="lsu2" style="background:rgba(47,229,140,.1);border:1px solid rgba(47,229,140,.5);color:#2fe58c">ETH held ↑</div>
+        <div class="msum" id="lsu3" style="background:rgba(47,229,140,.1);border:1px solid rgba(47,229,140,.5);color:#2fe58c">Fees earned +</div>
+        <div class="abs mono" id="lcav" style="font-size:15px;color:#8ea196;white-space:nowrap">Illustrative · position value can still fall · fees only while in range</div>
+        <div id="lcoins"></div>
       </div>
 
       <!-- ======================= F5: live Strategy Archive ======================= -->
-      <div id="s5" class="clip full" data-start="23.5" data-duration="6.3" data-track-index="3">
+      <div id="s5" class="clip full" data-start="29.7" data-duration="6.4" data-track-index="3">
         <div id="arc-head"><span class="slot"><span class="w">Explore</span></span> <span class="slot"><span class="w">the</span></span> <span class="slot"><span class="w">Strategy</span></span> <span class="slot"><span class="w">Archive</span></span> <span class="slot"><span class="w">now.</span></span></div>
         <div id="arc-sub" class="mono"><span class="live"><i class="dot" style="background:#2fe58c"></i>Live site</span><span class="url">strategies.matrix.finance</span><span>· captured 7 Oct 2026</span></div>
         <div id="steps">
           <div class="st"><i class="bar2"></i><div class="n mono">01 · Archive</div><div class="t">Enter the Archive</div></div>
-          <div class="st"><i class="bar2"></i><div class="n mono">02 · Market</div><div class="t">Sideways</div></div>
-          <div class="st"><i class="bar2"></i><div class="n mono">03 · Results</div><div class="t">Capital preservation</div></div>
-          <div class="st"><i class="bar2"></i><div class="n mono">04 · Record</div><div class="t">Stablecoin Yield Rotation</div></div>
+          <div class="st"><i class="bar2"></i><div class="n mono">02 · Market</div><div class="t">Bear</div></div>
+          <div class="st"><i class="bar2"></i><div class="n mono">03 · Results</div><div class="t">Accumulation</div></div>
+          <div class="st"><i class="bar2"></i><div class="n mono">04 · Record</div><div class="t">Accumulation LP</div></div>
         </div>
         <div id="win">
           <div id="win-bar"><i></i><i></i><i></i><span id="win-url" class="mono">strategies.matrix.finance</span></div>
           <div id="win-view">
-            <div class="shot" id="sh1"><img src="assets/archive/arc-1-home.png" alt="Strategy Archive home (live capture)" /></div>
-            <div class="shot" id="sh2"><img src="assets/archive/arc-2-market.png" alt="Archive market step (live capture)" /></div>
-            <div class="shot" id="sh3"><img src="assets/archive/arc-6-results.png" alt="Archive results (live capture)" /></div>
-            <div class="shot" id="sh4"><img src="assets/archive/arc-7-record-top.png" alt="Strategy record (live capture)" /></div>
-            <div class="shot" id="sh5"><img src="assets/archive/arc-8-record-risk.png" alt="Strategy record risk section (live capture)" /></div>
+            <div class="shot" id="sh1"><img src="assets/archive/bear-1-home.png" alt="Strategy Archive home (live capture)" /></div>
+            <div class="shot" id="sh2"><img src="assets/archive/bear-2-market.png" alt="Archive market step (live capture)" /></div>
+            <div class="shot" id="sh3"><img src="assets/archive/bear-6-results.png" alt="Archive results (live capture)" /></div>
+            <div class="shot" id="sh4"><img src="assets/archive/bear-7-record-top.png" alt="Accumulation LP record (live capture)" /><i id="hlband" style="position:absolute;left:580px;top:850px;width:760px;height:32px;border-radius:4px;background:rgba(47,229,140,0.16);transform-origin:0 50%;display:block"></i><i id="hlline" style="position:absolute;left:584px;top:881px;width:752px;height:3px;border-radius:2px;background:#2fe58c;transform-origin:0 50%;display:block"></i></div>
             <div id="ripple"></div>
             <svg id="cursor" viewBox="0 0 34 40" data-layout-ignore><path d="M3 2 L3 32 L11 25 L16.5 37 L22 34.5 L16.5 23 L27 23 Z" fill="#edf2ee" stroke="#070a09" stroke-width="2.2" stroke-linejoin="round" /></svg>
           </div>
@@ -304,7 +341,7 @@
       </div>
 
       <!-- ======================= F6: end card ======================= -->
-      <div id="s6" class="clip full" data-start="29.3" data-duration="4.7" data-track-index="4">
+      <div id="s6" class="clip full" data-start="36.0" data-duration="4.4" data-track-index="4">
         <svg id="end-cell" class="full" viewBox="0 0 1920 1080" data-layout-ignore>
           <rect id="ecell" x="912" y="290" width="96" height="96" fill="none" stroke="#2fe58c" stroke-width="2.5" />
         </svg>
@@ -319,8 +356,8 @@
         <div id="end-sub" class="mono">Strategy Archive live now · <span class="url">strategies.matrix.finance</span></div>
       </div>
 
-      <audio id="music" src="assets/audio/music.wav" data-start="0" data-duration="34" data-track-index="10" data-volume="0.7"></audio>
-      <audio id="sfx" src="assets/audio/sfx.wav" data-start="0" data-duration="34" data-track-index="11" data-volume="0.8"></audio>
+      <audio id="music" src="assets/audio/music.wav" data-start="0" data-duration="40.4" data-track-index="10" data-volume="0.7"></audio>
+      <audio id="sfx" src="assets/audio/sfx.wav" data-start="0" data-duration="40.4" data-track-index="11" data-volume="0.8"></audio>
     </div>
 
     <script>
@@ -344,29 +381,12 @@
         $$(".slot, .w, #rail, .panel, .stepbox, #cs, #concept-label").forEach(function (e) { e.setAttribute("data-layout-allow-overflow", ""); });
         function build() {
 
-          // concept connection paths (rail space)
-          var s4 = $("#s4"), s4d = s4.style.display, s4v = s4.style.visibility, s4o = s4.style.opacity;
-          s4.style.display = "block"; s4.style.visibility = "visible"; s4.style.opacity = "1";
-          var rail = $("#rail").getBoundingClientRect();
-          function rr(sel) { var r = $(sel).getBoundingClientRect(); return { x: r.left - rail.left, y: r.top - rail.top, w: r.width, h: r.height }; }
-          var a = rr("#p1defi"), b = rr("#p2box"), c = rr("#p2box"), d = rr("#p3why");
-          var ax = a.x + a.w + 46, ay = a.y + a.h / 2, bx = b.x - 46, by = b.y + b.h / 2;
-          $("#cn1").setAttribute("d", "M " + (a.x + a.w) + " " + ay + " L " + ax + " " + ay + " L " + ax + " " + Math.round((ay + by) / 2) + " L " + bx + " " + Math.round((ay + by) / 2) + " L " + bx + " " + by + " L " + b.x + " " + by);
-          var cx = c.x + c.w + 46, cy = c.y + c.h / 2, dx2 = d.x - 78, dy2 = d.y + d.h / 2;
-          $("#cn2").setAttribute("d", "M " + (c.x + c.w) + " " + cy + " L " + cx + " " + cy + " L " + cx + " " + Math.round((cy + dy2) / 2) + " L " + dx2 + " " + Math.round((cy + dy2) / 2) + " L " + dx2 + " " + dy2 + " L " + (d.x - 32) + " " + dy2);
-          ["#cn1", "#cn2", "#rl1", "#rl2"].forEach(function (s) { var p = $(s), L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; });
-
-          // capital preservation card → browser window (match cut geometry)
-          var card = rr("#p3card");
-          s4.style.display = s4d; s4.style.visibility = s4v; s4.style.opacity = s4o;
           var s6 = $("#s6"), s6d = s6.style.display, s6v = s6.style.visibility, s6o = s6.style.opacity;
           s6.style.display = "block"; s6.style.visibility = "visible"; s6.style.opacity = "1";
           var mr = $("#end-mark").getBoundingClientRect(), MC = { x: mr.left + mr.width / 2, y: mr.top + mr.height / 2 };
           s6.style.display = s6d; s6.style.visibility = s6v; s6.style.opacity = s6o;
           var WIN0 = { x: 528, y: 232, w: 1328, h: 787 };   // nav window (40 px bar + 747 px view)
           var WIN1 = { x: 64, y: 236, w: 1792, h: 800 };    // close-up window
-          var kCard = 1.75, railX = -3680;
-          var cardCx = card.x + railX + card.w / 2, cardCy = card.y + card.h / 2;
 
           var tl = gsap.timeline({ paused: true });
           var T = function (sel, from, to, at) { tl.fromTo(sel, from, to, at); };
@@ -416,7 +436,7 @@
             tlx.fromTo(ul, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.45, ease: "power3.inOut" }, at + 0.18);
             tlx.to(ul, { scaleX: 0, transformOrigin: "100% 50%", duration: 0.45, ease: "power3.inOut" }, at + 0.75);
           }
-          ["#nm0", "#nm1", "#nm2", "#nm3", "#nc0", "#nc1", "#nc2", "#nc3", "#tp .ln1", "#tm .ln1", "#one-txt .w", "#c1", "#c2", "#c3", "#arc-head", "#end-url", "#wm1", "#wm2"].forEach(function (q) { splitChars($(q)); });
+          ["#nm0", "#nm1", "#nm2", "#nm3", "#nc0", "#nc1", "#nc2", "#nc3", "#tp .ln1", "#tm .ln1", "#one-txt .w", "#arc-head", "#end-url", "#wm1", "#wm2"].forEach(function (q) { splitChars($(q)); });
           $$("#tp .lt, #tm .lt").forEach(splitChars);
           // ============ F1 0–13: many tabs → now together (one procedural clock, seek-safe) ============
           var TB = [0, 1, 2, 3, 4, 5].map(function (i) { return $("#tb" + i); });
@@ -516,9 +536,9 @@
             var scu = io3(sg(t, 11.1, 11.9));
             scan.style.opacity = (sg(t, 11.1, 11.2) * (1 - sg(t, 11.8, 11.9))).toFixed(3);
             scan.style.transform = "translateX(" + lp(-240, 1220, scu).toFixed(1) + "px)";
-            oneGrid.style.opacity = (0.15 + 0.85 * o3(sg(t, 11.2, 11.9))).toFixed(3);
+            oneGrid.style.opacity = ((0.15 + 0.85 * o3(sg(t, 11.2, 11.9))) * (1 - sg(t, 12.9, 13.4))).toFixed(3);
             oneGlow.style.opacity = (o3(sg(t, 11, 11.7)) * lp(1, 0.75, sg(t, 11.7, 13.2))).toFixed(3);
-            ocs.forEach(function (o, n) { var u2 = o3(sg(t, 11.6 + 0.12 * n, 12 + 0.12 * n)); o.style.clipPath = "inset(0% " + ((1 - u2) * 100).toFixed(2) + "% 0% 0%)"; });
+            ocs.forEach(function (o, n) { var u2 = o3(sg(t, 11.6 + 0.12 * n, 12 + 0.12 * n)) * (1 - sg(t, 12.9, 13.3)); o.style.clipPath = "inset(0% " + ((1 - u2) * 100).toFixed(2) + "% 0% 0%)"; });
           }
           // names of the portfolio pieces, one at a time (centred under the tab)
           [0, 1, 2, 3].forEach(function (i) {
@@ -537,64 +557,194 @@
           kOut(tl, $("#tp .ln1"), 9.5); kOut(tl, $("#tp .lt"), 9.55);
           kOut(tl, $("#tm .ln1"), 9.5); kOut(tl, $("#tm .lt"), 9.55);
           kIn(tl, $("#one-txt .w"), 11.45, { st: 0.03, d: 1.0 });
+          tl.to(".reg", { opacity: 0, duration: 0.6 }, 13.6);
           var IC = { t: 0 };
           renderIntro(0);
           tl.to(IC, { t: 13.7, duration: 13.7, ease: "none", onUpdate: function () { renderIntro(IC.t); } }, 0);
           // exit 13.2: camera rides down the grid into the product concept
-          tl.to("#s1-wrap", { y: -760, duration: 0.35, ease: "power3.in" }, 13.2);
 
-          // everything after the intro keeps its tuned timings, shifted by 4.0 s
+
+          // ============ F2 13.5–29.7: markets → next move → exactly why (one procedural clock) ============
+          var M = {};
+          ["mwin","mhead","mhlogo","mhtag","mfr","mbig","mnt","mc1","mc2","mc3","mexpl","mlab","mchart","mgridl","maxis","marea","mline","mtrend","mhalo","mhd","mtag1","mbadge","mplain",
+           "mprow","mcard","lpt","lpsvg","lpaxis","lpband","lpblab","lpline","lphalo","lphd","lptag","lpout","lpdep","lsEth","lvEth","lsUsd","lvUsd","lsMix","lmE","lmU","lsFee","lfeeRow",
+           "lsu1","lsu2","lsu3","lcav","lcoins"].forEach(function (id) { M[id] = document.getElementById(id); });
+          var mcps = $$(".mcp");
+          var NSV = "http://www.w3.org/2000/svg";
+          var fmt = function (n, d) { return n.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d }); };
+          // seeded noise for natural price action
+          function rnd(seed) { return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+          function smoothSeries(n, seed, amp) { var r = rnd(seed), a = [], v = 0; for (var i = 0; i <= n; i++) { v = v * 0.82 + (r() - 0.5) * amp; a.push(v); } var b = []; for (var j = 0; j <= n; j++) { var s = 0, c = 0; for (var k = -3; k <= 3; k++) { var q = j + k; if (q >= 0 && q <= n) { s += a[q]; c++; } } b.push(s / c); } return b; }
+          // beat 1: ETH/USD falls from ~$3,900 to $3,200 with lower highs and lower lows
+          var N1 = 140, NZ1 = smoothSeries(N1, 7, 70);
+          function p1(i) { var s = i / N1; return 3900 - 700 * s + 60 * Math.sin(s * 10.5 + 0.6) * (1 - 0.35 * s) + NZ1[i] - (NZ1[N1] + 60 * Math.sin(10.5 + 0.6) * 0.65) * s; }
+          // beat 3: price starts at the top of the range ($3,200) and falls to $2,400
+          var PU = 3200, PL = 2600, DEP = 4000, LQ = DEP / (Math.sqrt(PU) - Math.sqrt(PL));
+          var N3 = 160, NZ3 = smoothSeries(N3, 23, 34);
+          function p3(i) { var s = i / N3; var base = PU - 800 * s + 34 * Math.sin(s * 13) * s * (1 - s) * 4; var nz = (NZ3[i] - NZ3[0] * (1 - s) - NZ3[N3] * s) * Math.min(1, s * 6); return Math.min(PU, base + nz); }
+          var W2 = { x: 360, y: 200, w: 1200, h: 600 };   // window rect, updated each frame
+          var R0 = { x: 360, y: 200, w: 1200, h: 600 }, R1 = { x: 840, y: 150, w: 960, h: 790 };
+          // the LP chart lives in window space
+          var LX0 = R1.x + 135, LX1 = R1.x + 545, LTOP = R1.y + 150, LBOT = R1.y + 630;
+          var lpy = function (p) { return LTOP + (3300 - p) * ((LBOT - LTOP) / 1000); };
+          var SX = R1.x + R1.w - 380;
+          // descent timing and fee coins (derived from the same price path)
+          var D0 = 24.0, D1 = 27.6;
+          var headS3 = function (t) { return t < 22.4 ? 0 : t < D0 ? 0.0 : io3(sg(t, D0, D1)); };
+          var tCross = D1; for (var k2 = 0; k2 <= 400; k2++) { var tt2 = D0 + k2 * (D1 - D0) / 400; if (p3(Math.round(headS3(tt2) * N3)) <= PL) { tCross = tt2; break; } }
+          var FEE_T = []; for (var f2 = 0; f2 < 10; f2++) FEE_T.push(D0 + 0.2 + f2 * (tCross - 0.25 - D0 - 0.2) / 9);
+          window.__lpFeeTimes = FEE_T; window.__lpCross = tCross;
+          for (var f3 = 0; f3 < 10; f3++) { var bb = document.createElement("i"); bb.style.cssText = "display:block;width:28px;height:12px;border-radius:3px;background:#1a2420"; M.lfeeRow.appendChild(bb); }
+          for (var c3 = 0; c3 < 8; c3++) { var dc = document.createElement("div"); dc.className = "mcoin"; dc.textContent = "$"; dc.id = "ldc" + c3; M.lcoins.appendChild(dc); }
+          for (var c4 = 0; c4 < 10; c4++) { var fc = document.createElement("div"); fc.className = "mcoin mfee"; fc.textContent = "+"; fc.id = "lfc" + c4; M.lcoins.appendChild(fc); }
+          // static axis / grid for both charts
+          [3900, 3600, 3300].forEach(function () {});
+          function axis(g, vals, yf, x0, x1, labelX, anchor) { vals.forEach(function (v) { var ln = document.createElementNS(NSV, "line"); ln.setAttribute("x1", x0); ln.setAttribute("x2", x1); ln.setAttribute("y1", yf(v)); ln.setAttribute("y2", yf(v)); ln.setAttribute("stroke", "rgba(237,242,238,0.07)"); ln.setAttribute("stroke-dasharray", "4 8"); g.appendChild(ln); var tx = document.createElementNS(NSV, "text"); tx.setAttribute("x", labelX); tx.setAttribute("y", yf(v) + 5); tx.setAttribute("text-anchor", anchor); tx.textContent = "$" + fmt(v, 0); g.appendChild(tx); }); }
+          var C1 = { x0: R1.x + 70, x1: R1.x + R1.w - 150, top: R1.y + 190, bot: R1.y + 600 };
+          var c1y = function (p) { return C1.top + (4050 - p) * ((C1.bot - C1.top) / 950); };
+          axis(M.maxis, [4000, 3800, 3600, 3400, 3200], c1y, C1.x0, C1.x1, C1.x1 + 16, "start");
+          axis(M.lpaxis, [3200, 3000, 2800, 2600, 2400], lpy, LX0, LX1, LX0 - 14, "end");
+          var mntW = 0;
+
+          function renderMid(t) {
+            // ---- window: the "Now together." rectangle opens into the app window
+            var wu = io3(sg(t, 13.5, 14.3)), shr = sg(t, 29.55, 29.7);
+            W2.x = lp(R0.x, R1.x, wu); W2.y = lp(R0.y, R1.y, wu); W2.w = lp(R0.w, R1.w, wu); W2.h = lp(R0.h, R1.h, wu);
+            M.mwin.style.clipPath = "inset(" + W2.y.toFixed(2) + "px " + (1920 - W2.x - W2.w).toFixed(2) + "px " + (1080 - W2.y - W2.h).toFixed(2) + "px " + W2.x.toFixed(2) + "px round 18px)";
+            M.mhead.style.transform = "translate(" + W2.x.toFixed(2) + "px," + W2.y.toFixed(2) + "px)";
+            M.mhead.style.opacity = sg(t, 14.0, 14.4).toFixed(3);
+            M.mhtag.style.left = (W2.w - 26 - M.mhtag.offsetWidth) + "px";
+            M.mhlogo.style.opacity = sg(t, 14.22, 14.32).toFixed(3);
+            M.mfr.setAttribute("x", W2.x.toFixed(2)); M.mfr.setAttribute("y", W2.y.toFixed(2)); M.mfr.setAttribute("width", W2.w.toFixed(2)); M.mfr.setAttribute("height", W2.h.toFixed(2));
+            M.mfr.setAttribute("stroke", "rgba(" + (lp(47, 237, wu)).toFixed(0) + "," + lp(229, 242, wu).toFixed(0) + "," + lp(140, 238, wu).toFixed(0) + "," + lp(1, 0.16, wu).toFixed(3) + ")");
+            // the big X flies into the header logo slot
+            var mu = io3(sg(t, 13.6, 14.3));
+            M.mbig.style.transform = "translate(" + lp(810, W2.x + 26, mu).toFixed(2) + "px," + lp(308, W2.y + 17, mu).toFixed(2) + "px) scale(" + lp(1.025, 30 / 192, mu).toFixed(4) + ")";
+            M.mbig.style.opacity = (1 - sg(t, 14.25, 14.32)).toFixed(3);
+            if (!mntW) mntW = M.mnt.offsetWidth;
+            M.mnt.style.transform = "translate(" + (960 - mntW / 2).toFixed(1) + "px,562px)";
+
+            // ---- callouts in the left column
+            M.mc1.style.transform = "translate(110px,330px)"; M.mc2.style.transform = "translate(110px,430px)"; M.mc3.style.transform = "translate(110px,330px)";
+            M.mexpl.style.transform = "translate(112px,560px)";
+
+            // ---- beat 1: a realistic downtrend, then a plain-language read
+            var d1 = io3(sg(t, 14.6, 16.4)), fold = io3(sg(t, 16.8, 17.4)), b1out = sg(t, 18.35, 18.6);
+            var n1 = Math.round(d1 * N1), pts = [], area = "";
+            var cxm = (C1.x0 + C1.x1) / 2, cym = (C1.top + C1.bot) / 2;
+            for (var i = 0; i <= n1; i++) {
+              var xs = lp(C1.x0, C1.x1, i / N1), ys = c1y(p1(i));
+              xs = lp(xs, lp(cxm - 220, cxm + 220, i / N1), fold); ys = lp(ys, cym, fold);
+              pts.push(xs.toFixed(1) + "," + ys.toFixed(1));
+            }
+            M.mline.setAttribute("points", pts.join(" "));
+            if (pts.length > 1) { area = "M" + pts[0].split(",")[0] + "," + C1.bot + " L" + pts.join(" L") + " L" + pts[pts.length - 1].split(",")[0] + "," + C1.bot + " Z"; }
+            M.marea.setAttribute("d", area); M.marea.style.opacity = (1 - fold).toFixed(3);
+            var chOp = sg(t, 14.5, 14.8) * (1 - sg(t, 17.3, 17.5));
+            M.mchart.style.opacity = chOp.toFixed(3); M.maxis.style.opacity = (1 - fold).toFixed(3);
+            var hx = n1 >= 0 && pts.length ? +pts[pts.length - 1].split(",")[0] : C1.x0, hy = pts.length ? +pts[pts.length - 1].split(",")[1] : c1y(3900);
+            M.mhd.setAttribute("cx", hx); M.mhd.setAttribute("cy", hy); M.mhalo.setAttribute("cx", hx); M.mhalo.setAttribute("cy", hy);
+            M.mhalo.setAttribute("r", (14 + 6 * Math.sin(t * 6)).toFixed(1));
+            M.mtag1.textContent = "ETH $" + fmt(Math.round(p1(Math.max(0, n1)) / 5) * 5, 0);
+            var tg1 = M.mtag1.offsetWidth, fl1 = hx + 20 + tg1 > R1.x + R1.w - 40; M.mtag1.style.transform = "translate(" + (fl1 ? hx - 20 - tg1 : hx + 20).toFixed(1) + "px," + (hy - 44).toFixed(1) + "px)";
+            M.mtag1.style.opacity = (sg(t, 14.7, 14.9) * (1 - sg(t, 16.75, 16.95))).toFixed(3);
+            // dashed trendline through the lower highs
+            var tr = sg(t, 16.35, 16.8), hi1 = [12, 58, 104];
+            var trPts = hi1.map(function (k) { return lp(C1.x0, C1.x1, k / N1).toFixed(1) + "," + (c1y(p1(k)) - 14).toFixed(1); });
+            M.mtrend.setAttribute("points", trPts.join(" "));
+            M.mtrend.style.opacity = (tr * (1 - sg(t, 16.8, 17.0))).toFixed(3);
+            M.mlab.style.transform = "translate(" + (W2.x + 56).toFixed(1) + "px," + (W2.y + 104).toFixed(1) + "px)";
+            M.mlab.style.opacity = (sg(t, 14.4, 14.7) * (1 - b1out)).toFixed(3);
+            var bw = M.mbadge.offsetWidth, bu = bk(sg(t, 17.15, 17.6)), b2 = io3(sg(t, 18.55, 19.1));
+            var bx = lp(R1.x + R1.w / 2 - bw / 2, R1.x + 56, b2), by = lp(cym - 50, R1.y + 96, b2);
+            M.mbadge.style.transformOrigin = "0% 50%";
+            M.mbadge.style.transform = "translate(" + bx.toFixed(1) + "px," + by.toFixed(1) + "px) scale(" + ((t > 17.15 ? lp(0.6, 1, bu) : 0.6) * lp(1, 0.6, b2)).toFixed(4) + ")";
+            M.mbadge.style.opacity = (sg(t, 17.15, 17.3) * (1 - sg(t, 21.65, 21.95))).toFixed(3);
+            var pw = M.mplain.offsetWidth;
+            M.mplain.style.transform = "translate(" + (R1.x + R1.w / 2 - pw / 2).toFixed(1) + "px," + (cym + 70 + lp(24, 0, o3(sg(t, 17.45, 17.9)))).toFixed(1) + "px)";
+            M.mplain.style.opacity = (sg(t, 17.45, 17.75) * (1 - b1out)).toFixed(3);
+
+            // ---- beat 2: portfolio row + one card
+            M.mprow.style.transform = "translate(" + (R1.x + 56) + "px," + lp(R1.y + 232, R1.y + 196, o3(sg(t, 18.8, 19.2))).toFixed(1) + "px)";
+            M.mprow.style.opacity = (sg(t, 18.8, 19.1) * (1 - sg(t, 21.65, 21.95))).toFixed(3);
+            var cu = ex(sg(t, 19.3, 20.05)), cout = io3(sg(t, 21.65, 22.05));
+            M.mcard.style.transform = "translate(" + (R1.x + R1.w / 2 - 360) + "px," + (lp(R1.y + 440, R1.y + 330, cu) - 140 * cout).toFixed(1) + "px) scale(" + lp(0.92, 1, cu).toFixed(4) + ")";
+            M.mcard.style.opacity = (sg(t, 19.3, 19.55) * (1 - cout)).toFixed(3);
+            mcps.forEach(function (c, n) { var u = sg(t, 19.75 + 0.12 * n, 20.15 + 0.12 * n); c.style.transform = "translateY(" + lp(14, 0, o3(u)).toFixed(1) + "px)"; c.style.opacity = u.toFixed(3); });
+
+            // ---- beat 3: the ETH / USDC liquidity position
+            var L = sg(t, 21.95, 22.4), lpOn = t >= 21.9;
+            M.lpt.style.transform = "translate(" + (R1.x + 56) + "px," + (R1.y + 92 + lp(22, 0, o3(L))).toFixed(1) + "px)"; M.lpt.style.opacity = (lpOn ? L : 0).toFixed(3);
+            M.lpsvg.style.opacity = lpOn ? 1 : 0;
+            M.lpaxis.style.opacity = sg(t, 22.1, 22.5).toFixed(3);
+            var bandU = o3(sg(t, 22.3, 22.8));
+            M.lpband.setAttribute("x", LX0); M.lpband.setAttribute("width", LX1 - LX0); M.lpband.setAttribute("y", lpy(PU)); M.lpband.setAttribute("height", ((lpy(PL) - lpy(PU)) * bandU).toFixed(1));
+            M.lpband.style.opacity = sg(t, 22.3, 22.4).toFixed(3);
+            M.lpblab.setAttribute("x", LX0 + 14); M.lpblab.setAttribute("y", lpy(PL) - 14); M.lpblab.style.opacity = sg(t, 22.7, 23.0).toFixed(3);
+            var s3 = headS3(t), n3 = Math.round(s3 * N3), pl = [];
+            for (var j = 0; j <= n3; j++) pl.push(lp(LX0, LX1, j / N3).toFixed(1) + "," + lpy(p3(j)).toFixed(1));
+            var pre = sg(t, 22.4, D0); // before the descent the head waits at the top edge of the range
+            M.lpline.setAttribute("points", pl.length > 1 ? pl.join(" ") : (LX0 + "," + lpy(PU) + " " + LX0 + "," + lpy(PU)));
+            var hp = p3(n3), lhx = lp(LX0, LX1, s3), lhy = lpy(hp);
+            [M.lphd, M.lphalo].forEach(function (c) { c.setAttribute("cx", lhx.toFixed(1)); c.setAttribute("cy", lhy.toFixed(1)); });
+            M.lphalo.setAttribute("r", (14 + 6 * Math.sin(t * 6)).toFixed(1));
+            M.lphd.style.opacity = M.lphalo.style.opacity = sg(t, 22.4, 22.6).toFixed(3);
+            M.lptag.textContent = "ETH $" + fmt(Math.round(hp / 5) * 5, 0);
+            var tgw = M.lptag.offsetWidth, flipL = lhx + 22 + tgw > SX - 24; M.lptag.style.transform = "translate(" + (flipL ? lhx - 22 - tgw : lhx + 22).toFixed(1) + "px," + (lhy - 46).toFixed(1) + "px)"; M.lptag.style.opacity = sg(t, 22.45, 22.7).toFixed(3);
+            var below = hp <= PL && t > D0;
+            M.lpout.style.transform = "translate(" + (LX0 - 4) + "px," + (LBOT + 22) + "px)"; M.lpout.style.opacity = (below ? sg(t, tCross + 0.1, tCross + 0.45) * (1 - sg(t, 27.6, 27.82)) : 0).toFixed(3);
+            // concentrated-liquidity amounts (exact): USDC = L(√p − √Pl), ETH = L(1/√p − 1/√Pu)
+            var pc = Math.min(PU, Math.max(PL, hp));
+            var depU = io3(sg(t, 22.9, 23.85));
+            var usdc = t < D0 ? DEP * depU : LQ * (Math.sqrt(pc) - Math.sqrt(PL));
+            var eth = t < D0 ? 0 : LQ * (1 / Math.sqrt(pc) - 1 / Math.sqrt(PU));
+            M.lvEth.textContent = fmt(eth, 2) + " ETH"; M.lvUsd.textContent = fmt(Math.round(usdc / 10) * 10, 0);
+            var tot = eth * pc + usdc, fe = tot > 0 ? eth * pc / tot : 0;
+            M.lmE.style.width = (fe * 100).toFixed(2) + "%"; M.lmU.style.width = (tot > 0 ? (1 - fe) * 100 * Math.min(1, depU * 1.2) : 0).toFixed(2) + "%";
+            M.lsEth.style.transform = "translate(" + SX + "px," + (R1.y + 170) + "px)"; M.lsUsd.style.transform = "translate(" + SX + "px," + (R1.y + 300) + "px)";
+            M.lsMix.style.transform = "translate(" + SX + "px," + (R1.y + 440) + "px)"; M.lsFee.style.transform = "translate(" + SX + "px," + (R1.y + 550) + "px)";
+            [M.lsEth, M.lsUsd, M.lsMix, M.lsFee].forEach(function (e, k) { e.style.opacity = (lpOn ? sg(t, 22.2 + 0.1 * k, 22.6 + 0.1 * k) : 0).toFixed(3); });
+            var dpu = sg(t, 22.7, 23.0) * (1 - sg(t, 23.9, 24.15));
+            M.lpdep.style.transform = "translate(" + SX + "px," + (R1.y + 396 + lp(16, 0, o3(sg(t, 22.7, 23.0)))).toFixed(1) + "px)"; M.lpdep.style.opacity = dpu.toFixed(3);
+            for (var k = 0; k < 8; k++) {
+              var cn = document.getElementById("ldc" + k), u = sg(t, 22.95 + k * 0.1, 23.65 + k * 0.1);
+              var sx = SX + 80, sy = R1.y + 412, ex2 = LX0 + 60 + k * 42, ey = lpy(PU) + 30 + (k % 2) * 26, arc = -130 * Math.sin(Math.PI * u);
+              cn.style.transform = "translate(" + lp(sx, ex2, io3(u)).toFixed(1) + "px," + (lp(sy, ey, io3(u)) + arc).toFixed(1) + "px) scale(" + (u > 0 && u < 1 ? lp(1, 0.6, sg(u, 0.75, 1)) : 0).toFixed(3) + ")";
+              cn.style.opacity = (u > 0 && u < 1 ? 1 : 0);
+            }
+            var nFee = 0;
+            FEE_T.forEach(function (ts, k3) {
+              var cf = document.getElementById("lfc" + k3), u3 = sg(t, ts, ts + 0.7);
+              var sx3 = lp(LX0, LX1, headS3(ts)), sy3 = lpy(p3(Math.round(headS3(ts) * N3)));
+              var ex3 = SX + 14 + k3 * 34, ey3 = R1.y + 550 + 46;
+              cf.style.transform = "translate(" + lp(sx3, ex3, io3(u3)).toFixed(1) + "px," + (lp(sy3, ey3, io3(u3)) - 100 * Math.sin(Math.PI * u3)).toFixed(1) + "px) scale(" + (u3 > 0 && u3 < 1 ? bk(Math.min(1, u3 * 3)) : 0).toFixed(3) + ")";
+              cf.style.opacity = (u3 > 0 && u3 < 1 ? 1 : 0);
+              if (t >= ts + 0.7) nFee++;
+            });
+            Array.prototype.forEach.call(M.lfeeRow.children, function (b, k4) { b.style.background = k4 < nFee ? "#2fe58c" : "#1a2420"; });
+            [["lsu1", 27.85], ["lsu2", 28.0], ["lsu3", 28.15]].forEach(function (a, k5) { var u5 = sg(t, a[1], a[1] + 0.45); var e5 = M[a[0]];
+              e5.style.transform = "translate(" + (R1.x + 56 + k5 * 290) + "px," + (R1.y + R1.h - 120 + lp(30, 0, o3(u5))).toFixed(1) + "px) scale(" + lp(0.85, 1, bk(u5)).toFixed(4) + ")"; e5.style.opacity = u5.toFixed(3); });
+            M.lcav.style.transform = "translate(" + (R1.x + 56) + "px," + (R1.y + R1.h - 40) + "px)"; M.lcav.style.opacity = sg(t, 22.8, 23.2).toFixed(3);
+            // fade the whole window content just before the Archive takes over
+            M.lpsvg.style.opacity = (lpOn ? 1 - shr : 0).toFixed(3);
+          }
+          kIn(tl, $("#mnt .w"), 11.45, { st: 0.03, d: 1.0 });
+          kOut(tl, $("#mnt .w"), 13.62, { st: 0.012 });
+          kIn(tl, $("#mc1"), 14.4, { st: 0.022 }); kOut(tl, $("#mc1"), 18.3, { st: 0.008 });
+          kIn(tl, $("#mc2"), 18.75, { st: 0.026 }); kOut(tl, $("#mc2"), 21.5, { st: 0.01 });
+          kIn(tl, $("#mc3"), 21.85, { st: 0.028 }); kOut(tl, $("#mc3"), 29.25, { st: 0.01 });
+          kIn(tl, $("#mexpl"), 28.4, { st: 0.012, d: 0.8 }); kOut(tl, $("#mexpl"), 29.25, { st: 0.004 });
+          var MC2 = { t: 13.45 };
+          renderMid(13.45);
+          tl.fromTo(MC2, { t: 13.45 }, { t: 29.75, duration: 16.3, ease: "none", immediateRender: false, onUpdate: function () { renderMid(MC2.t); } }, 13.45);
+
+          // the Archive and end card keep their tuned timings, shifted by 10.2 s
           var rootTL = tl; tl = gsap.timeline();
-          // ============ F4 9.5-19.5: product concept rail ============
-          var railMoves = [[12.65, -1840], [16.15, -3680]];
-          T("#rail", { x: 0, y: 1000, scale: 1, transformOrigin: "0px 0px" }, { y: 0, duration: 0.6, ease: "expo.out" }, 9.55);
-          T("#concept-label", { clipPath: "inset(0% 100% 0% 0% round 999px)" }, { clipPath: "inset(0% 0% 0% 0% round 999px)", duration: 0.5, ease: "expo.out" }, 9.5);
-          T("#cl-dot", { scale: 3 }, { scale: 1, duration: 0.5, ease: "back.out(2)" }, 9.55);
-          T("#concept-illus", { clipPath: "inset(0% 0% 0% 100%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "expo.out" }, 9.7);
-          T("#cs", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power3.out" }, 9.9);
-          tl.set("#c2, #c3", { visibility: "hidden" }, 0);
-          tl.set("#c1", { visibility: "hidden" }, 13.0);
-          tl.set("#c2", { visibility: "visible" }, 13.0);
-          tl.set("#c2", { visibility: "hidden" }, 16.5);
-          tl.set("#c3", { visibility: "visible" }, 16.5);
-          kIn(tl, $("#c1"), 9.9);
-          T("#b1, #b2, #b3", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "expo.out", stagger: 0.18 }, 10.2);
-          T(".p1r", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power3.out", stagger: 0.16 }, 10.6);
-          // 01 → 02
-          tl.to("#rail", { x: railMoves[0][1], duration: 0.7, ease: "power3.inOut" }, railMoves[0][0]);
-          tl.to("#rl1", { strokeDashoffset: 0, duration: 0.7, ease: "power3.inOut" }, railMoves[0][0]);
-          kOut(tl, $("#c1"), 12.25);
-          tl.to("#cs", { clipPath: "inset(0% 100% 0% 0%)", duration: 0.25, ease: "power3.in" }, 12.3);
-          tl.set("#cs", { textContent: "02 / 03 · Market" }, 12.9);
-          tl.to("#cs", { clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power3.out" }, 13.05);
-          kIn(tl, $("#c2"), 13.05);
-          T("#p2badge", { scale: 0.6, clipPath: "inset(0% 50% 0% 50% round 999px)" }, { scale: 1, clipPath: "inset(0% 0% 0% 0% round 999px)", duration: 0.5, ease: "back.out(2)" }, 13.3);
-          T(".p2r", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power3.out", stagger: 0.16 }, 13.5);
-          tl.to("#sb2", { borderColor: "rgba(47,229,140,0.6)", color: "#2fe58c", duration: 0.2 }, 13.0);
-          // 02 → 03
-          tl.to("#rail", { x: railMoves[1][1], duration: 0.7, ease: "power3.inOut" }, railMoves[1][0]);
-          tl.to("#rl2", { strokeDashoffset: 0, duration: 0.7, ease: "power3.inOut" }, railMoves[1][0]);
-          kOut(tl, $("#c2"), 15.75);
-          tl.to("#cs", { clipPath: "inset(0% 100% 0% 0%)", duration: 0.25, ease: "power3.in" }, 15.8);
-          tl.set("#cs", { textContent: "03 / 03 · Strategy discovery" }, 16.4);
-          tl.to("#cs", { clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power3.out" }, 16.55);
-          kIn(tl, $("#c3"), 16.55);
-          T("#p3card", { clipPath: "inset(0% 0% 100% 0% round 12px)" }, { clipPath: "inset(0% 0% 0% 0% round 12px)", duration: 0.55, ease: "expo.out" }, 16.75);
-          T(".p3c", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)", stagger: 0.08 }, 17.1);
-          T(".p3r", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out", stagger: 0.2 }, 17.35);
-          tl.to("#sb3", { borderColor: "rgba(47,229,140,0.6)", color: "#2fe58c", duration: 0.2 }, 16.5);
-          // push into the card (match cut source)
-          var lcx = card.x + card.w / 2, lcy = card.y + card.h / 2;
-          tl.to("#rail", { scale: kCard, x: 960 - kCard * lcx, y: 540 - kCard * lcy, duration: 0.45, ease: "power3.in" }, 19.05);
-          kOut(tl, $("#c3"), 19.0);
-          tl.to("#cs", { yPercent: -115, duration: 0.3, ease: "power3.in" }, 19.05);
-
           // ============ F5 19.5-25.5: live Strategy Archive ============
           var S = WIN0.w / 1920; // screenshot scale inside the nav window
           // window grows out of the card's on-screen rect
-          var cardW = card.w * kCard, cardH = card.h * kCard;
           // the window is a clip rect + transforms driven by one proxy (sub-pixel, seek-safe)
-          var W = { x: 960 - cardW / 2, y: 540 - cardH / 2, w: cardW, h: cardH, g: 1, r: 14, s: cardW / WIN0.w };
+          var W = { x: 840, y: 150, w: 960, h: 790, g: 0, r: 18, s: 960 / WIN0.w };
           var winEl = $("#win"), barEl = $("#win-bar"), viewEl = $("#win-view"), wf = $("#wf");
           function applyWin() {
             winEl.style.clipPath = "inset(" + W.y.toFixed(2) + "px " + (1920 - W.x - W.w).toFixed(2) + "px " + (1080 - W.y - W.h).toFixed(2) + "px " + W.x.toFixed(2) + "px round " + W.r.toFixed(1) + "px)";
@@ -607,7 +757,7 @@
             wf.setAttribute("stroke", W.g > 0.01 ? "rgba(47,229,140," + (0.18 + 0.7 * W.g).toFixed(3) + ")" : "rgba(237,242,238,0.18)");
           }
           applyWin();
-          T(W, { x: 960 - cardW / 2, y: 540 - cardH / 2, w: cardW, h: cardH, g: 1, s: cardW / WIN0.w }, { x: WIN0.x, y: WIN0.y, w: WIN0.w, h: WIN0.h, g: 0, s: 1, duration: 0.5, ease: "expo.out", onUpdate: applyWin }, 19.5);
+          T(W, { x: 840, y: 150, w: 960, h: 790, g: 0, s: 960 / WIN0.w, r: 18 }, { x: WIN0.x, y: WIN0.y, w: WIN0.w, h: WIN0.h, g: 0, s: 1, r: 14, duration: 0.5, ease: "expo.out", onUpdate: applyWin }, 19.5);
           $$(".shot").forEach(function (s) { gsap.set(s, { scale: S }); });
           kIn(tl, $("#arc-head"), 19.7, { st: 0.02 });
           T("#arc-sub", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out" }, 20.0);
@@ -615,15 +765,15 @@
           T(".st .bar2", { scaleY: 0 }, { scaleY: 0, duration: 0.01 }, 19.5);
 
           // screen visibility (hard cuts on the real clicks)
-          var SH = [["#sh1", 19.45, 20.55], ["#sh2", 20.55, 21.65], ["#sh3", 21.65, 22.75], ["#sh4", 22.75, 23.5], ["#sh5", 23.5, 26.0]];
+          var SH = [["#sh1", 19.45, 20.55], ["#sh2", 20.55, 21.65], ["#sh3", 21.65, 22.75], ["#sh4", 22.75, 26.2]];
           SH.forEach(function (s) { T(s[0], { visibility: "hidden" }, { visibility: "visible", duration: 0.01 }, s[1]); tl.set(s[0], { visibility: "hidden" }, s[2]); });
           tl.set(SH.map(function (s) { return s[0]; }).join(","), { visibility: "hidden" }, 0);
           // gentle pushes toward each click target (scale about the target keeps it fixed)
           function push(sel, cx, cy, t0, t1) { T(sel, { scale: S, x: 0, y: 0 }, { scale: S * 1.05, x: -cx * S * 0.05, y: -cy * S * 0.05, duration: t1 - t0, ease: "none" }, t0); return function (px, py) { return { x: px * S * 1.05 - cx * S * 0.05, y: py * S * 1.05 - cy * S * 0.05 }; }; }
-          var CL = [ // click targets in page CSS px, from assets/archive/archive-capture-log.json
+          var CL = [ // click targets in page CSS px, from assets/archive/bear-capture-log.json
             { x: 394, y: 809, t: 20.5, sh: "#sh1", t0: 19.5, t1: 20.55 },
-            { x: 600, y: 570, t: 21.6, sh: "#sh2", t0: 20.55, t1: 21.65 },
-            { x: 409, y: 816, t: 22.7, sh: "#sh3", t0: 21.65, t1: 22.75 }
+            { x: 590, y: 720, t: 21.6, sh: "#sh2", t0: 20.55, t1: 21.65 },
+            { x: 409, y: 791, t: 22.7, sh: "#sh3", t0: 21.65, t1: 22.75 }
           ];
           var prev = { x: 1180, y: 760 };
           CL.forEach(function (c, i) {
@@ -641,46 +791,38 @@
           tl.set("#cursor", { opacity: 1 }, 19.85);
           tl.set("#cursor, #ripple", { opacity: 0 }, 22.85);
           tl.to(".st:nth-child(4) .bar2", { scaleY: 1, duration: 0.3, ease: "expo.out" }, 22.8);
-          // record: title, then a real scroll down to the Risk section
-          T("#sh4", { scale: S, x: 0, y: 0 }, { scale: S * 1.04, x: -60 * S, y: -20 * S, duration: 0.35, ease: "none" }, 22.75);
-          tl.to("#sh4", { y: -747, duration: 0.45, ease: "power3.in" }, 23.1);
-          // close-up of the Risk panel (page CSS region x 580-1550, y 100-520)
-          var RX = 580, RY = 98, RW = 970, RH = 424;
+          // record: title, then a close-up of its Overview, which describes exactly the mechanism shown above
+          T("#sh4", { scale: S, x: 0, y: 0 }, { scale: S * 1.03, x: -40 * S, y: -14 * S, duration: 0.7, ease: "none" }, 22.75);
+          var RX = 572, RY = 528, RW = 990, RH = 392;
           var kz = Math.min(WIN1.w / RW, (WIN1.h - 40) / RH);
           var zx = (WIN1.w - RW * kz) / 2 - RX * kz, zy = (WIN1.h - 40 - RH * kz) / 2 - RY * kz;
-          T("#sh5", { scale: S, x: 0, y: 747 }, { y: 0, duration: 0.45, ease: "expo.out" }, 23.5);
-          tl.to(W, { x: WIN1.x, y: WIN1.y, w: WIN1.w, h: WIN1.h, duration: 0.6, ease: "expo.inOut", onUpdate: applyWin }, 23.75);
-          tl.to("#sh5", { scale: kz, x: zx, y: zy, duration: 0.6, ease: "expo.inOut" }, 23.75);
-          tl.to("#steps", { x: -520, duration: 0.5, ease: "power3.in" }, 23.7);
-          tl.to("#sh5", { scale: kz * 1.025, x: zx - RW * kz * 0.0125, y: zy - RH * kz * 0.0125, duration: 1.15, ease: "none" }, 24.35);
+          tl.to(W, { x: WIN1.x, y: WIN1.y, w: WIN1.w, h: WIN1.h, duration: 0.7, ease: "expo.inOut", onUpdate: applyWin }, 23.5);
+          tl.to("#sh4", { scale: kz, x: zx, y: zy, duration: 0.7, ease: "expo.inOut" }, 23.5);
+          tl.to("#steps", { x: -520, duration: 0.5, ease: "power3.in" }, 23.45);
+          tl.to("#sh4", { scale: kz * 1.02, x: zx - RW * kz * 0.01, y: zy - RH * kz * 0.01, duration: 1.4, ease: "none" }, 24.2);
+          T("#hlband", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power2.inOut" }, 24.45);
+          T("#hlline", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power2.inOut" }, 24.5);
           // collapse into one grid cell → end card
-          tl.to(W, { x: MC.x - 48, y: MC.y - 48, w: 96, h: 96, r: 2, g: 1, s: 96 / WIN1.w, duration: 0.45, ease: "power4.in", onUpdate: applyWin }, 25.1);
-          kOut(tl, $("#arc-head"), 25.05, { st: 0.008 });
-          tl.to("#arc-sub", { clipPath: "inset(0% 0% 0% 100%)", duration: 0.35, ease: "power3.in" }, 25.1);
+          tl.to(W, { x: MC.x - 48, y: MC.y - 48, w: 96, h: 96, r: 2, g: 1, s: 96 / WIN1.w, duration: 0.45, ease: "power4.in", onUpdate: applyWin }, 25.6);
+          kOut(tl, $("#arc-head"), 25.55, { st: 0.008 });
+          tl.to("#arc-sub", { clipPath: "inset(0% 0% 0% 100%)", duration: 0.35, ease: "power3.in" }, 25.6);
 
-          // ============ F6 25.5-30: end card ============
+          // ============ F6 26-30: end card ============
           tl.set("#ecell", { opacity: 0 }, 0);
-          T("#ecell", { opacity: 1, attr: { x: MC.x - 48, y: MC.y - 48, width: 96, height: 96 } }, { opacity: 0, attr: { x: MC.x - 320, y: MC.y - 320, width: 640, height: 640 }, duration: 0.6, ease: "expo.out", immediateRender: false }, 25.55);
-          T("#end-mark", { scale: 0.45, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.55, ease: "expo.out" }, 25.55);
-          kIn(tl, $("#wm1"), 25.65, { st: 0.04 }); kIn(tl, $("#wm2"), 25.85, { st: 0.03, d: 0.7 });
-          T("#cta", { clipPath: "inset(0% 50% 0% 50% round 999px)", scale: 0.9 }, { clipPath: "inset(0% 0% 0% 0% round 999px)", scale: 1, duration: 0.5, ease: "expo.out" }, 25.9);
-          kIn(tl, $("#end-url"), 26.05, { st: 0.03 });
-          T("#end-sub", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out" }, 26.2);
-          T(".corner", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out" }, 26.1);
+          T("#ecell", { opacity: 1, attr: { x: MC.x - 48, y: MC.y - 48, width: 96, height: 96 } }, { opacity: 0, attr: { x: MC.x - 320, y: MC.y - 320, width: 640, height: 640 }, duration: 0.6, ease: "expo.out", immediateRender: false }, 26.05);
+          T("#end-mark", { scale: 0.45, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.55, ease: "expo.out" }, 26.05);
+          kIn(tl, $("#wm1"), 26.15, { st: 0.04 }); kIn(tl, $("#wm2"), 26.35, { st: 0.03, d: 0.7 });
+          T("#cta", { clipPath: "inset(0% 50% 0% 50% round 999px)", scale: 0.9 }, { clipPath: "inset(0% 0% 0% 0% round 999px)", scale: 1, duration: 0.5, ease: "expo.out" }, 26.4);
+          kIn(tl, $("#end-url"), 26.55, { st: 0.03 });
+          T("#end-sub", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out" }, 26.7);
+          T(".corner", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power3.out" }, 26.6);
           // the grid is the camera's floor: it travels with every move, wrapped to its 96 px period
           var wrap = function (v) { v = parseFloat(v); return (((v % 96) + 96) % 96) - 96 + "px"; };
-          tl.to(".reg", { opacity: 0, duration: 0.3 }, 9.2);
-          T("#grid", { y: 0 }, { y: -760, duration: 0.35, ease: "power3.in", modifiers: { y: wrap } }, 9.2);
-          T("#grid", { y: 760 }, { y: 0, duration: 0.6, ease: "expo.out", immediateRender: false, modifiers: { y: wrap } }, 9.55);
-          T("#grid", { x: 0 }, { x: -1840, duration: 0.7, ease: "power3.inOut", immediateRender: false, modifiers: { x: wrap } }, railMoves[0][0]);
-          T("#grid", { x: -1840 }, { x: -3680, duration: 0.7, ease: "power3.inOut", immediateRender: false, modifiers: { x: wrap } }, railMoves[1][0]);
-          T("#grid", { scale: 1 }, { scale: kCard, transformOrigin: "50% 50%", duration: 0.45, ease: "power3.in", immediateRender: false }, 19.05);
-          tl.set("#grid", { scale: 1, x: 0, y: 0 }, 19.5);
           tl.to("#grid", { opacity: 0.6, duration: 0.3 }, 19.5);
-          tl.to("#grid", { opacity: 1, duration: 0.6 }, 25.5);
+          tl.to("#grid", { opacity: 1, duration: 0.6 }, 26.0);
 
-          rootTL.add(tl, 4.0);
-          rootTL.to({}, { duration: 34 }, 0);
+          rootTL.add(tl, 10.2);
+          rootTL.to({}, { duration: 40.4 }, 0);
           window.__timelines["main"] = rootTL;
         }
         if (document.fonts && document.fonts.ready) document.fonts.ready.then(build); else build();

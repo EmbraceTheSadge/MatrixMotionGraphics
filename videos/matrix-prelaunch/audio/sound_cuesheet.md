@@ -14,7 +14,8 @@
 | 10.30 | sfx · six tiles lock |
 | 11.00 | SONG · CHORUS 1 lands with 'Now together' (piano + violins on the hook, harp, pulse) |
 | 11.00 | sfx · soft impact under the chorus hit |
-| 13.10 | SONG · half-time verse under the downtrend |
+| 13.10 | SONG · verse keeps the groove (no drop); layers keep adding from here |
+| 13.10 | SONG · verse: high violin descant over the falling melody |
 | 13.85 | sfx whoosh · rectangle opens into the window |
 | 17.15 | sfx pop · Bear market lands |
 | 19.30 | sfx pop · Asset accumulation card |
@@ -29,7 +30,7 @@
 | 24.90 | sfx · fee coins climb (soft) |
 | 27.85 | sfx pops · summary chips |
 | 29.82 | sfx whoosh · window becomes the live Archive |
-| 29.94 | SONG · bridge (live Archive): harp + piano, strings |
+| 29.94 | SONG · bridge (live Archive) keeps driving: high violins, 16th shakers, bells on the hook |
 | 30.70 | sfx click · ENTER THE ARCHIVE |
 | 31.80 | sfx click · Bear |
 | 32.90 | sfx click · OPEN RECORD |

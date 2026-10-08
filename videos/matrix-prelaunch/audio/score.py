@@ -498,70 +498,81 @@ def synth_pulse(f, dur, vel=1.0):
 
 
 # ----------------------------------------------------------------- arrange bar by bar
+# The film should keep lifting: after the first chorus the groove never stops, and every section adds a layer.
+# E is the energy of each bar (0..1); it only climbs after bar 5, peaking on the end card.
 SECTION = {0: "intro", 1: "intro", 2: "intro", 3: "intro", 4: "build", 5: "chorus", 6: "verse", 7: "verse", 8: "verse",
            9: "build", 10: "chorus", 11: "chorus", 12: "chorus", 13: "chorus", 14: "bridge", 15: "bridge", 16: "build",
            17: "chorus", 18: "end"}
+E = {0: .2, 1: .25, 2: .35, 3: .42, 4: .52, 5: .62, 6: .68, 7: .71, 8: .74, 9: .76, 10: .78, 11: .8, 12: .82, 13: .85,
+     14: .86, 15: .89, 16: .94, 17: 1.0, 18: .9}
+for bar in (6, 7, 8, 14, 15):           # no more half-time verse / sparse bridge: the groove keeps driving
+    c, _d, _b, p, a = FORM[bar]
+    FORM[bar] = (c, "full", "eighth", p, a)
+
 for bar, (chords, drum, bass, _p, _a) in FORM.items():
     sec = SECTION[bar]
+    e = E[bar]
     beat_at = 0.0
     for ci, (name, beats) in enumerate(chords):
         t = bt(bar, beat_at)
         dur = beats * BEAT
         root = midi(V[name][1])
-        # strings: cellos on the root, violas in the middle, violins on top — the harmonic bed
-        lvl = {"intro": 0.0 if bar < 2 else 0.55, "build": 0.8, "chorus": 1.0, "verse": 0.7, "bridge": 0.75, "end": 0.9}[sec]
+        # strings: cellos on the root, violas in the middle, violins on top; they swell with the energy
+        lvl = 0.0 if bar < 2 else 0.35 + 0.65 * e
         if lvl:
             sd = dur + (0.3 if bar != 18 else 2.4)
             strings(t, CELLOS, root + 12, sd, 0.42 * lvl, pan=-0.35)
             strings(t, CELLOS, root + 19, sd, 0.22 * lvl, pan=-0.25)
             for k, m in enumerate(tones_in(name, 55, 67)[:2]):
                 strings(t, VIOLAS, m, sd, 0.26 * lvl, pan=0.1 + 0.1 * k)
-            if sec in ("chorus", "end", "bridge", "build"):
+            if bar >= 4:
                 for k, m in enumerate(tones_in(name, 67, 78)[:2]):
                     strings(t, VIOLINS, m, sd, 0.2 * lvl, pan=0.35 + 0.1 * k)
+            if e >= 0.78:                                   # chorus 2 onward: a high violin octave opens the top
+                for k, m in enumerate(tones_in(name, 76, 86)[:2]):
+                    strings(t, VIOLINS, m, sd, 0.13 * lvl, pan=-0.4 + 0.15 * k)
         # soft synth pad underneath, for air and width (on the pumped bus)
-        place(PUMP, pad(chord(V[name][0]), dur + 0.4, 0.4, 0.6, 1300, bar * 10 + ci), t, 0.16 if sec != "intro" else 0.2, verb=0.6)
+        place(PUMP, pad(chord(V[name][0]), dur + 0.4, 0.4, 0.6, 1100 + 1200 * e, bar * 10 + ci), t, 0.14 + 0.08 * e, verb=0.6)
         # bass
         rf = note(V[name][1])
         if bass in ("whole", "half"):
             place(PUMP, 0.7 * sub(rf, dur, 0.55), t, 0.5, verb=0.0)
         elif bass == "eighth":
             for k in range(int(beats * 2)):
-                place(PUMP, 0.7 * sub(rf, 0.45 * BEAT, 0.62 if k % 2 else 0.5), t + k * BEAT / 2, 0.5, verb=0.0)
+                place(PUMP, 0.7 * sub(rf, 0.45 * BEAT, 0.62 if k % 2 else 0.5), t + k * BEAT / 2, 0.42 + 0.12 * e, verb=0.0)
         elif bass == "long":
             place(PUMP, 0.7 * sub(rf, 3.8, 0.6), t, 0.5, verb=0.0)
-        # piano left hand: open voicings, played like a person (root, then the colour tones)
-        lh_vel = "H" if sec in ("chorus", "end") else "L"
-        if sec in ("intro", "verse", "bridge", "end"):
-            piano(t, root + 12, dur + 0.4, lh_vel, 0.42, pan=-0.2)
+        # piano: open voicings in the intro and on the end card; a syncopated push everywhere the groove runs
+        if sec in ("intro", "end"):
+            piano(t, root + 12, dur + 0.4, "H" if sec == "end" else "L", 0.42, pan=-0.2)
             for k, m in enumerate(tones_in(name, root + 19, root + 31)[:3]):
                 piano(t + (0.5 + 0.5 * k) * BEAT if beats == 4 else t + 0.03 * k, m, dur + 0.2, "L", 0.3, pan=-0.05 + 0.1 * k)
-        elif sec == "chorus":
-            for hit in ([0, 1.5, 2.5] if beats == 4 else [0]):   # syncopated chord, the chorus' push
-                piano(t + hit * BEAT, root + 12, 1.2, "H", 0.38, pan=-0.2)
-                for k, m in enumerate(tones_in(name, root + 19, root + 31)[:3]):
-                    piano(t + hit * BEAT + 0.012 * k, m, 1.0, "L", 0.3, pan=0.1 * k)
         elif sec == "build":
             for q in range(int(beats)):
                 for k, m in enumerate([root + 12] + tones_in(name, root + 19, root + 31)[:3]):
                     piano(t + q * BEAT + 0.01 * k, m, 0.9 * BEAT, "L" if q < 2 else "H", 0.24 + 0.05 * q, pan=-0.2 + 0.13 * k)
-        # harp: a gentle rolling figure, chorus and bridge only, tucked low in the mix
-        if sec in ("chorus", "bridge"):
+        else:
+            vel = "H" if e >= 0.75 else "L"
+            for hit in ([0, 1.5, 2.5] if beats == 4 else [0]):
+                piano(t + hit * BEAT, root + 12, 1.2, vel, 0.34 + 0.06 * e, pan=-0.2)
+                for k, m in enumerate(tones_in(name, root + 19, root + 31)[:3]):
+                    piano(t + hit * BEAT + 0.012 * k, m, 1.0, "L", 0.26 + 0.06 * e, pan=0.1 * k)
+        # harp: a gentle rolling figure once the groove is running, tucked low in the mix
+        if sec in ("chorus", "verse", "bridge"):
             ht = tones_in(name, 62, 82)
-            fig = [0, 2, 4, 2, 1, 3, 5, 3] if sec == "chorus" else [0, 2, 4, 5]
-            step = BEAT / 2 if sec == "chorus" else BEAT
-            for k in range(int(round(dur / step))):
+            fig = [0, 2, 4, 2, 1, 3, 5, 3]
+            for k in range(int(round(dur / (BEAT / 2)))):
                 m = ht[fig[k % len(fig)] % len(ht)]
-                place(MUS, HARP.play(m, 1.6, release=0.5), t + k * step, 0.2 if sec == "chorus" else 0.26,
+                place(MUS, HARP.play(m, 1.6, release=0.5), t + k * BEAT / 2, 0.12 + 0.1 * e,
                       pan=0.4 * (1 if k % 2 else -1), verb=0.5, dly=0.12)
-        # warm filtered pulse (8ths) under the choruses and builds
-        if sec in ("chorus", "build"):
+        # warm filtered pulse (8ths): the engine from the first build to the end
+        if bar >= 4 and sec != "end":
             for k in range(int(beats * 2)):
                 place(PUMP, synth_pulse(rf * (4 if k % 2 else 2), 0.45 * BEAT, 0.8 + 0.2 * (k % 2 == 0)),
-                      t + k * BEAT / 2, 0.55, pan=0.15 * (1 if k % 2 else -1), verb=0.2, dly=0.15)
+                      t + k * BEAT / 2, 0.38 + 0.25 * e, pan=0.15 * (1 if k % 2 else -1), verb=0.2, dly=0.15)
         beat_at += beats
 
-    # drums: restrained, felt more than heard
+    # drums: restrained, but they keep going and pick up layers as the film lifts
     s = bar * 100
     if drum in ("soft", "soft2"):
         for k in (0, 2):
@@ -573,23 +584,17 @@ for bar, (chords, drum, bass, _p, _a) in FORM.items():
                 place(MUS, snap(0.7, s + 40 + k), bt(bar, k), 0.32, pan=-0.1, verb=0.45)
     elif drum == "full":
         for k in range(4):
-            K(bt(bar, k), 0.8, s + k)
-            place(MUS, hat(0.7, s + 10 + k, open_=True), bt(bar, k + 0.5), 0.3, pan=0.2, verb=0.15)
+            K(bt(bar, k), 0.6 + 0.25 * e, s + k)
+            place(MUS, hat(0.7, s + 10 + k, open_=True), bt(bar, k + 0.5), 0.2 + 0.12 * e, pan=0.2, verb=0.15)
         for k in (1, 3):
-            place(MUS, clap(0.8, s + 30 + k), bt(bar, k), 0.45, pan=0.05, verb=0.55)
+            place(MUS, clap(0.8, s + 30 + k), bt(bar, k), 0.3 + 0.18 * e, pan=0.05, verb=0.55)
             place(MUS, snap(0.6, s + 35 + k), bt(bar, k), 0.25, pan=-0.05, verb=0.4)
-        for k in range(8):
-            place(MUS, shaker(0.4 + 0.4 * (k % 2), s + 50 + k), bt(bar, k / 2 + 0.25), 0.2, pan=-0.35, verb=0.15)
-    elif drum == "half":
-        K(bt(bar, 0), 0.65, s); K(bt(bar, 2.5), 0.5, s + 1)
-        place(MUS, clap(0.7, s + 2), bt(bar, 2), 0.42, verb=0.6)
-        for k in range(8):
-            place(MUS, shaker(0.3 + 0.3 * (k % 2), s + 50 + k), bt(bar, k / 2), 0.2, pan=0.35, verb=0.15)
-    elif drum == "bridge":
-        for k in (0, 2):
-            K(bt(bar, k), 0.5, s + k)
-        for k in range(4):
-            place(MUS, hat(0.5, s + 10 + k), bt(bar, k + 0.5), 0.25, pan=0.25, verb=0.15)
+        n16 = 16 if e >= 0.68 else 8                       # 16th shakers once the verse is running
+        for k in range(n16):
+            place(MUS, shaker(0.4 + 0.4 * (k % 2), s + 50 + k), bt(bar, k * 4 / n16 + (0.25 if n16 == 8 else 0)),
+                  0.14 + 0.08 * e, pan=-0.35, verb=0.15)
+        if e >= 0.86:                                      # last stretch: a low tom answer on the "and" of 4
+            place(MUS, kick(0.5, s + 70)[: int(0.3 * SR)], bt(bar, 3.5), 0.35, pan=-0.2, verb=0.3)
     elif drum == "build":
         for k in range(3):
             K(bt(bar, k), 0.65, s + k)
@@ -597,27 +602,37 @@ for bar, (chords, drum, bass, _p, _a) in FORM.items():
         for a, step in ((0, .5), (1, .5), (2, .25)):
             for j in range(int(1 / step)):
                 tb = a + j * step
-                place(MUS, snare(0.2 + 0.5 * (tb / 3) ** 1.5, s + 60 + n), bt(bar, tb), 0.4, pan=0.1 * (-1) ** n, verb=0.45)
+                place(MUS, snare(0.2 + 0.5 * (tb / 3) ** 1.5, s + 60 + n), bt(bar, tb), 0.32 + 0.12 * e,
+                      pan=0.1 * (-1) ** n, verb=0.45)
                 n += 1
-        place(MUS, riser(BAR * 0.95, 300, 6000, seed=s + 90), bt(bar, 0), 0.3, verb=0.5)
+        place(MUS, riser(BAR * 0.95, 300, 6000, seed=s + 90), bt(bar, 0), 0.22 + 0.15 * e, verb=0.5)
         place(MUS, reverse_cymbal(1.2, s + 91), bt(bar + 1) - 1.2, 0.6, verb=0.3)
-    if drum == "full" and FORM.get(bar - 1, (0, ""))[1] != "full":
-        place(MUS, crash(3.0, s + 95), bt(bar), 0.6, verb=0.5)
+    if bar in (5, 10, 17):
+        place(MUS, crash(3.0, s + 95), bt(bar), 0.45 + 0.2 * e, verb=0.5)
+    if bar in (8, 13, 15):                                 # small lifts into the next section, so nothing plateaus
+        place(MUS, reverse_cymbal(0.9, s + 96), bt(bar + 1) - 0.9, 0.4, verb=0.3)
 
-    # the melody: recorded piano (two octaves in the big moments), violins double it in the choruses
+    # the melody: recorded piano; violins double it once the song is up, bells join for the last stretch
     for k, (b, d, n) in enumerate(MEL.get(bar, [])):
         t = bt(bar, b)
         m = midi(n)
         dd = d * BEAT if bar != 18 else 3.6
-        loud = sec in ("chorus", "end")
-        piano(t, m, max(dd, 0.6), "H" if loud else "L", 0.62 if loud else 0.58, pan=0.05, verb=0.4, dly=0.1)
+        loud = e >= 0.6
+        piano(t, m, max(dd, 0.6), "H" if loud else "L", 0.6, pan=0.05, verb=0.4, dly=0.1)
         if loud:
-            piano(t + 0.006, m + 12, max(dd, 0.6), "L", 0.26, pan=0.15, verb=0.45, dly=0.12)
-            strings(t, VIOLINS, m, dd + 0.05, 0.32, pan=0.2, attack=0.06)
-        elif sec == "bridge":
-            place(MUS, HARP.play(m + 12, 1.5, release=0.4), t, 0.2, pan=0.3, verb=0.55, dly=0.2)
+            piano(t + 0.006, m + 12, max(dd, 0.6), "L", 0.18 + 0.12 * e, pan=0.15, verb=0.45, dly=0.12)
+            strings(t, VIOLINS, m, dd + 0.05, 0.2 + 0.15 * e, pan=0.2, attack=0.06)
+        if e >= 0.85:
+            place(MUS, bell(note(n) * 2, 1.6, 0.4), t, 0.1, pan=0.3, verb=0.6, dly=0.25)
 
-# end: one glass bell on the final chord, nothing more
+# verse descant: a high violin line soars over the falling melody, so the verse lifts instead of sagging
+for bar, notes in ((6, [(0, 4, "F#5")]), (7, [(0, 2, "G5"), (2, 2, "B5")]), (8, [(0, 2, "A5"), (2, 2, "D6")])):
+    for b, d, n in notes:
+        strings(bt(bar, b), VIOLINS, midi(n), d * BEAT + 0.15, 0.34, pan=-0.3, attack=0.25)
+        strings(bt(bar, b), VIOLAS, midi(n) - 12, d * BEAT + 0.15, 0.16, pan=0.3, attack=0.25)
+cue(bt(6), "SONG · verse: high violin descant over the falling melody")
+
+# end: one glass bell on the final chord
 for k, (n, dt) in enumerate([("D6", 0.0), ("A5", 0.4)]):
     place(MUS, bell(note(n), 3.0, 0.4), bt(17) + dt + 0.3, 0.2, pan=-0.2 + 0.4 * k, verb=0.7, dly=0.3)
 place(MUS, reverse_swell(PIANO.play(midi("D4"), 1.2, "L")[:, 0]), 0.0, 0.2, verb=0.5)
@@ -637,10 +652,10 @@ MUS.dly += PUMP.dly * pump[:, None]
 cue(0.48, "SONG · intro: solo piano states the hook, strings enter at bar 2")
 cue(bt(4), "SONG · pre-chorus build (piano quarters, snare roll)")
 cue(bt(5), "SONG · CHORUS 1 lands with 'Now together' (piano + violins on the hook, harp, pulse)")
-cue(bt(6), "SONG · half-time verse under the downtrend")
+cue(bt(6), "SONG · verse keeps the groove (no drop); layers keep adding from here")
 cue(bt(9), "SONG · pre-chorus 2")
 cue(bt(10), "SONG · CHORUS 2 (LP explainer); the hook falls with the price, lifts on the summary")
-cue(bt(14), "SONG · bridge (live Archive): harp + piano, strings")
+cue(bt(14), "SONG · bridge (live Archive) keeps driving: high violins, 16th shakers, bells on the hook")
 cue(bt(16), "SONG · build")
 cue(bt(17), "SONG · FINAL CHORUS on the end card, rings out")
 
@@ -751,6 +766,8 @@ env = np.sqrt(lp(np.mean(music ** 2, 1), 6, order=1).clip(1e-9))
 thr = np.percentile(env, 92) * 0.8
 gain = np.where(env > thr, (thr / env) ** 0.35, 1.0)
 music *= gain[:, None]
+ramp = 0.8 + 0.2 * np.clip((np.arange(N) / SR - 11.0) / 25.25, 0, 1)  # the whole song lifts toward the end card
+music *= ramp[:, None]
 music = music + 1.8 * hp(music, 2200, order=1) + 0.8 * hp(music, 7000)  # presence + air (the samples are warm and dark)
 music = np.tanh(music * 1.6) / 1.6  # gentle tape-style saturation glues the recorded instruments
 for x in (music, sfx):

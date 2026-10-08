@@ -2,17 +2,17 @@
 
 | time (s) | event |
 |---|---|
-| 0.48 | SONG · intro (piano states the hook) |
+| 0.48 | SONG · intro: solo piano states the hook, strings enter at bar 2 |
 | 1.00 | sfx glass · tab 1 |
 | 2.00 | sfx glass · tab 2 |
 | 3.00 | sfx glass · tab 3 |
 | 4.00 | sfx glass · tab 4 |
 | 6.45 | sfx whoosh · zoom out |
 | 7.50 | sfx whoosh · market tabs swing in |
-| 8.90 | SONG · pre-chorus build |
+| 8.90 | SONG · pre-chorus build (piano quarters, snare roll) |
 | 9.95 | sfx whoosh · tabs fly into the mosaic |
 | 10.30 | sfx · six tiles lock |
-| 11.00 | SONG · CHORUS 1 lands with 'Now together' |
+| 11.00 | SONG · CHORUS 1 lands with 'Now together' (piano + violins on the hook, harp, pulse) |
 | 11.00 | sfx · soft impact under the chorus hit |
 | 13.10 | SONG · half-time verse under the downtrend |
 | 13.85 | sfx whoosh · rectangle opens into the window |
@@ -29,7 +29,7 @@
 | 24.90 | sfx · fee coins climb (soft) |
 | 27.85 | sfx pops · summary chips |
 | 29.82 | sfx whoosh · window becomes the live Archive |
-| 29.94 | SONG · bridge (live Archive) |
+| 29.94 | SONG · bridge (live Archive): harp + piano, strings |
 | 30.70 | sfx click · ENTER THE ARCHIVE |
 | 31.80 | sfx click · Bear |
 | 32.90 | sfx click · OPEN RECORD |

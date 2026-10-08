@@ -1,0 +1,60 @@
+Strings/Cello Section/susvib/susvib_A2_v1_1.wav
+Strings/Cello Section/susvib/susvib_B1_v1_1.wav
+Strings/Cello Section/susvib/susvib_B3_v1_1.wav
+Strings/Cello Section/susvib/susvib_C1_v1_1.wav
+Strings/Cello Section/susvib/susvib_C3_v1_1.wav
+Strings/Cello Section/susvib/susvib_D2_v1_1.wav
+Strings/Cello Section/susvib/susvib_D4_v1_1.wav
+Strings/Cello Section/susvib/susvib_E1_v1_1.wav
+Strings/Cello Section/susvib/susvib_E3_v1_1.wav
+Strings/Cello Section/susvib/susvib_F2_v1_1.wav
+Strings/Cello Section/susvib/susvib_F4_v1_1.wav
+Strings/Cello Section/susvib/susvib_G1_v1_1.wav
+Strings/Cello Section/susvib/susvib_G3_v1_1.wav
+Strings/Harp/KSHarp_A2_mf.wav
+Strings/Harp/KSHarp_A4_mf.wav
+Strings/Harp/KSHarp_A6_mf.wav
+Strings/Harp/KSHarp_B1_mf.wav
+Strings/Harp/KSHarp_B3_mf.wav
+Strings/Harp/KSHarp_B5_mf.wav
+Strings/Harp/KSHarp_B6_mf.wav
+Strings/Harp/KSHarp_C3_mf.wav
+Strings/Harp/KSHarp_C5_mf.wav
+Strings/Harp/KSHarp_D2_mf.wav
+Strings/Harp/KSHarp_D4_mf.wav
+Strings/Harp/KSHarp_D6_mf.wav
+Strings/Harp/KSHarp_D7_f.wav
+Strings/Harp/KSHarp_E1_f.wav
+Strings/Harp/KSHarp_E3_mf.wav
+Strings/Harp/KSHarp_E5_mf.wav
+Strings/Harp/KSHarp_F2_mf.wav
+Strings/Harp/KSHarp_F4_mf.wav
+Strings/Harp/KSHarp_F6_mf.wav
+Strings/Harp/KSHarp_F7_f.wav
+Strings/Harp/KSHarp_G1_mp.wav
+Strings/Harp/KSHarp_G3_mf.wav
+Strings/Harp/KSHarp_G5_mf.wav
+Strings/Viola Section/susvib/ViolaEns_susvib_A3_v1_1.wav
+Strings/Viola Section/susvib/ViolaEns_susvib_B2_v1_1.wav
+Strings/Viola Section/susvib/ViolaEns_susvib_B4_v1_1.wav
+Strings/Viola Section/susvib/ViolaEns_susvib_C2_v1_1.wav
+Strings/Viola Section/susvib/ViolaEns_susvib_C4_v1_1.wav
+Strings/Viola Section/susvib/ViolaEns_susvib_D2_v1_1.wav
+Strings/Viola Section/susvib/ViolaEns_susvib_D3_v1_1.wav
+Strings/Viola Section/susvib/ViolaEns_susvib_D5_v1_1.wav
+Strings/Viola Section/susvib/ViolaEns_susvib_E2_v1_1.wav
+Strings/Viola Section/susvib/ViolaEns_susvib_E4_v1_1.wav
+Strings/Viola Section/susvib/ViolaEns_susvib_F3_v1_1.wav
+Strings/Viola Section/susvib/ViolaEns_susvib_G2_v1_1.wav
+Strings/Viola Section/susvib/ViolaEns_susvib_G4_v1_1.wav
+Strings/Violin Section/susVib/VlnEns_susVib_A2_v1.wav
+Strings/Violin Section/susVib/VlnEns_susVib_A3_v1.wav
+Strings/Violin Section/susVib/VlnEns_susVib_B2_v1.wav
+Strings/Violin Section/susVib/VlnEns_susVib_B4_v1.wav
+Strings/Violin Section/susVib/VlnEns_susVib_C4_v1.wav
+Strings/Violin Section/susVib/VlnEns_susVib_D3_v1.wav
+Strings/Violin Section/susVib/VlnEns_susVib_D5_v1.wav
+Strings/Violin Section/susVib/VlnEns_susVib_E4_v1.wav
+Strings/Violin Section/susVib/VlnEns_susVib_F#3_v1.wav
+Strings/Violin Section/susVib/VlnEns_susVib_G2_v1.wav
+Strings/Violin Section/susVib/VlnEns_susVib_G4_v1.wav

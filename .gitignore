@@ -37,3 +37,4 @@ videos/*/assets/vendor/
 
 __pycache__/
 *.pyc
+videos/*/audio/samples/

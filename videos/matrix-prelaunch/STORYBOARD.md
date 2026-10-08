@@ -9,7 +9,7 @@ status: final — matches renders/matrix-prelaunch.mp4
 # Matrix Finance — prelaunch film · final timed storyboard (as rendered)
 
 All on-screen copy is verbatim. ⟶ marks the transition carrier into the next frame.
-Sound (v6+): original score + sound design from `audio/score.py` (music.wav + sfx.wav stems mastered together; cue list in `audio/sound_cuesheet.md`). The older `audio/make_music.py` + `audio/sfx_cues.json` pipeline is kept only to reproduce v1–v5.
+Sound (v8+): one continuous song from `audio/score.py`, played on recorded CC0 instruments (Upright Piano KW from FreePats; VSCO-2 CE string sections + harp), fetched by `audio/fetch_samples.sh` into the gitignored `audio/samples/`. Effects are quiet side effects; cue list in `audio/sound_cuesheet.md`. The older `audio/make_music.py` + `audio/sfx_cues.json` pipeline is kept only to reproduce v1–v5.
 
 ## Frame 1 · 0.0–3.0 · Portfolio (the problem)
 - Hairline 96 px grid draws in from the centre; "+" registration marks. Eight holding fragments open through cell masks,

@@ -190,14 +190,18 @@
               <div class="wr"><i class="coin" style="background:#2fe58c"></i><div class="sk" style="width:40%"></div><div class="sk" style="width:16%;margin-left:auto"></div></div>
               <div class="wr"><i class="coin" style="background:#1f8a57"></i><div class="sk" style="width:30%"></div><div class="sk" style="width:20%;margin-left:auto"></div></div>
               <div class="wr"><i class="coin" style="background:#c99f3f"></i><div class="sk" style="width:46%"></div><div class="sk" style="width:12%;margin-left:auto"></div></div></div></div>
-          <div class="tb" id="tb1"><div class="tbar"><i></i><i></i><i></i><span class="ttl"><i class="ico" style="background:#27bf76"></i>exchange</span></div>
-            <div class="tbody"><div class="ex">
-              <div><div class="lab">Bids</div><div class="ob" style="width:92%;background:rgba(47,229,140,.45)"></div><div class="ob" style="width:74%;background:rgba(47,229,140,.38)"></div><div class="ob" style="width:81%;background:rgba(47,229,140,.32)"></div><div class="ob" style="width:55%;background:rgba(47,229,140,.26)"></div><div class="ob" style="width:63%;background:rgba(47,229,140,.2)"></div><div class="ob" style="width:40%;background:rgba(47,229,140,.15)"></div></div>
-              <div><div class="lab" style="text-align:right">Asks</div><div class="ob" style="width:60%;margin-left:auto;background:rgba(237,242,238,.2)"></div><div class="ob" style="width:84%;margin-left:auto;background:rgba(237,242,238,.17)"></div><div class="ob" style="width:48%;margin-left:auto;background:rgba(237,242,238,.15)"></div><div class="ob" style="width:70%;margin-left:auto;background:rgba(237,242,238,.12)"></div><div class="ob" style="width:90%;margin-left:auto;background:rgba(237,242,238,.1)"></div><div class="ob" style="width:52%;margin-left:auto;background:rgba(237,242,238,.08)"></div></div>
-            </div></div></div>
+          <div class="tb" id="tb1"><div class="tbar"><i></i><i></i><i></i><span class="ttl"><i class="ico" style="background:#27bf76"></i>lending</span></div>
+            <div class="tbody">
+              <div style="display:flex;justify-content:space-between"><div class="lab">Supplied</div><div class="lab" style="color:#2fe58c">APY</div></div>
+              <div class="wr"><i class="coin" style="background:#2fe58c"></i><div class="sk" style="width:34%"></div><div class="sk" style="width:14%;margin-left:auto;background:rgba(47,229,140,.45)"></div></div>
+              <div class="wr"><i class="coin" style="background:#c99f3f"></i><div class="sk" style="width:26%"></div><div class="sk" style="width:11%;margin-left:auto;background:rgba(47,229,140,.32)"></div></div>
+              <div style="display:flex;justify-content:space-between;margin-top:14px"><div class="lab">Borrowed</div><div class="lab" style="color:#2fe58c">Health · Safe</div></div>
+              <div class="ob" style="width:88%;background:rgba(47,229,140,.4)"></div>
+              <div class="ob" style="width:46%;background:rgba(237,242,238,.2)"></div>
+            </div></div>
           <div class="tb" id="tb2"><div class="tbar"><i></i><i></i><i></i><span class="ttl"><i class="ico" style="background:#c99f3f"></i>defi positions</span></div>
             <div class="tbody">
-              <div class="pos"><span class="pill" style="color:#2fe58c;border-color:rgba(47,229,140,.5)">Lending</span><div class="sk" style="width:62%"></div><div class="track"><i style="left:0;width:68%;background:#2fe58c"></i></div></div>
+              <div class="pos"><span class="pill" style="color:#2fe58c;border-color:rgba(47,229,140,.5)">Yield</span><div class="sk" style="width:62%"></div><div class="track"><i style="left:0;width:68%;background:#2fe58c"></i></div></div>
               <div class="pos"><span class="pill" style="color:#c99f3f;border-color:rgba(201,159,63,.55)">Liquidity</span><div class="sk" style="width:48%"></div><div class="track"><i style="left:28%;width:38%;background:#c99f3f"></i><b style="left:51%"></b></div></div>
               <div class="pos" style="border-bottom:0"><span class="pill" style="color:#d7e2da;border-color:rgba(237,242,238,.25)">Vault</span><div class="sk" style="width:36%"></div></div></div></div>
           <div class="tb" id="tb3"><div class="tbar"><i></i><i></i><i></i><span class="ttl"><i class="ico" style="background:#1f8a57"></i>staking</span></div>
@@ -220,7 +224,7 @@
               <div class="nw" style="border-bottom:0"><div class="h"><span class="pill" style="color:#d7e2da;border-color:rgba(237,242,238,.25)">Macro</span><span class="lab">This week</span></div><div class="sk" style="width:76%"></div></div></div></div>
 
           <div class="nmx kin ilbl" id="nm0" style="font-size:84px">Wallet</div>
-          <div class="nmx kin ilbl" id="nm1" style="font-size:84px">Exchange</div>
+          <div class="nmx kin ilbl" id="nm1" style="font-size:84px">Lending</div>
           <div class="nmx kin ilbl" id="nm2" style="font-size:84px">DeFi positions</div>
           <div class="nmx kin ilbl" id="nm3" style="font-size:84px">Staking</div>
           <div class="nmx mono" id="nc0" style="font-size:22px;color:#2fe58c">01 / 04 · Portfolio</div>
@@ -444,7 +448,7 @@
           // ============ F1 0–13: many tabs → now together (one procedural clock, seek-safe) ============
           var TB = [0, 1, 2, 3, 4, 5].map(function (i) { return $("#tb" + i); });
           var TBI = TB.map(function (el) { return [el.querySelector(".tbar"), el.querySelector(".tbody")]; });
-          var NAMES = ["Wallet", "Exchange", "DeFi positions", "Staking"];
+          var NAMES = ["Wallet", "Lending", "DeFi positions", "Staking"];
           var TILE = [[0, 0], [1, 0], [0, 1], [1, 1], [2, 0], [2, 1]];   // portfolio and market interleave in the mosaic
           var MK = [0, 1, 3, 4, 2, 5];
           var tp = $("#tp"), tm = $("#tm");
